@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HuggingFace on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/huggingface/</link>
+    <description>Recent content in HuggingFace on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 21 Sep 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/huggingface/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>下载HuggingFace镜像及指定存储位置</title>
+      <link>https://qianfuxin.gitHub.io/post/huggingface%E9%95%9C%E5%83%8F%E5%8F%8A%E6%8C%87%E5%AE%9A%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 21 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/huggingface%E9%95%9C%E5%83%8F%E5%8F%8A%E6%8C%87%E5%AE%9A%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/</guid>
+      <description>&lt;h1 id=&#34;设置镜像&#34;&gt;设置镜像&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;HF_ENDPOINT=https://hf-mirror.com&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;下载模型&#34;&gt;下载模型&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct &lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;or&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct --local-dir checkpoints/fish-speech-1.5&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;设置模型根目录存储位置&#34;&gt;设置模型根目录存储位置&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;HF_HOME=&amp;quot;xxx&amp;quot;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
