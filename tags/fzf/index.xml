@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fzf&#34; on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/fzf/</link>
+    <description>Recent content in Fzf&#34; on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 09 Sep 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/fzf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fzf的安装及使用</title>
+      <link>https://qianfuxin.gitHub.io/post/fzf%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/fzf%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf&#xA;~/.fzf/install&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;使用&#34;&gt;使用&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;查找历史命令 ctr+R&lt;/li&gt;&#xA;&lt;li&gt;查找当前下的文件 ctr+T&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;匹配&#34;&gt;匹配&lt;/h1&gt;&#xA;&lt;p&gt;默认模糊匹配，使用’可以精确匹配&lt;/p&gt;&#xA;&lt;p&gt;使用^和%匹配开头结尾&lt;/p&gt;&#xA;&lt;p&gt;使用!匹配对立面&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jupyte on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/jupyte/</link>
+    <description>Recent content in Jupyte on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 09 Sep 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/jupyte/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker快速使用jupyter</title>
+      <link>https://qianfuxin.gitHub.io/post/jupyter%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/jupyter%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;version: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;services:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jupyter-notebook:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    image: jupyter/minimal-notebook&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ports:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8888:8888&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    volumes:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - /Users/qianfuxin/dc/jupyter1:/home/jovyan/work&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;汉化&#34;&gt;汉化&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;!pip install jupyterlab-language-pack-zh-CN&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;刷新页面&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://qianfuxin.gitHub.io/images/jupyter%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8_1.png&#34; alt=&#34;jupyter简单使用_1.png&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;代码提示&#34;&gt;代码提示&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://qianfuxin.gitHub.io/images/jupyter%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8_2.png&#34; alt=&#34;jupyter简单使用_2.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
