@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>python离线环境以及独立环境的几种方式 | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="python离线环境以及独立环境的几种方式">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/python%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%8B%AC%E7%AB%8B%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/python%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%8B%AC%E7%AB%8B%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="python离线环境以及独立环境的几种方式">
+  <meta property="og:description" content="python离线环境以及独立环境的几种方式">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-02-22T10:58:08+00:00">
+    <meta property="article:modified_time" content="2025-02-22T10:58:08+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Conda">
+
+  <meta itemprop="name" content="python离线环境以及独立环境的几种方式">
+  <meta itemprop="description" content="python离线环境以及独立环境的几种方式">
+  <meta itemprop="datePublished" content="2025-02-22T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-02-22T10:58:08+00:00">
+  <meta itemprop="wordCount" content="49">
+  <meta itemprop="keywords" content="Python,Conda">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python离线环境以及独立环境的几种方式">
+  <meta name="twitter:description" content="python离线环境以及独立环境的几种方式">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        文章
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">python离线环境以及独立环境的几种方式</h1>
+      
+      <p class="tracked">
+         <strong>钱甫新</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-02-22T10:58:08Z">二月 22, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="起因">起因</h1>
+<p>最近遇到<code>小可爱</code>的机器，没有外网，所以安装独立的python极为别扭</p>
+<h1 id="方法">方法</h1>
+<ul>
+<li>
+<p>conda离线安装
+首先在联网的机器上，准备安装包，然后把安装包拷贝到离网机器后安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 设置安装包位置</span>
+</span></span><span style="display:flex;"><span>pkgs_dirs:
+</span></span><span style="display:flex;"><span>  - /home/up/myconda/pkgs
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 安装环境到安装包</span>
+</span></span><span style="display:flex;"><span>conda create -n py38_pytorch pytorch python<span style="color:#f92672">==</span>3.8.5 --download-only
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将安装包拷贝到指定位置，在离网机器上安装</span>
+</span></span><span style="display:flex;"><span>conda create -n offlinepy38 pytorch python<span style="color:#f92672">==</span>3.8.5 --offline
+</span></span></code></pre></div></li>
+<li>
+<p>conda环境打包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda install conda-pack
+</span></span><span style="display:flex;"><span>conda pack -n tf-1.15.0-py3.6
+</span></span><span style="display:flex;"><span>tar -xzf tf-1.15.0-py3.6.tar.gz -C tf-1.15.0-py3.6
+</span></span><span style="display:flex;"><span>source tf-1.15.0-py3.6/bin/activate
+</span></span></code></pre></div></li>
+<li>
+<p>python venv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m venv venv
+</span></span></code></pre></div></li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/conda/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Conda</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">相关內容</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1py%E4%BB%A3%E7%A0%81%E5%88%B0pypi/">分享自己py代码到PyPI</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/sqlalchemy%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/">sqlalchemy操作数据库</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/rabbitmq%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8Apython%E8%B0%83%E7%94%A8/">rabbitMQ的配置及python调用</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/python%E5%BD%95%E9%9F%B3/">用python进行录音</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/">pythonGUI实现大模型流式对话_whisper_ollama</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/memcached%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/">memcached的部署与python调用</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
