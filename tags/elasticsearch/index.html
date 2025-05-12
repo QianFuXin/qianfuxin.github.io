@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/elasticsearch/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/tags/elasticsearch/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/tags/elasticsearch/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/tags/elasticsearch/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="Elasticsearch">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Elasticsearch">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2024-09-09T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2024-09-09T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Elasticsearch">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Elasticsearch
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>标签为“Elasticsearch”的页面如下</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 9, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/elasticsearch%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/" class="link black dim">
+        elasticsearch的部署与python调用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="部署">部署</h1>
+<pre><code>version: '3'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g  # 设置 JVM 堆内存为 1GB
+      - xpack.security.enabled=true  # 启用安全功能
+      - ELASTIC_PASSWORD=password  # 设置默认超级用户 elastic（用户名） 的密码 
+      - xpack.security.authc.api_key.enabled=true  # 启用 API 密钥认证
+    ports:
+      - &quot;9200:9200&quot;
+      - &quot;9300:9300&quot;
+    volumes:
+      - /dc/es_data:/usr/share/elasticsearch/data
+</code></pre>
+<h1 id="python调用">python调用</h1>
+<pre><code>from elasticsearch import Elasticsearch
+
+# 使用用户名和密码连接到 Elasticsearch
+es = Elasticsearch(
+    &quot;http://localhost:9200&quot;,
+    basic_auth=(&quot;elastic&quot;, &quot;password&quot;)  # 替换为你的用户名和密码
+)
+
+# 创建索引
+index_name = &quot;my_index&quot;
+if not es.indices.exists(index=index_name):
+    es.indices.create(index=index_name)
+
+# 添加文档
+doc = {
+    &quot;title&quot;: &quot;Hello World&quot;,
+    &quot;content&quot;: &quot;This is a test document in Elasticsearch&quot;,
+    &quot;timestamp&quot;: &quot;2024-08-06&quot;
+}
+es.index(index=index_name, id=1, body=doc)
+
+# 查询文档
+res = es.get(index=index_name, id=1)
+print(res['_source'])
+
+# 搜索文档
+search_query = {
+    &quot;query&quot;: {
+        &quot;match&quot;: {
+            &quot;content&quot;: &quot;test&quot;
+        }
+    }
+}
+search_results = es.search(index=index_name, body=search_query)
+print(search_results['hits']['hits'])
+</code></pre>
+<h1 id="总结">总结</h1>
+<p>最初看到es的文档，下意识想到了mongodb，然后查了一下，既然都是存储文档，那么为啥要用es，结论是mongo旨在数据更新，es旨在数据查询。其中es的索引类似sql中的表概念，文档类似行概念</p>
+    </div>
+  <a href="/post/elasticsearch%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
