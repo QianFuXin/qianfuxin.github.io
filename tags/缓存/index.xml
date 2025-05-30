@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>缓存 on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/%E7%BC%93%E5%AD%98/</link>
+    <description>Recent content in 缓存 on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 23 Sep 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/%E7%BC%93%E5%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>memcached的部署与python调用</title>
+      <link>https://qianfuxin.gitHub.io/post/memcached%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/</link>
+      <pubDate>Mon, 23 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/memcached%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;部署&#34;&gt;部署&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;version: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.8&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;services:  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;memcached:  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;image: memcached  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;container_name: memcached  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ports:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;11211:11211&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;python调用&#34;&gt;python调用&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;from pymemcache.client import base&#xA;&#xA;# 连接到 Memcached 服务&#xA;client = base.Client((&#39;localhost&#39;, 11211))&#xA;&#xA;# 设置一个键值对&#xA;client.set(&#39;my_key&#39;, &#39;Hello, Memcached!&#39;)&#xA;&#xA;# 获取存储的值&#xA;value = client.get(&#39;my_key&#39;)&#xA;print(f&#39;Value for my_key: {value.decode(&amp;quot;utf-8&amp;quot;)}&#39;)&#xA;&#xA;# 删除键值对&#xA;client.delete(&#39;my_key&#39;)&#xA;&#xA;# 关闭连接&#xA;client.close()&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;&#xA;&lt;p&gt;memcached是一个很单纯的缓存服务（减少数据库压力），数据存放在内存，所以没必要本地映射，&#xA;而且不支持身份验证，所以需要在容器互联时使用，不应该让外部访问。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

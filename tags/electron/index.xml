@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Electron on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/electron/</link>
+    <description>Recent content in Electron on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 04 Oct 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/electron/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用electron开发窗体并打包</title>
+      <link>https://qianfuxin.gitHub.io/post/%E4%BD%BF%E7%94%A8electron%E5%BC%80%E5%8F%91%E7%AA%97%E4%BD%93%E5%B9%B6%E6%89%93%E5%8C%85/</link>
+      <pubDate>Fri, 04 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E4%BD%BF%E7%94%A8electron%E5%BC%80%E5%8F%91%E7%AA%97%E4%BD%93%E5%B9%B6%E6%89%93%E5%8C%85/</guid>
+      <description>&lt;h2 id=&#34;环境准备&#34;&gt;环境准备&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#设置代理&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set ELECTRON_GET_USE_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set GLOBAL_AGENT_HTTP_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://proxy.example.com:7890&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set GLOBAL_AGENT_HTTPS_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;https://proxy.example.com:7890&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Clone this repository&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/electron/electron-quick-start&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Go into the repository&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd electron-quick-start&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install dependencies&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;可能会卡住探究一下为什么&#34;&gt;可能会卡住（探究一下为什么）&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;`npm install --save-dev @electron-forge/cli`&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;运行&#34;&gt;运行&lt;/h2&gt;&#xA;&lt;pre&gt;&lt;code&gt;`npm start`&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;打包&#34;&gt;打包&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx electron-forge import&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm run make&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>
