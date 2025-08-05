@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rag on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/rag/</link>
+    <description>Recent content in Rag on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 08 Mar 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>实现rag的几种方式</title>
+      <link>https://qianfuxin.gitHub.io/post/%E5%AE%9E%E7%8E%B0rag%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E5%AE%9E%E7%8E%B0rag%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
+      <description>&lt;h1 id=&#34;ollama提供embeddingsllm&#34;&gt;ollama提供embeddings、llm&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;llm可以是ollama，或者接口为openai格式即可&lt;/li&gt;&#xA;&lt;li&gt;embeddings服务由ollama提供&lt;/li&gt;&#xA;&lt;li&gt;向量数据库容器提供（cpu）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/39ba41e29a58e7b9b1636db06d774237&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;ollama提供llm容器提供embeddings&#34;&gt;ollama提供llm，容器提供embeddings&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;llm可以是ollama，或者接口为openai格式即可&lt;/li&gt;&#xA;&lt;li&gt;embeddings服务由HuggingFaceEmbeddings提供&lt;/li&gt;&#xA;&lt;li&gt;向量数据库容器提供（cpu）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/0e94c3875574f0315af9fe58a7b9b04e&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;llmembeddings向量数据库均由第三方提供&#34;&gt;llm、embeddings、向量数据库均由第三方提供&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/78945087cab1e8321138025f307d570d&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;llmembeddings向量数据库关键字搜索es重排序均由第三方提供&#34;&gt;llm、embeddings、向量数据库、关键字搜索（es）、重排序、均由第三方提供&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/31549fb7cdef55c956de0aeff817c19c&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qwen3 on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/qwen3/</link>
+    <description>Recent content in Qwen3 on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 24 May 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/qwen3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用vllm部署qwen3</title>
+      <link>https://qianfuxin.gitHub.io/post/%E4%BD%BF%E7%94%A8vllm%E9%83%A8%E7%BD%B2qwen3/</link>
+      <pubDate>Sat, 24 May 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E4%BD%BF%E7%94%A8vllm%E9%83%A8%E7%BD%B2qwen3/</guid>
+      <description>&lt;h1 id=&#34;获取镜像&#34;&gt;获取镜像&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;vllm/vllm-openai:latest&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;下载模型文件&#34;&gt;下载模型文件&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;modelscope download --model &#39;Qwen/Qwen3-14b&#39; --local_dir &#39;path/to/dir&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;启动容器&#34;&gt;启动容器&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 如果资源够，可以去掉--max-model-len 8192&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -d --gpus&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;all -v /data/hjh/Qwen3-14B-Int8-W8A16:/model/14b --network host --name qwen3 vllm/vllm-openai --model /model/14b --host 0.0.0.0 --port &lt;span style=&#34;color:#ae81ff&#34;&gt;11001&lt;/span&gt; --max-model-len &lt;span style=&#34;color:#ae81ff&#34;&gt;8192&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;默认使用第一块卡，如果想使用其他卡：&lt;code&gt;-e CUDA_VISIBLE_DEVICES=&amp;quot;3&amp;quot;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

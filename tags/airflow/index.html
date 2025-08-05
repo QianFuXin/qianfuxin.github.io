@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/airflow/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/tags/airflow/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/tags/airflow/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/tags/airflow/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="Airflow">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Airflow">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-07-05T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-07-05T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Airflow">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Airflow
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>标签为“Airflow”的页面如下</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        七月 5, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/linux%E9%85%8D%E7%BD%AE%E5%8D%95%E6%9C%BAairflow/" class="link black dim">
+        linux配置单机airflow
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="安装airflow">安装airflow</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>AIRFLOW_VERSION<span style="color:#f92672">=</span>3.0.2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Extract the version of Python you have installed. If you&#39;re currently using a Python version that is not supported by Airflow, you may want to set this manually.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See above for supported versions.</span>
+</span></span><span style="display:flex;"><span>PYTHON_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>python -c <span style="color:#e6db74">&#39;import sys; print(f&#34;{sys.version_info.major}.{sys.version_info.minor}&#34;)&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CONSTRAINT_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/apache/airflow/constraints-</span><span style="color:#e6db74">${</span>AIRFLOW_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">/constraints-</span><span style="color:#e6db74">${</span>PYTHON_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">.txt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For example this would install 3.0.0 with python 3.9: https://raw.githubusercontent.com/apache/airflow/constraints-3.0.2/constraints-3.9.txt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>uv pip install <span style="color:#e6db74">&#34;apache-airflow==</span><span style="color:#e6db74">${</span>AIRFLOW_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> --constraint <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CONSTRAINT_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><blockquote>
+<p>如果报错libcst==1.8.0没安装成功，且需要rust环境，则执行以下内容</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 国内环境</span>
+</span></span><span style="display:flex;"><span>export RUSTUP_DIST_SERVER<span style="color:#f92672">=</span>https://mirrors.tuna.tsinghua.edu.cn/rustup
+</span></span><span style="display:flex;"><span>export RUSTUP_UPDATE_ROOT<span style="color:#f92672">=</span>https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装</span>
+</span></span><span style="display:flex;"><span>curl --proto <span style="color:#e6db74">&#39;=https&#39;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 刷新</span>
+</span></span><span style="display:flex;"><span>source $HOME/.cargo/env
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 验证</span>
+</span></span><span style="display:flex;"><span>rustc --version
+</span></span><span style="display:flex;"><span>cargo --version
+</span></span></code></pre></div><blockquote>
+<p>如果出现 could not compile pyo3` (lib)</p>
+    </div>
+  <a href="/post/linux%E9%85%8D%E7%BD%AE%E5%8D%95%E6%9C%BAairflow/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 3, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8airflow%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1/" class="link black dim">
+        使用airflow定义任务
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="安装">安装</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 默认值</span>
+</span></span><span style="display:flex;"><span>export AIRFLOW_HOME<span style="color:#f92672">=</span>~/airflow
+</span></span><span style="display:flex;"><span>AIRFLOW_VERSION<span style="color:#f92672">=</span>2.9.3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Extract the version of Python you have installed. If you&#39;re currently using a Python version that is not supported by Airflow, you may want to set this manually.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See above for supported versions.</span>
+</span></span><span style="display:flex;"><span>PYTHON_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>python -c <span style="color:#e6db74">&#39;import sys; print(f&#34;{sys.version_info.major}.{sys.version_info.minor}&#34;)&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CONSTRAINT_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/apache/airflow/constraints-</span><span style="color:#e6db74">${</span>AIRFLOW_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">/constraints-</span><span style="color:#e6db74">${</span>PYTHON_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">.txt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For example this would install 2.9.3 with python 3.8: https://raw.githubusercontent.com/apache/airflow/constraints-2.9.3/constraints-3.8.txt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install <span style="color:#e6db74">&#34;apache-airflow==</span><span style="color:#e6db74">${</span>AIRFLOW_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> --constraint <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CONSTRAINT_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 开启</span>
+</span></span><span style="display:flex;"><span>airflow standalone
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 初始账户为admin 密码为standalone_admin_password.txt</span>
+</span></span></code></pre></div><h1 id="创建任务">创建任务</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir dags
+</span></span><span style="display:flex;"><span>cd dags
+</span></span><span style="display:flex;"><span>vim my_task.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> textwrap
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The DAG object; we&#39;ll need this to instantiate a DAG</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.models.dag <span style="color:#f92672">import</span> DAG
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Operators; we need this to operate!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.operators.bash <span style="color:#f92672">import</span> BashOperator
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> DAG(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;tutorial&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># These args will get passed on to each operator</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># You can override them on a per-task basis during operator initialization</span>
+</span></span><span style="display:flex;"><span>    default_args<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;depends_on_past&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email&#34;</span>: [<span style="color:#e6db74">&#34;airflow@example.com&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email_on_failure&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email_on_retry&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;retries&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;retry_delay&#34;</span>: timedelta(minutes<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;queue&#39;: &#39;bash_queue&#39;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;pool&#39;: &#39;backfill&#39;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;priority_weight&#39;: 10,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;end_date&#39;: datetime(2016, 1, 1),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;wait_for_downstream&#39;: False,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;sla&#39;: timedelta(hours=2),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;execution_timeout&#39;: timedelta(seconds=300),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_failure_callback&#39;: some_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_success_callback&#39;: some_other_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_retry_callback&#39;: another_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;sla_miss_callback&#39;: yet_another_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_skipped_callback&#39;: another_function, #or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;trigger_rule&#39;: &#39;all_success&#39;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A simple tutorial DAG&#34;</span>,
+</span></span><span style="display:flex;"><span>    schedule<span style="color:#f92672">=</span>timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    start_date<span style="color:#f92672">=</span>datetime(<span style="color:#ae81ff">2021</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    catchup<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>    tags<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;example&#34;</span>],
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">as</span> dag:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># t1, t2 and t3 are examples of tasks created by instantiating operators</span>
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">=</span> BashOperator(
+</span></span><span style="display:flex;"><span>        task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;print_date&#34;</span>,
+</span></span><span style="display:flex;"><span>        bash_command<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;date&#34;</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t2 <span style="color:#f92672">=</span> BashOperator(
+</span></span><span style="display:flex;"><span>        task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sleep&#34;</span>,
+</span></span><span style="display:flex;"><span>        depends_on_past<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        bash_command<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sleep 5&#34;</span>,
+</span></span><span style="display:flex;"><span>        retries<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    t1<span style="color:#f92672">.</span>doc_md <span style="color:#f92672">=</span> textwrap<span style="color:#f92672">.</span>dedent(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">    #### Task Documentation
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    You can document your task using the attributes `doc_md` (markdown),
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    `doc` (plain text), `doc_rst`, `doc_json`, `doc_yaml` which gets
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    rendered in the UI&#39;s Task Instance Details page.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ![img](https://imgs.xkcd.com/comics/fixing_problems.png)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    **Image Credit:** Randall Munroe, [XKCD](https://xkcd.com/license.html)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dag<span style="color:#f92672">.</span>doc_md <span style="color:#f92672">=</span> __doc__  <span style="color:#75715e"># providing that you have a docstring at the beginning of the DAG; OR</span>
+</span></span><span style="display:flex;"><span>    dag<span style="color:#f92672">.</span>doc_md <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    This is a documentation placed anywhere
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>  <span style="color:#75715e"># otherwise, type it like this</span>
+</span></span><span style="display:flex;"><span>    templated_command <span style="color:#f92672">=</span> textwrap<span style="color:#f92672">.</span>dedent(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {</span><span style="color:#e6db74">% f</span><span style="color:#e6db74">or i in range(5) %}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;{{ ds }}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;{{ macros.ds_add(ds, 7)}}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {</span><span style="color:#e6db74">% e</span><span style="color:#e6db74">ndfor %}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t3 <span style="color:#f92672">=</span> BashOperator(
+</span></span><span style="display:flex;"><span>        task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;templated&#34;</span>,
+</span></span><span style="display:flex;"><span>        depends_on_past<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        bash_command<span style="color:#f92672">=</span>templated_command,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">&gt;&gt;</span> [t2, t3]
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8airflow%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

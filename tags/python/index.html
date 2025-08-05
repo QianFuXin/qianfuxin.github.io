@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/python/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/tags/python/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/tags/python/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/tags/python/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="Python">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Python">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-02-22T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-02-22T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Python
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>标签为“Python”的页面如下</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 22, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%8B%AC%E7%AB%8B%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="link black dim">
+        python离线环境以及独立环境的几种方式
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="起因">起因</h1>
+<p>最近遇到<code>小可爱</code>的机器，没有外网，所以安装独立的python极为别扭</p>
+<h1 id="方法">方法</h1>
+<ul>
+<li>
+<p>conda离线安装
+首先在联网的机器上，准备安装包，然后把安装包拷贝到离网机器后安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 设置安装包位置</span>
+</span></span><span style="display:flex;"><span>pkgs_dirs:
+</span></span><span style="display:flex;"><span>  - /home/up/myconda/pkgs
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 安装环境到安装包</span>
+</span></span><span style="display:flex;"><span>conda create -n py38_pytorch pytorch python<span style="color:#f92672">==</span>3.8.5 --download-only
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将安装包拷贝到指定位置，在离网机器上安装</span>
+</span></span><span style="display:flex;"><span>conda create -n offlinepy38 pytorch python<span style="color:#f92672">==</span>3.8.5 --offline
+</span></span></code></pre></div></li>
+<li>
+<p>conda环境打包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda install conda-pack
+</span></span><span style="display:flex;"><span>conda pack -n tf-1.15.0-py3.6
+</span></span><span style="display:flex;"><span>tar -xzf tf-1.15.0-py3.6.tar.gz -C tf-1.15.0-py3.6
+</span></span><span style="display:flex;"><span>source tf-1.15.0-py3.6/bin/activate
+</span></span></code></pre></div></li>
+<li>
+<p>python venv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m venv venv
+</span></span></code></pre></div></li>
+</ul>
+    </div>
+  <a href="/post/python%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%8B%AC%E7%AB%8B%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 7, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1py%E4%BB%A3%E7%A0%81%E5%88%B0pypi/" class="link black dim">
+        分享自己py代码到PyPI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h3 id="准备条件">准备条件</h3>
+<p>PyPI的账号</p>
+<h3 id="代码格式">代码格式</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>filtered_flask/
+</span></span><span style="display:flex;"><span>|-- filtered_flask/
+</span></span><span style="display:flex;"><span>|   |-- __init__.py
+</span></span><span style="display:flex;"><span>|   |-- app.py
+</span></span><span style="display:flex;"><span>|-- tests/
+</span></span><span style="display:flex;"><span>|-- setup.py
+</span></span><span style="display:flex;"><span>|-- README.md
+</span></span><span style="display:flex;"><span>|-- MANIFEST.in
+</span></span></code></pre></div><ul>
+<li>filtered_flask/app.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, Response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 装饰器用于全局信息过滤</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.after_request</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">global_filter</span>(response):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 检查响应内容是否包含 &#34;test&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;test&#39;</span> <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>data:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果包含 &#34;test&#34;，可以采取过滤、修改或其他操作</span>
+</span></span><span style="display:flex;"><span>        filtered_content <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;test&#39;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;filtered&#39;</span>)
+</span></span><span style="display:flex;"><span>        response<span style="color:#f92672">.</span>set_data(filtered_content)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一个简单的路由返回包含 &#34;test&#34; 的内容</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">home</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;This is a test message.&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>run(debug<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><ul>
+<li>filtered_flask/<strong>init</strong>.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> .app <span style="color:#f92672">import</span> app
+</span></span></code></pre></div><ul>
+<li>setup.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> setuptools <span style="color:#f92672">import</span> setup, find_packages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setup(
+</span></span><span style="display:flex;"><span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;filtered_flask&#39;</span>,
+</span></span><span style="display:flex;"><span>version<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.1.0&#39;</span>,
+</span></span><span style="display:flex;"><span>packages<span style="color:#f92672">=</span>find_packages(),
+</span></span><span style="display:flex;"><span>install_requires<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Flask&#39;</span>,
+</span></span><span style="display:flex;"><span>],
+</span></span><span style="display:flex;"><span>classifiers<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Programming Language :: Python :: 3&#39;</span>,
+</span></span><span style="display:flex;"><span>],
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>MANIFEST.in</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>include README<span style="color:#f92672">.</span>md
+</span></span><span style="display:flex;"><span>recursive<span style="color:#f92672">-</span>include filtered_flask<span style="color:#f92672">/</span>templates <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>recursive<span style="color:#f92672">-</span>include filtered_flask<span style="color:#f92672">/</span>static <span style="color:#f92672">*</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>README.md</p>
+    </div>
+  <a href="/post/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1py%E4%BB%A3%E7%A0%81%E5%88%B0pypi/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 26, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/sqlalchemy%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/" class="link black dim">
+        sqlalchemy操作数据库
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy <span style="color:#f92672">import</span> create_engine, text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DB_URI <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mysql+pymysql://</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">@</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(
+</span></span><span style="display:flex;"><span>    USERNAME, PASSWORD, HOSTNAME, POST, DATABASE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># SQLAlchemy 2.0.23</span>
+</span></span><span style="display:flex;"><span>    db_engine <span style="color:#f92672">=</span> create_engine(DB_URI)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> db_engine<span style="color:#f92672">.</span>connect() <span style="color:#66d9ef">as</span> conn:
+</span></span><span style="display:flex;"><span>        sql_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT * FROM some_table WHERE id=:id&#34;</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>execute(text(sql_query), {<span style="color:#e6db74">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>})
+</span></span><span style="display:flex;"><span>        print(result<span style="color:#f92672">.</span>all())
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;完成&#34;</span>, result<span style="color:#f92672">.</span>rowcount, <span style="color:#e6db74">&#34;行被更新。&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果是更新等语句要提交</span>
+</span></span><span style="display:flex;"><span>        conn<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">5</span>)
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/sqlalchemy%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 25, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/rabbitmq%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8Apython%E8%B0%83%E7%94%A8/" class="link black dim">
+        rabbitMQ的配置及python调用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="配置rabbitmq">配置rabbitMQ</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3.8&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  rabbitmq:
+</span></span><span style="display:flex;"><span>    image: rabbitmq:3-management
+</span></span><span style="display:flex;"><span>    container_name: rabbitmq
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5672:5672&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;15672:15672&#34;</span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      RABBITMQ_DEFAULT_USER: user
+</span></span><span style="display:flex;"><span>      RABBITMQ_DEFAULT_PASS: password
+</span></span><span style="display:flex;"><span>    volumes:
+</span></span><span style="display:flex;"><span>      - /dc/rabbitmq:/var/lib/rabbitmq
+</span></span></code></pre></div><h1 id="生产者">生产者</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pika
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>connection <span style="color:#f92672">=</span> pika<span style="color:#f92672">.</span>BlockingConnection(
+</span></span><span style="display:flex;"><span>    pika<span style="color:#f92672">.</span>ConnectionParameters(<span style="color:#e6db74">&#39;localhost&#39;</span>, <span style="color:#ae81ff">5672</span>, <span style="color:#e6db74">&#39;/&#39;</span>, pika<span style="color:#f92672">.</span>PlainCredentials(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;password&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span>channel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>queue_declare(queue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>, durable<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>    message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World1&#34;</span>
+</span></span><span style="display:flex;"><span>    channel<span style="color:#f92672">.</span>basic_publish(
+</span></span><span style="display:flex;"><span>        exchange<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>        routing_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>,
+</span></span><span style="display:flex;"><span>        body<span style="color:#f92672">=</span>message,
+</span></span><span style="display:flex;"><span>        properties<span style="color:#f92672">=</span>pika<span style="color:#f92672">.</span>BasicProperties(
+</span></span><span style="display:flex;"><span>            delivery_mode<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,  <span style="color:#75715e"># make message persistent</span>
+</span></span><span style="display:flex;"><span>        ))
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34; [x] Sent </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> message)
+</span></span><span style="display:flex;"><span>connection<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h1 id="消费者">消费者</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pika
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>connection <span style="color:#f92672">=</span> pika<span style="color:#f92672">.</span>BlockingConnection(
+</span></span><span style="display:flex;"><span>    pika<span style="color:#f92672">.</span>ConnectionParameters(<span style="color:#e6db74">&#39;localhost&#39;</span>, <span style="color:#ae81ff">5672</span>, <span style="color:#e6db74">&#39;/&#39;</span>, pika<span style="color:#f92672">.</span>PlainCredentials(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;password&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span>channel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>queue_declare(queue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>, durable<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">callback</span>(ch, method, properties, body):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34; [x] Received </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> body)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>basic_consume(queue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>,
+</span></span><span style="display:flex;"><span>                      on_message_callback<span style="color:#f92672">=</span>callback,
+</span></span><span style="display:flex;"><span>                      auto_ack<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39; [*] Waiting for messages. To exit press CTRL+C&#39;</span>)
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>start_consuming()
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/rabbitmq%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8Apython%E8%B0%83%E7%94%A8/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 25, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python%E5%BD%95%E9%9F%B3/" class="link black dim">
+        用python进行录音
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> pyaudio
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> wave
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AudioRecorder</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>p <span style="color:#f92672">=</span> pyaudio<span style="color:#f92672">.</span>PyAudio()
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>frames <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>device_index <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_recording <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>recording_thread <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">list_input_devices</span>(self):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;列出所有可用的录音设备&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            device_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>get_device_count()):
+</span></span><span style="display:flex;"><span>                device_info <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>get_device_info_by_index(i)
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 筛选出录音设备</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> device_info[<span style="color:#e6db74">&#34;maxInputChannels&#34;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                    device_list<span style="color:#f92672">.</span>append((i, device_info[<span style="color:#e6db74">&#34;name&#34;</span>]))
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Index: </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">, Name: </span><span style="color:#e6db74">{</span>device_info[<span style="color:#e6db74">&#39;name&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> device_list
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">start_recording</span>(self, device_index, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;output.wav&#34;</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;使用指定设备开始录音&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>device_index <span style="color:#f92672">=</span> device_index
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>frames <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_recording <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 启动录音流</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>open(format<span style="color:#f92672">=</span>pyaudio<span style="color:#f92672">.</span>paInt16,
+</span></span><span style="display:flex;"><span>                                      channels<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>                                      rate<span style="color:#f92672">=</span><span style="color:#ae81ff">44100</span>,
+</span></span><span style="display:flex;"><span>                                      input<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>                                      input_device_index<span style="color:#f92672">=</span>device_index,
+</span></span><span style="display:flex;"><span>                                      frames_per_buffer<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>)
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;Recording started. Call `stop_recording` to end manually.&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 启动录音线程</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>recording_thread <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>record, args<span style="color:#f92672">=</span>(filename,))
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>recording_thread<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">record</span>(self, filename):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;录音线程函数，用于捕获音频数据&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>is_recording:
+</span></span><span style="display:flex;"><span>                    data <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>read(<span style="color:#ae81ff">1024</span>, exception_on_overflow<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>frames<span style="color:#f92672">.</span>append(data)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Error during recording: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stop_recording</span>(self, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;output.wav&#34;</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;停止录音并保存文件&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_recording:
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">&#34;Stopping recording...&#34;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 停止录音循环</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>is_recording <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 等待录音线程结束</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>recording_thread:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>recording_thread<span style="color:#f92672">.</span>join()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 停止并关闭音频流</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>stream:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>stop_stream()
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">&#34;Recording stopped.&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 保存录音文件</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">with</span> wave<span style="color:#f92672">.</span>open(filename, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> wf:
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>setnchannels(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>setsampwidth(self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>get_sample_size(pyaudio<span style="color:#f92672">.</span>paInt16))
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>setframerate(<span style="color:#ae81ff">44100</span>)
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>writeframes(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>frames))
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Recording saved as </span><span style="color:#e6db74">{</span>filename<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">close</span>(self):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;关闭 PyAudio 实例&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>terminate()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 使用示例</span>
+</span></span><span style="display:flex;"><span>    recorder <span style="color:#f92672">=</span> AudioRecorder()
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    1. 列出所有录音设备
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    输出示例
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Index: 0, Name: “钱甫新的iPhone”的麦克风
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Index: 1, Name: MacBook Air麦克风
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>list_input_devices()
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    2. 选择一个设备进行录音（此处以设备索引0为例，具体要使用哪个录音设备，请参考具体的【列出所有录音设备】输出结果）
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>start_recording(device_index<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_recording.wav&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 模拟一些操作或等待录音，用户可以在适当的时候手动停止录音</span>
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    3. 手动接入停止录音
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>stop_recording(filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_recording.wav&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 最后关闭 PyAudio 实例</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h1 id="环境">环境</h1>
+<pre><code>python3.10
+
+PyAudio==0.2.14
+</code></pre>
+    </div>
+  <a href="/post/python%E5%BD%95%E9%9F%B3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 24, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/" class="link black dim">
+        pythonGUI实现大模型流式对话_whisper_ollama
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="服务部署">服务部署</h1>
+<h2 id="部署whisper-api服务">部署whisper api服务</h2>
+<pre><code>version: '3.8'
+
+services:
+  whisper-asr:
+    image: onerahmet/openai-whisper-asr-webservice:latest
+    container_name: whisper-asr-service
+    ports:
+      - &quot;9099:9000&quot;
+    volumes:
+      - /Users/qianfuxin/dc/whisper:/root/.cache/whisper
+    environment:
+      - ASR_MODEL=base
+      - ASR_ENGINE=openai_whisper
+    restart: unless-stopped
+</code></pre>
+<h2 id="部署ollama">部署ollama</h2>
+<p>见官网</p>
+<h1 id="代码">代码</h1>
+<pre><code>import mimetypes
+import os
+import sys
+from datetime import datetime
+import socksio
+import requests
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QTextEdit
+import pyaudio
+import wave
+import threading
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI
+
+
+def transcribe_audio(file_path):
+    &quot;&quot;&quot;
+    Function to transcribe audio using the ASR service.
+
+    :param file_path: The full path to the audio file to be transcribed.
+    :return: The response text from the ASR service.
+    &quot;&quot;&quot;
+    # Ensure the file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f&quot;Audio file not found at: {file_path}&quot;)
+
+    # Determine MIME type
+    mime_type, _ = mimetypes.guess_type(file_path)
+    if mime_type is None:
+        raise ValueError(f&quot;Unable to determine MIME type for file: {file_path}&quot;)
+
+    # Extract file name
+    file_name = os.path.basename(file_path)
+
+    url = &quot;http://localhost:9099/asr&quot;
+    params = {
+        &quot;encode&quot;: &quot;true&quot;,
+        &quot;task&quot;: &quot;transcribe&quot;,
+        &quot;language&quot;: &quot;zh&quot;,
+        &quot;initial_prompt&quot;: &quot;这是一段简体中文&quot;,
+        &quot;word_timestamps&quot;: &quot;false&quot;,
+        &quot;output&quot;: &quot;txt&quot;
+    }
+    headers = {
+        &quot;accept&quot;: &quot;application/json&quot;,
+    }
+
+    # Open the audio file
+    with open(file_path, &quot;rb&quot;) as audio_file:
+        files = {
+            &quot;audio_file&quot;: (file_name, audio_file, mime_type)
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, params=params, files=files)
+    return response.text
+
+
+def get_model(base_url=&quot;http://127.0.0.1:11434/v1&quot;):
+    &quot;&quot;&quot;Get the AI model instance.&quot;&quot;&quot;
+    model = ChatOpenAI(
+        api_key=&quot;ollama&quot;,
+        model=&quot;qwen2&quot;,
+        base_url=base_url
+    )
+    return model
+
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.stream = None
+        self.frames = []
+        self.device_index = None
+        self.is_recording = False
+        self.recording_thread = None
+
+    def list_input_devices(self):
+        &quot;&quot;&quot;List available input devices.&quot;&quot;&quot;
+        device_list = []
+        for i in range(self.p.get_device_count()):
+            device_info = self.p.get_device_info_by_index(i)
+            if device_info[&quot;maxInputChannels&quot;] &gt; 0:
+                device_list.append((i, device_info[&quot;name&quot;]))
+        return device_list
+
+    def start_recording(self, device_index):
+        &quot;&quot;&quot;Start recording with the specified device.&quot;&quot;&quot;
+        self.device_index = device_index
+        self.frames = []
+        self.is_recording = True
+
+        self.stream = self.p.open(format=pyaudio.paInt16,
+                                  channels=1,
+                                  rate=44100,
+                                  input=True,
+                                  input_device_index=device_index,
+                                  frames_per_buffer=1024)
+
+        self.recording_thread = threading.Thread(target=self.record)
+        self.recording_thread.start()
+
+    def record(self):
+        &quot;&quot;&quot;Record audio in a separate thread.&quot;&quot;&quot;
+        try:
+            while self.is_recording:
+                data = self.stream.read(1024, exception_on_overflow=False)
+                self.frames.append(data)
+        except IOError as e:
+            print(f&quot;Buffer overflow occurred: {e}&quot;)
+
+    def stop_recording(self, filename):
+        &quot;&quot;&quot;Stop recording and save the file.&quot;&quot;&quot;
+        if self.is_recording:
+            self.is_recording = False
+            if self.recording_thread and self.recording_thread.is_alive():
+                self.recording_thread.join()
+
+            if self.stream:
+                self.stream.stop_stream()
+                self.stream.close()
+                self.stream = None
+
+            with wave.open(filename, 'wb') as wf:
+                wf.setnchannels(1)
+                wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+                wf.setframerate(44100)
+                wf.writeframes(b''.join(self.frames))
+
+    def close(self):
+        &quot;&quot;&quot;Close the PyAudio instance.&quot;&quot;&quot;
+        self.p.terminate()
+
+
+class RecorderApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.recorder = AudioRecorder()
+        self.filename = None
+        self.model = get_model()
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle(&quot;实时语音识别与问答&quot;)
+        self.setGeometry(100, 100, 500, 400)
+
+        layout = QVBoxLayout()
+
+        # 开启录音按钮
+        self.start_button = QPushButton(&quot;开启录音&quot;)
+        self.start_button.clicked.connect(self.start_recording)
+        layout.addWidget(self.start_button)
+
+        # 结束录音按钮
+        self.stop_button = QPushButton(&quot;结束录音&quot;)
+        self.stop_button.clicked.connect(self.stop_recording)
+        self.stop_button.setEnabled(False)
+        layout.addWidget(self.stop_button)
+
+        # 状态显示标签
+        self.status_label = QLabel(&quot;用户问题: &quot;, self)
+        layout.addWidget(self.status_label)
+
+        # 输出结果框
+        self.output_box = QTextEdit(self)
+        self.output_box.setReadOnly(True)
+        layout.addWidget(self.output_box)
+
+        self.setLayout(layout)
+
+    def start_recording(self):
+        device_index = 0  # For simplicity, we assume default device.
+        start_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{start_time}.wav&quot;
+
+        self.recorder.start_recording(device_index)
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
+    def stop_recording(self):
+        self.recorder.stop_recording(self.filename)
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+
+        # 转录音频并生成回答
+        transcription = transcribe_audio(self.filename)
+        self.status_label.setText(f&quot;用户问题: {transcription}&quot;)
+        self.generate_answer(transcription)
+
+    def generate_answer(self, transcription):
+        &quot;&quot;&quot;
+        Send the transcription to the large model and display the streamed response.
+        &quot;&quot;&quot;
+        QApplication.processEvents()
+
+        messages = [
+            SystemMessage(&quot;你是一个智能助手。&quot;),
+            HumanMessage(content=transcription)
+        ]
+        parser = StrOutputParser()
+        chain = self.model | parser
+
+        response = &quot;&quot;
+        for token in chain.stream(messages):
+            response += token
+            self.output_box.setText(response)
+            QApplication.processEvents()
+
+
+if __name__ == &quot;__main__&quot;:
+    app = QApplication(sys.argv)
+    window = RecorderApp()
+    window.show()
+    sys.exit(app.exec_())
+</code></pre>
+<h3 id="仅仅实现asr">仅仅实现ASR</h3>
+<pre><code>import mimetypes
+import os
+import sys
+from datetime import datetime
+
+import requests
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QComboBox, QMessageBox, \
+    QSystemTrayIcon, QMenu, QAction
+import pyaudio
+import wave
+import threading
+
+
+def transcribe_audio(file_path):
+    &quot;&quot;&quot;
+    Function to transcribe audio using the ASR service.
+
+    :param file_path: The full path to the audio file to be transcribed.
+    :return: The response text from the ASR service.
+    &quot;&quot;&quot;
+    # Ensure the file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f&quot;Audio file not found at: {file_path}&quot;)
+
+    # Determine MIME type
+    mime_type, _ = mimetypes.guess_type(file_path)
+    if mime_type is None:
+        raise ValueError(f&quot;Unable to determine MIME type for file: {file_path}&quot;)
+
+    # Extract file name
+    file_name = os.path.basename(file_path)
+
+    url = &quot;http://localhost:9099/asr&quot;
+    params = {
+        &quot;encode&quot;: &quot;true&quot;,
+        &quot;task&quot;: &quot;transcribe&quot;,
+        &quot;language&quot;: &quot;zh&quot;,
+        &quot;initial_prompt&quot;: &quot;这是一段简体中文&quot;,
+        &quot;word_timestamps&quot;: &quot;false&quot;,
+        &quot;output&quot;: &quot;txt&quot;
+    }
+    headers = {
+        &quot;accept&quot;: &quot;application/json&quot;,
+    }
+
+    # Open the audio file
+    with open(file_path, &quot;rb&quot;) as audio_file:
+        files = {
+            &quot;audio_file&quot;: (file_name, audio_file, mime_type)
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, params=params, files=files)
+
+    return response.text
+
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.stream = None
+        self.frames = []
+        self.device_index = None
+        self.is_recording = False
+        self.recording_thread = None
+
+    def list_input_devices(self):
+        &quot;&quot;&quot;列出所有可用的录音设备&quot;&quot;&quot;
+        device_list = []
+        for i in range(self.p.get_device_count()):
+            device_info = self.p.get_device_info_by_index(i)
+            # 筛选出录音设备
+            if device_info[&quot;maxInputChannels&quot;] &gt; 0:
+                device_list.append((i, device_info[&quot;name&quot;]))
+        return device_list
+
+    def start_recording(self, device_index):
+        &quot;&quot;&quot;使用指定设备开始录音&quot;&quot;&quot;
+        self.device_index = device_index
+        self.frames = []
+        self.is_recording = True
+
+        self.stream = self.p.open(format=pyaudio.paInt16,
+                                  channels=1,
+                                  rate=44100,
+                                  input=True,
+                                  input_device_index=device_index,
+                                  frames_per_buffer=1024)
+
+        # 启动录音线程
+        self.recording_thread = threading.Thread(target=self.record)
+        self.recording_thread.start()
+
+    def record(self):
+        &quot;&quot;&quot;录音线程函数，用于捕获音频数据&quot;&quot;&quot;
+        try:
+            while self.is_recording:
+                data = self.stream.read(1024, exception_on_overflow=False)
+                self.frames.append(data)
+        except IOError as e:
+            print(f&quot;Buffer overflow occurred: {e}&quot;)
+
+    def stop_recording(self, filename):
+        &quot;&quot;&quot;停止录音并保存文件&quot;&quot;&quot;
+        if self.is_recording:
+            self.is_recording = False
+            if self.recording_thread and self.recording_thread.is_alive():
+                self.recording_thread.join()
+
+            if self.stream:
+                self.stream.stop_stream()
+                self.stream.close()
+                self.stream = None
+
+            with wave.open(filename, 'wb') as wf:
+                wf.setnchannels(1)
+                wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+                wf.setframerate(44100)
+                wf.writeframes(b''.join(self.frames))
+
+    def close(self):
+        &quot;&quot;&quot;关闭 PyAudio 实例&quot;&quot;&quot;
+        self.p.terminate()
+
+
+def resource_path(relative_path):
+    &quot;&quot;&quot;获取资源文件的绝对路径&quot;&quot;&quot;
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath(&quot;.&quot;), relative_path)
+
+
+class RecorderApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.recorder = AudioRecorder()
+        self.filename = None
+
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle(&quot;录音器&quot;)
+        self.setGeometry(100, 100, 400, 300)
+
+        # 创建系统托盘图标
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(QIcon(resource_path(&quot;icon.png&quot;)))
+
+        # 创建托盘菜单
+        tray_menu = QMenu()
+
+        # 添加显示窗口的选项
+        show_action = QAction(&quot;显示窗口&quot;, self)
+        show_action.triggered.connect(self.show)
+        tray_menu.addAction(show_action)
+
+        # 添加退出的选项
+        exit_action = QAction(&quot;退出&quot;, self)
+        exit_action.triggered.connect(QApplication.instance().quit)
+        tray_menu.addAction(exit_action)
+
+        # 将菜单添加到托盘图标
+        self.tray_icon.setContextMenu(tray_menu)
+
+        # 设置点击双击托盘图标的动作
+        self.tray_icon.activated.connect(self.on_tray_icon_activated)
+
+        # 显示托盘图标
+        self.tray_icon.show()
+
+        layout = QVBoxLayout()
+
+        # 开启录音按钮
+        self.start_button = QPushButton(&quot;开启录音&quot;)
+        self.start_button.clicked.connect(self.start_recording)
+        layout.addWidget(self.start_button)
+
+        # 结束录音按钮
+        self.stop_button = QPushButton(&quot;结束录音&quot;)
+        self.stop_button.clicked.connect(self.stop_recording)
+        self.stop_button.setEnabled(False)
+        layout.addWidget(self.stop_button)
+
+        # 设备选择下拉菜单
+        self.device_selector = QComboBox(self)
+        devices = self.recorder.list_input_devices()
+        if devices:
+            for index, name in devices:
+                self.device_selector.addItem(name, index)
+        else:
+            QMessageBox.warning(self, &quot;错误&quot;, &quot;未检测到录音设备&quot;)
+            self.start_button.setEnabled(False)
+        layout.addWidget(self.device_selector)
+
+        # 状态显示标签
+        self.status_label = QLabel(&quot;状态: 未录音&quot;, self)
+        layout.addWidget(self.status_label)
+
+        self.setLayout(layout)
+
+    def closeEvent(self, event):
+        &quot;&quot;&quot;窗口关闭事件&quot;&quot;&quot;
+        if self.isVisible():  # 如果窗口可见，则最小化到托盘
+            event.ignore()
+            self.hide()
+            self.tray_icon.showMessage(
+                &quot;应用最小化&quot;, &quot;程序已最小化到托盘&quot;,
+                QSystemTrayIcon.Information, 2000
+            )
+        else:  # 关闭应用时清理资源
+            self.recorder.close()
+            event.accept()
+
+    def on_tray_icon_activated(self, reason):
+        &quot;&quot;&quot;托盘图标激活事件&quot;&quot;&quot;
+        if reason == QSystemTrayIcon.DoubleClick:
+            self.show()
+
+    def start_recording(self):
+        device_index = self.device_selector.currentData()
+        start_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{start_time}.wav&quot;
+
+        self.recorder.start_recording(device_index)
+        self.status_label.setText(&quot;状态: 录音中...&quot;)
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
+    def stop_recording(self):
+        end_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{self.filename[:-4]}-{end_time}.wav&quot;  # 更新文件名
+        self.recorder.stop_recording(self.filename)
+        self.status_label.setText(f&quot;状态: 录音已保存为 {self.filename}&quot;)
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+        self.status_label.setText(f&quot;状态: 录音已保存为 {self.filename}\n录音内容：{transcribe_audio(self.filename)}&quot;)
+
+
+# 主程序入口
+if __name__ == &quot;__main__&quot;:
+    app = QApplication(sys.argv)
+    window = RecorderApp()
+    window.show()
+    sys.exit(app.exec_())
+    &quot;&quot;&quot;
+    pyinstaller --onefile --windowed --noconfirm --add-data &quot;icon.png;.&quot; app.py
+    &quot;&quot;&quot;
+</code></pre>
+    </div>
+  <a href="/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 23, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/memcached%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/" class="link black dim">
+        memcached的部署与python调用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="部署">部署</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3.8&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>services:  
+</span></span><span style="display:flex;"><span>memcached:  
+</span></span><span style="display:flex;"><span>image: memcached  
+</span></span><span style="display:flex;"><span>container_name: memcached  
+</span></span><span style="display:flex;"><span>ports:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#e6db74">&#34;11211:11211&#34;</span>
+</span></span></code></pre></div><h1 id="python调用">python调用</h1>
+<pre><code>from pymemcache.client import base
+
+# 连接到 Memcached 服务
+client = base.Client(('localhost', 11211))
+
+# 设置一个键值对
+client.set('my_key', 'Hello, Memcached!')
+
+# 获取存储的值
+value = client.get('my_key')
+print(f'Value for my_key: {value.decode(&quot;utf-8&quot;)}')
+
+# 删除键值对
+client.delete('my_key')
+
+# 关闭连接
+client.close()
+</code></pre>
+<h1 id="总结">总结</h1>
+<p>memcached是一个很单纯的缓存服务（减少数据库压力），数据存放在内存，所以没必要本地映射，
+而且不支持身份验证，所以需要在容器互联时使用，不应该让外部访问。</p>
+    </div>
+  <a href="/post/memcached%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

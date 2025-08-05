@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>人脸 on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/%E4%BA%BA%E8%84%B8/</link>
+    <description>Recent content in 人脸 on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 26 Apr 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/%E4%BA%BA%E8%84%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>人脸替换emoji</title>
+      <link>https://qianfuxin.gitHub.io/post/%E4%BA%BA%E8%84%B8%E6%9B%BF%E6%8D%A2emoji/</link>
+      <pubDate>Sat, 26 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E4%BA%BA%E8%84%B8%E6%9B%BF%E6%8D%A2emoji/</guid>
+      <description>&lt;h1 id=&#34;起源&#34;&gt;起源&lt;/h1&gt;&#xA;&lt;p&gt;偶然看到一个AI的项目：上传一张照片，用emoji来替换人脸，保护隐私。然后想到了一个古老的face_recognition包，好像也能实现。&lt;/p&gt;&#xA;&lt;h1 id=&#34;环境&#34;&gt;环境&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda create -n  face_recognition_env python&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;3.11  -y&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate face_recognition_env&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install cmake&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install face_recognition&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;源码&#34;&gt;源码&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/8904a4ebeef974b2567d84baacfa514a&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
