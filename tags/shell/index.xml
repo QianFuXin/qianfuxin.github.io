@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/shell/</link>
+    <description>Recent content in Shell on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 08 Mar 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用大模型对shell赋能</title>
+      <link>https://qianfuxin.gitHub.io/post/%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9shell%E8%B5%8B%E8%83%BD/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9shell%E8%B5%8B%E8%83%BD/</guid>
+      <description>&lt;h1 id=&#34;起因&#34;&gt;起因&lt;/h1&gt;&#xA;&lt;p&gt;由于最近shell输入命令比较多，经常忘记命令的细节。每次都要去问大模型，然后拷贝命令再执行，就想着能不能将两个步骤合二为一。&lt;/p&gt;&#xA;&lt;h1 id=&#34;实现&#34;&gt;实现&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;采用了本地大模型&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/0b561de9a86a654e571550f6f7147f51&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;使用方式alias&#34;&gt;使用方式（alias）&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;vim ~/.zshrc&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;alias aishell=&amp;quot;python /xx/main.py&amp;quot;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;source ~/.zshrc&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;aishell &amp;quot;创建一个a文件&amp;quot; --run&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

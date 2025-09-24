@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>文章 | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="文章">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="文章">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-08-15T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-08-15T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="文章">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          文章
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+      
+    </section>
+    <aside class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        三月 8, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/linux%E4%BD%BF%E7%94%A8clash/" class="link black dim">
+        linux使用clash
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="大概流程">大概流程</h1>
+<p>首先配置web页面，便于后续通过web去切换线路和节点。</p>
+<p>然后配置clash本体，获取配置文件并修改，最后启动程序。</p>
+<h1 id="配置clash">配置clash</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir /etc/clash/  <span style="color:#f92672">&amp;&amp;</span> cd /etc/clash/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://w2.v2free.top/ssr-download/clash-dashboard.tar.gz</span>
+</span></span><span style="display:flex;"><span>tar zxvf clash-dashboard.tar.gz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir  ~/.config/
+</span></span><span style="display:flex;"><span>mkdir  ~/.config/mihomo/
+</span></span><span style="display:flex;"><span>cd     ~/.config/mihomo/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://w2.v2free.top/ssr-download/clash-linux.tar.gz</span>
+</span></span><span style="display:flex;"><span>tar xvf clash-linux.tar.gz
+</span></span><span style="display:flex;"><span>chmod +x clash-linux
+</span></span><span style="display:flex;"><span>wget -U <span style="color:#e6db74">&#34;Mozilla/6.0&#34;</span> -O ~/.config/mihomo/config.yaml <span style="color:#e6db74">&#34;https://v1.v2ai.top/link/IVEMbb14xsh6zW87?clash=2&#34;</span>
+</span></span><span style="display:flex;"><span>vim config.yaml 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 在配置文件中修改或增加以下内容；</span>
+</span></span><span style="display:flex;"><span>external-controller: 127.0.0.1:9090 <span style="color:#75715e"># 如果你不是从本机访问，需要从其它机器访问这个Clash Dashboard ,则改为：0.0.0.0:9090</span>
+</span></span><span style="display:flex;"><span>external-ui: /etc/clash/clash-dashboard <span style="color:#75715e"># clash-dashboard的路径；</span>
+</span></span><span style="display:flex;"><span>secret: <span style="color:#e6db74">&#39;PaaRwW3B1Kj9&#39;</span> <span style="color:#75715e"># PaaRwW3B1Kj9 是登录web管理界面的密码，请自行设置你自己的,不要照抄教程中的密码；</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启动代理</span>
+</span></span><span style="display:flex;"><span>nohup /clash-linux &gt; clash.log 2&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问对应的端口号选择代理:127.0.0.1:9090/ui</span>
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/linux%E4%BD%BF%E7%94%A8clash/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        三月 8, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E5%AE%9E%E7%8E%B0rag%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="link black dim">
+        实现rag的几种方式
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="ollama提供embeddingsllm">ollama提供embeddings、llm</h1>
+<ul>
+<li>llm可以是ollama，或者接口为openai格式即可</li>
+<li>embeddings服务由ollama提供</li>
+<li>向量数据库容器提供（cpu）</li>
+</ul>
+<p><a href="https://gist.github.com/QianFuXin/39ba41e29a58e7b9b1636db06d774237">源码</a></p>
+<h1 id="ollama提供llm容器提供embeddings">ollama提供llm，容器提供embeddings</h1>
+<ul>
+<li>llm可以是ollama，或者接口为openai格式即可</li>
+<li>embeddings服务由HuggingFaceEmbeddings提供</li>
+<li>向量数据库容器提供（cpu）</li>
+</ul>
+<p><a href="https://gist.github.com/QianFuXin/0e94c3875574f0315af9fe58a7b9b04e">源码</a></p>
+<h1 id="llmembeddings向量数据库均由第三方提供">llm、embeddings、向量数据库均由第三方提供</h1>
+<p><a href="https://gist.github.com/QianFuXin/78945087cab1e8321138025f307d570d">源码</a></p>
+<h1 id="llmembeddings向量数据库关键字搜索es重排序均由第三方提供">llm、embeddings、向量数据库、关键字搜索（es）、重排序、均由第三方提供</h1>
+<p><a href="https://gist.github.com/QianFuXin/31549fb7cdef55c956de0aeff817c19c">源码</a></p>
+    </div>
+  <a href="/post/%E5%AE%9E%E7%8E%B0rag%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        三月 8, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9shell%E8%B5%8B%E8%83%BD/" class="link black dim">
+        用大模型对shell赋能
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="起因">起因</h1>
+<p>由于最近shell输入命令比较多，经常忘记命令的细节。每次都要去问大模型，然后拷贝命令再执行，就想着能不能将两个步骤合二为一。</p>
+<h1 id="实现">实现</h1>
+<ul>
+<li>采用了本地大模型</li>
+</ul>
+<p><a href="https://gist.github.com/QianFuXin/0b561de9a86a654e571550f6f7147f51">源码</a></p>
+<h1 id="使用方式alias">使用方式（alias）</h1>
+<p><code>vim ~/.zshrc</code></p>
+<p><code>alias aishell=&quot;python /xx/main.py&quot;</code></p>
+<p><code>source ~/.zshrc</code></p>
+<p><code>aishell &quot;创建一个a文件&quot; --run</code></p>
+    </div>
+  <a href="/post/%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9shell%E8%B5%8B%E8%83%BD/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 22, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%9E%84%E5%BB%BA%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%95%9C%E5%83%8F/" class="link black dim">
+        docker构建多平台镜像
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="使用buildx">使用buildx</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker buildx create --use
+</span></span></code></pre></div><h1 id="构建镜像并上传云端">构建镜像并上传云端</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker buildx build --platform linux/amd64,linux/arm64 -t qianfuxin/my-python-app:latest . --push
+</span></span></code></pre></div><h1 id="测试">测试</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker pull qianfuxin/my-python-app:latest
+</span></span><span style="display:flex;"><span>docker inspect qianfuxin/my-python-app | grep Architecture
+</span></span><span style="display:flex;"><span>docker run --rm qianfuxin/my-python-app
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E6%9E%84%E5%BB%BA%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%95%9C%E5%83%8F/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 22, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%8B%AC%E7%AB%8B%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="link black dim">
+        python离线环境以及独立环境的几种方式
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="起因">起因</h1>
+<p>最近遇到<code>小可爱</code>的机器，没有外网，所以安装独立的python极为别扭</p>
+<h1 id="方法">方法</h1>
+<ul>
+<li>
+<p>conda离线安装
+首先在联网的机器上，准备安装包，然后把安装包拷贝到离网机器后安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 设置安装包位置</span>
+</span></span><span style="display:flex;"><span>pkgs_dirs:
+</span></span><span style="display:flex;"><span>  - /home/up/myconda/pkgs
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 安装环境到安装包</span>
+</span></span><span style="display:flex;"><span>conda create -n py38_pytorch pytorch python<span style="color:#f92672">==</span>3.8.5 --download-only
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将安装包拷贝到指定位置，在离网机器上安装</span>
+</span></span><span style="display:flex;"><span>conda create -n offlinepy38 pytorch python<span style="color:#f92672">==</span>3.8.5 --offline
+</span></span></code></pre></div></li>
+<li>
+<p>conda环境打包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda install conda-pack
+</span></span><span style="display:flex;"><span>conda pack -n tf-1.15.0-py3.6
+</span></span><span style="display:flex;"><span>tar -xzf tf-1.15.0-py3.6.tar.gz -C tf-1.15.0-py3.6
+</span></span><span style="display:flex;"><span>source tf-1.15.0-py3.6/bin/activate
+</span></span></code></pre></div></li>
+<li>
+<p>python venv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m venv venv
+</span></span></code></pre></div></li>
+</ul>
+    </div>
+  <a href="/post/python%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%8B%AC%E7%AB%8B%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 22, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E9%85%8D%E7%BD%AEgocron/" class="link black dim">
+        配置gocron
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="安装">安装</h1>
+<p><a href="https://github.com/ouqiang/gocron/releases">下载地址</a></p>
+<p>需要gocron-node和gocron两个包</p>
+<h1 id="systemd管理">systemd管理</h1>
+<p><code>vim /etc/systemd/system/gocron-node.service</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>GoCron Node Service
+</span></span><span style="display:flex;"><span>After<span style="color:#f92672">=</span>network.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>simple
+</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>root
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/root/gocron/gocron-node-linux-amd64/gocron-node -allow-root -s 127.0.0.1:5921
+</span></span><span style="display:flex;"><span>Restart<span style="color:#f92672">=</span>always
+</span></span><span style="display:flex;"><span>RestartSec<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>StandardOutput<span style="color:#f92672">=</span>journal
+</span></span><span style="display:flex;"><span>StandardError<span style="color:#f92672">=</span>journal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>multi-user.target
+</span></span></code></pre></div><p><code>vim /etc/systemd/system/gocron.service</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>GoCron Node Service
+</span></span><span style="display:flex;"><span>After<span style="color:#f92672">=</span>network.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>simple
+</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>root
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/root/gocron/gocron-linux-amd64/gocron web --host 127.0.0.1
+</span></span><span style="display:flex;"><span>Restart<span style="color:#f92672">=</span>always
+</span></span><span style="display:flex;"><span>RestartSec<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>StandardOutput<span style="color:#f92672">=</span>journal
+</span></span><span style="display:flex;"><span>StandardError<span style="color:#f92672">=</span>journal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>multi-user.target
+</span></span></code></pre></div><p>开机自启动</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl daemon-reload
+</span></span><span style="display:flex;"><span>systemctl enable gocron-node
+</span></span><span style="display:flex;"><span>systemctl enable gocron
+</span></span><span style="display:flex;"><span>systemctl start gocron-node
+</span></span><span style="display:flex;"><span>systemctl start gocron
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E9%85%8D%E7%BD%AEgocron/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 22, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8llama_factory%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/" class="link black dim">
+        使用LLaMA_factory进行模型微调
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="环境安装">环境安装</h1>
+<blockquote>
+<p><a href="https://github.com/hiyouga/LLaMA-Factory/blob/main/README_zh.md">参考</a></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda create -n llama_factory python<span style="color:#f92672">=</span>3.10 -y
+</span></span><span style="display:flex;"><span>conda activate llama_factory
+</span></span><span style="display:flex;"><span>pip install --upgrade pip
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置清华源，可选</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple</span>
+</span></span><span style="display:flex;"><span>git clone --depth <span style="color:#ae81ff">1</span> https://github.com/hiyouga/LLaMA-Factory.git
+</span></span><span style="display:flex;"><span>cd LLaMA-Factory
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 遇到包冲突时，可使用 pip install --no-deps -e . 解决。</span>
+</span></span><span style="display:flex;"><span>pip install -e <span style="color:#e6db74">&#34;.[torch,metrics]&#34;</span>
+</span></span></code></pre></div><h1 id="环境验证">环境验证</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>llamafactory-cli -h
+</span></span></code></pre></div><h1 id="启动web环境">启动web环境</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>USE_MODELSCOPE_HUB<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> llamafactory-cli webui
+</span></span></code></pre></div><h1 id="命令行">命令行</h1>
+<blockquote>
+<p><a href="https://llamafactory.readthedocs.io/zh-cn/latest/getting_started/merge_lora.html">参考</a></p>
+</blockquote>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8llama_factory%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 15, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/centos%E9%85%8D%E7%BD%AEzsh/" class="link black dim">
+        centos配置zsh
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="安装zsh">安装zsh</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum -y install zsh git
+</span></span></code></pre></div><h1 id="切换为zsh">切换为zsh</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo chsh -s /bin/zsh
+</span></span></code></pre></div><h1 id="安装ohmyzsh">安装ohmyzsh</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h1 id="使用插件">使用插件</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-autosuggestions <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>$HOME/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-autosuggestions
+</span></span><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-syntax-highlighting <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>vim ~/.zshrc
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>git web-search jsontools z vi-mode zsh-syntax-highlighting zsh-autosuggestions<span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/centos%E9%85%8D%E7%BD%AEzsh/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 15, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/pocketbase%E7%9A%84pythonsdk/" class="link black dim">
+        pocketbase的pythonSDK
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="权限放行">权限放行</h1>
+<p>表对应的api_rules需要设置为<code>@request.auth.id != &quot;&quot;</code>，只有登录认证后的用户才可以操作。</p>
+<h1 id="函数封装">函数封装</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>headers <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Authorization&#34;</span>: token
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">records</span>():
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://test.com/api/collections/posts/records?page=1&amp;perPage=50&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>get(url, headers<span style="color:#f92672">=</span>headers)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">record</span>(id):
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://test.com/api/collections/posts/records/</span><span style="color:#e6db74">{</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>get(url, headers<span style="color:#f92672">=</span>headers)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_record</span>(data):
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://test.com/api/collections/posts/records&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>post(url, headers<span style="color:#f92672">=</span>headers, json<span style="color:#f92672">=</span>data)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete_record</span>(id):
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://test.com/api/collections/posts/records/</span><span style="color:#e6db74">{</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>delete(url, headers<span style="color:#f92672">=</span>headers)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;id&#34;</span>: id}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update_record</span>(id, data):
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://test.com/api/collections/posts/records/</span><span style="color:#e6db74">{</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>patch(url, headers<span style="color:#f92672">=</span>headers, json<span style="color:#f92672">=</span>data)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(delete_record(<span style="color:#e6db74">&#34;c9w208d7mgh0ziu&#34;</span>))
+</span></span><span style="display:flex;"><span>print(create_record({<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;qfx&#34;</span>}))
+</span></span><span style="display:flex;"><span>print(records())
+</span></span><span style="display:flex;"><span>print(record(<span style="color:#e6db74">&#34;c9w208d7mgh0ziu&#34;</span>))
+</span></span><span style="display:flex;"><span>print(update_record(<span style="color:#e6db74">&#34;44z3c02j65203k0&#34;</span>, {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;钱甫新&#34;</span>}))
+</span></span></code></pre></div><h1 id="类封装">类封装</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostAPI</span>:
+</span></span><span style="display:flex;"><span>    BASE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://test.com/api/collections/posts/records&#34;</span>
+</span></span><span style="display:flex;"><span>    LOGIN_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://test.com/api/collections/users/auth-with-password&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, identity, password):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>token <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>login(identity, password)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>headers <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Authorization&#34;</span>: self<span style="color:#f92672">.</span>token}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">login</span>(self, identity, password):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;登录并获取 Token&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(self<span style="color:#f92672">.</span>LOGIN_URL, json<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;identity&#34;</span>: identity, <span style="color:#e6db74">&#34;password&#34;</span>: password})<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;token&#34;</span> <span style="color:#f92672">in</span> response:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> response[<span style="color:#e6db74">&#34;token&#34;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;登录失败: </span><span style="color:#e6db74">{</span>response<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_all</span>(self, page<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, per_page<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;获取所有记录&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>BASE_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">?page=</span><span style="color:#e6db74">{</span>page<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;perPage=</span><span style="color:#e6db74">{</span>per_page<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>get(url, headers<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>headers)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_one</span>(self, record_id):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;获取单条记录&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>BASE_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>record_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>get(url, headers<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>headers)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>(self, data):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;创建新记录&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>post(self<span style="color:#f92672">.</span>BASE_URL, headers<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>headers, json<span style="color:#f92672">=</span>data)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(self, record_id, data):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;更新记录&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>BASE_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>record_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> requests<span style="color:#f92672">.</span>patch(url, headers<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>headers, json<span style="color:#f92672">=</span>data)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete</span>(self, record_id):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;删除记录&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>BASE_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>record_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            data <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>delete(url, headers<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>headers)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>            data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;id&#34;</span>: record_id}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>identity <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test@163.com&#34;</span>
+</span></span><span style="display:flex;"><span>password <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;12345678&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>api <span style="color:#f92672">=</span> PostAPI(identity, password)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取所有记录</span>
+</span></span><span style="display:flex;"><span>records <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span>get_all()
+</span></span><span style="display:flex;"><span>print(records)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取单条记录</span>
+</span></span><span style="display:flex;"><span>record <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span>get_one(<span style="color:#e6db74">&#34;515v170sh79pt0h&#34;</span>)
+</span></span><span style="display:flex;"><span>print(record)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建记录</span>
+</span></span><span style="display:flex;"><span>new_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;作者&#34;</span>}
+</span></span><span style="display:flex;"><span>created_record <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span>create(new_data)
+</span></span><span style="display:flex;"><span>print(created_record)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 更新记录</span>
+</span></span><span style="display:flex;"><span>update_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;哈哈哈哈&#34;</span>}
+</span></span><span style="display:flex;"><span>updated_record <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span>update(<span style="color:#e6db74">&#34;515v170sh79pt0h&#34;</span>, update_data)
+</span></span><span style="display:flex;"><span>print(updated_record)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除记录</span>
+</span></span><span style="display:flex;"><span>deleted_record <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span>delete(<span style="color:#e6db74">&#34;8q5k6618bkimfy5&#34;</span>)
+</span></span><span style="display:flex;"><span>print(deleted_record)
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/pocketbase%E7%9A%84pythonsdk/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        一月 21, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/mac&#43;clash&#43;gitssh%E4%BB%A3%E7%90%86/" class="link black dim">
+        mac使用clash后解决gitSSH不能使用的问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="起因">起因</h1>
+<p>有一天使用git ssh 拉取代码，发现网络卡住，密钥已经录入GitHub，所以只可能是网络不通畅的原因。</p>
+<h1 id="解放方案">解放方案</h1>
+<p><code>vim ~/.ssh/config</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Host github.com
+</span></span><span style="display:flex;"><span>  HostName ssh.github.com
+</span></span><span style="display:flex;"><span>  Port <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>  User git
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/mac&#43;clash&#43;gitssh%E4%BB%A3%E7%90%86/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </aside>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/post/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

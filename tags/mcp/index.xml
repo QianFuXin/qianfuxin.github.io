@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mcp on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/mcp/</link>
+    <description>Recent content in Mcp on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 15 Aug 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pinot本地部署与简单使用</title>
+      <link>https://qianfuxin.gitHub.io/post/pinot%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 15 Aug 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/pinot%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;部署&#34;&gt;部署&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/c6c5c1f9c67dc2866be863f8be06a8f6&#34;&gt;链接&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;验证&#34;&gt;验证&lt;/h1&gt;&#xA;&lt;p&gt;打开 &lt;code&gt;http://localhost:9000/#/&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;测试broker是否连接上 &lt;code&gt;curl http://localhost:9000/v2/brokers&lt;/code&gt;&#xA;如果返回为空，有可能是因为开启容器的先后顺序导致。则 &lt;code&gt;docker restart pinot-broker&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;创建表&#34;&gt;创建表&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;curl -X POST -H &amp;quot;Content-Type: application/json&amp;quot;   -d @schema.json   http://localhost:9000/schemas&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{&#xD;&#xA;  &amp;#34;schemaName&amp;#34;: &amp;#34;my_table&amp;#34;,&#xD;&#xA;  &amp;#34;dimensionFieldSpecs&amp;#34;: [&#xD;&#xA;    {&amp;#34;name&amp;#34;: &amp;#34;id&amp;#34;, &amp;#34;dataType&amp;#34;: &amp;#34;STRING&amp;#34;},&#xD;&#xA;    {&amp;#34;name&amp;#34;: &amp;#34;name&amp;#34;, &amp;#34;dataType&amp;#34;: &amp;#34;STRING&amp;#34;}&#xD;&#xA;  ],&#xD;&#xA;  &amp;#34;metricFieldSpecs&amp;#34;: [&#xD;&#xA;    {&amp;#34;name&amp;#34;: &amp;#34;age&amp;#34;, &amp;#34;dataType&amp;#34;: &amp;#34;INT&amp;#34;}&#xD;&#xA;  ],&#xD;&#xA;  &amp;#34;dateTimeFieldSpecs&amp;#34;: [&#xD;&#xA;    {&#xD;&#xA;      &amp;#34;name&amp;#34;: &amp;#34;ts&amp;#34;,&#xD;&#xA;      &amp;#34;dataType&amp;#34;: &amp;#34;LONG&amp;#34;,&#xD;&#xA;      &amp;#34;format&amp;#34;: &amp;#34;1:MILLISECONDS:EPOCH&amp;#34;,&#xD;&#xA;      &amp;#34;granularity&amp;#34;: &amp;#34;1:MILLISECONDS&amp;#34;&#xD;&#xA;    }&#xD;&#xA;  ]&#xD;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;curl -X POST -H &amp;quot;Content-Type: application/json&amp;quot;  -d @table.json http://localhost:9000/tables&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{&#xD;&#xA;&amp;#34;tableName&amp;#34;: &amp;#34;my_table&amp;#34;,&#xD;&#xA;&amp;#34;tableType&amp;#34;: &amp;#34;OFFLINE&amp;#34;,&#xD;&#xA;&amp;#34;segmentsConfig&amp;#34;: {&#xD;&#xA;&amp;#34;timeColumnName&amp;#34;: &amp;#34;ts&amp;#34;,&#xD;&#xA;&amp;#34;schemaName&amp;#34;: &amp;#34;my_table&amp;#34;,&#xD;&#xA;&amp;#34;replication&amp;#34;: &amp;#34;1&amp;#34;&#xD;&#xA;},&#xD;&#xA;&amp;#34;tableIndexConfig&amp;#34;: {&#xD;&#xA;&amp;#34;loadMode&amp;#34;: &amp;#34;MMAP&amp;#34;&#xD;&#xA;},&#xD;&#xA;&amp;#34;tenants&amp;#34;: {},&#xD;&#xA;&amp;#34;metadata&amp;#34;: {}&#xD;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;测试&#34;&gt;测试&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/QianFuXin/mcps/blob/main/mcp_pinot.py&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

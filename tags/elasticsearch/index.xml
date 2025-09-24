@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elasticsearch on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/elasticsearch/</link>
+    <description>Recent content in Elasticsearch on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 09 Sep 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>elasticsearch的部署与python调用</title>
+      <link>https://qianfuxin.gitHub.io/post/elasticsearch%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/elasticsearch%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;部署&#34;&gt;部署&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;version: &#39;3&#39;&#xA;services:&#xA;  elasticsearch:&#xA;    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0&#xA;    container_name: elasticsearch&#xA;    environment:&#xA;      - discovery.type=single-node&#xA;      - ES_JAVA_OPTS=-Xms1g -Xmx1g  # 设置 JVM 堆内存为 1GB&#xA;      - xpack.security.enabled=true  # 启用安全功能&#xA;      - ELASTIC_PASSWORD=password  # 设置默认超级用户 elastic（用户名） 的密码 &#xA;      - xpack.security.authc.api_key.enabled=true  # 启用 API 密钥认证&#xA;    ports:&#xA;      - &amp;quot;9200:9200&amp;quot;&#xA;      - &amp;quot;9300:9300&amp;quot;&#xA;    volumes:&#xA;      - /dc/es_data:/usr/share/elasticsearch/data&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;python调用&#34;&gt;python调用&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;from elasticsearch import Elasticsearch&#xA;&#xA;# 使用用户名和密码连接到 Elasticsearch&#xA;es = Elasticsearch(&#xA;    &amp;quot;http://localhost:9200&amp;quot;,&#xA;    basic_auth=(&amp;quot;elastic&amp;quot;, &amp;quot;password&amp;quot;)  # 替换为你的用户名和密码&#xA;)&#xA;&#xA;# 创建索引&#xA;index_name = &amp;quot;my_index&amp;quot;&#xA;if not es.indices.exists(index=index_name):&#xA;    es.indices.create(index=index_name)&#xA;&#xA;# 添加文档&#xA;doc = {&#xA;    &amp;quot;title&amp;quot;: &amp;quot;Hello World&amp;quot;,&#xA;    &amp;quot;content&amp;quot;: &amp;quot;This is a test document in Elasticsearch&amp;quot;,&#xA;    &amp;quot;timestamp&amp;quot;: &amp;quot;2024-08-06&amp;quot;&#xA;}&#xA;es.index(index=index_name, id=1, body=doc)&#xA;&#xA;# 查询文档&#xA;res = es.get(index=index_name, id=1)&#xA;print(res[&#39;_source&#39;])&#xA;&#xA;# 搜索文档&#xA;search_query = {&#xA;    &amp;quot;query&amp;quot;: {&#xA;        &amp;quot;match&amp;quot;: {&#xA;            &amp;quot;content&amp;quot;: &amp;quot;test&amp;quot;&#xA;        }&#xA;    }&#xA;}&#xA;search_results = es.search(index=index_name, body=search_query)&#xA;print(search_results[&#39;hits&#39;][&#39;hits&#39;])&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;&#xA;&lt;p&gt;最初看到es的文档，下意识想到了mongodb，然后查了一下，既然都是存储文档，那么为啥要用es，结论是mongo旨在数据更新，es旨在数据查询。其中es的索引类似sql中的表概念，文档类似行概念&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

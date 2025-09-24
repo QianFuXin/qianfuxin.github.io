@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openai on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/openai/</link>
+    <description>Recent content in Openai on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 15 Mar 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/openai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>请求openai格式的接口</title>
+      <link>https://qianfuxin.gitHub.io/post/%E8%AF%B7%E6%B1%82openai%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Fri, 15 Mar 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E8%AF%B7%E6%B1%82openai%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%8E%A5%E5%8F%A3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/be1d6ae54ba87f299734771cddb3dde2&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

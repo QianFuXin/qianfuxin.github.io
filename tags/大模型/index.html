@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="大模型">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="大模型">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-05-24T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-05-24T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="大模型">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          大模型
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>标签为“大模型”的页面如下</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        五月 24, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/ollama%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%8F%82%E6%95%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%BB%E5%8A%A1/" class="link black dim">
+        ollama使用小参数大模型实现简单的任务
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="实际意义">实际意义</h1>
+<p>很多场景下都是简单的任务，如果都用大参数大模型去处理，并发、资源、耗时都是问题。</p>
+<p>所以对于某些简单的任务，可以让小参数大模型去做，不要精确率多高，只要有效，哪怕百分之十，配上程序的逻辑判断，都可以为生产做贡献。</p>
+<h1 id="构建">构建</h1>
+<h2 id="modelfile">modelfile</h2>
+<pre tabindex="0"><code>FROM qwen3:0.6b
+# 设置温度，较低的温度使输出更具确定性和一致性，适合分类任务
+# 对于小模型，较低的温度有助于减少不相关或错误的输出
+PARAMETER temperature 0.1
+
+# 系统提示：明确告知模型其角色和任务，以及预期的输出类别
+# 对于小模型，指令需要非常直接和清晰
+SYSTEM 你是一个文本情绪分析助手。请将用户输入的文本分类为“积极”、“消极”或“中性”。
+
+# 少样本提示：提供清晰的输入输出样例，帮助模型理解任务
+# 样例要简单直接，符合小模型的理解能力
+MESSAGE user 今天阳光明媚，我心情很好！
+MESSAGE assistant 积极
+MESSAGE user 我的项目失败了，感觉很难过。
+MESSAGE assistant 消极
+MESSAGE user 会议将在下午三点开始。
+MESSAGE assistant 中性
+MESSAGE user 这家餐厅的食物味道一般。
+MESSAGE assistant 中性
+</code></pre><h2 id="构建-1">构建</h2>
+<p><code>ollama create emotion_cls -f ./Modelfile</code></p>
+<h2 id="使用">使用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl http://localhost:11434/api/generate -d <span style="color:#e6db74">&#39;{ &#34;model&#34;: &#34;emotion_cls&#34;,&#34;prompt&#34;:&#34;哈哈哈哈&#34;, &#34;stream&#34;: false}&#39;</span> | jq .
+</span></span></code></pre></div><p>不使用思考模式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl http://localhost:11434/api/generate -d <span style="color:#e6db74">&#39;{ &#34;model&#34;: &#34;emotion_cls&#34;,&#34;prompt&#34;:&#34;哈哈哈哈/no_think&#34;, &#34;stream&#34;: false}&#39;</span> | jq .
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/ollama%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%8F%82%E6%95%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%BB%E5%8A%A1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        五月 24, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8vllm%E9%83%A8%E7%BD%B2qwen3/" class="link black dim">
+        使用vllm部署qwen3
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="获取镜像">获取镜像</h1>
+<p><code>vllm/vllm-openai:latest</code></p>
+<h1 id="下载模型文件">下载模型文件</h1>
+<p><code>modelscope download --model 'Qwen/Qwen3-14b' --local_dir 'path/to/dir'</code></p>
+<h1 id="启动容器">启动容器</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 如果资源够，可以去掉--max-model-len 8192</span>
+</span></span><span style="display:flex;"><span>docker run -d --gpus<span style="color:#f92672">=</span>all -v /data/hjh/Qwen3-14B-Int8-W8A16:/model/14b --network host --name qwen3 vllm/vllm-openai --model /model/14b --host 0.0.0.0 --port <span style="color:#ae81ff">11001</span> --max-model-len <span style="color:#ae81ff">8192</span>
+</span></span></code></pre></div><p>默认使用第一块卡，如果想使用其他卡：<code>-e CUDA_VISIBLE_DEVICES=&quot;3&quot;</code></p>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8vllm%E9%83%A8%E7%BD%B2qwen3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        一月 21, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E9%80%9A%E8%BF%87%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6/" class="link black dim">
+        通过大模型自动生成代码文件
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>本质上定义一个写入本地文件的工具，然后大模型调用这个工具来生成本地代码文件</strong></p>
+<h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_cohere <span style="color:#f92672">import</span> ChatCohere
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.messages <span style="color:#f92672">import</span> HumanMessage
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> tool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">write_python_script</span>(file_path: str, content: str) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    将给定的 Python 脚本内容写入到指定文件中。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        file_path (str): 要写入的文件路径。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        content (str): Python 脚本内容。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 只保留文件名</span>
+</span></span><span style="display:flex;"><span>    file_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>basename(file_path)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 放到指定目录下</span>
+</span></span><span style="display:flex;"><span>    script_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;script_dir&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 确保目录存在</span>
+</span></span><span style="display:flex;"><span>    os<span style="color:#f92672">.</span>makedirs(script_dir, exist_ok<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 写入文件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(script_dir, file_path), <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>write(content)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;===Python 脚本已写入到 </span><span style="color:#e6db74">{</span>script_dir<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>file_path<span style="color:#e6db74">}</span><span style="color:#e6db74">===&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> [write_python_script]
+</span></span><span style="display:flex;"><span>llm <span style="color:#f92672">=</span> ChatCohere(cohere_api_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将工具绑定到模型</span>
+</span></span><span style="display:flex;"><span>llm_with_tools <span style="color:#f92672">=</span> llm<span style="color:#f92672">.</span>bind_tools(tools)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">帮我编写一个python文件，文件名你来设置，实现以下功能：
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1.使用flask编写接口
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">格式：路由名称、接收的方法、入参类型、获取入参的name
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - index、post、json、[name,age]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - home、get、param、[id]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2. 如果main则启动flask，host为0.0.0.0,端口为9999
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 构造初始消息</span>
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> [HumanMessage(query)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用模型处理问题，选择工具</span>
+</span></span><span style="display:flex;"><span>ai_msg <span style="color:#f92672">=</span> llm_with_tools<span style="color:#f92672">.</span>invoke(messages)
+</span></span><span style="display:flex;"><span>messages<span style="color:#f92672">.</span>append(ai_msg)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据模型选择的工具和参数调用工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tool_call <span style="color:#f92672">in</span> ai_msg<span style="color:#f92672">.</span>tool_calls:
+</span></span><span style="display:flex;"><span>    selected_tool <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;write_python_script&#34;</span>: write_python_script}[tool_call[<span style="color:#e6db74">&#34;name&#34;</span>]<span style="color:#f92672">.</span>lower()]
+</span></span><span style="display:flex;"><span>    tool_msg <span style="color:#f92672">=</span> selected_tool<span style="color:#f92672">.</span>invoke(tool_call)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 将工具调用结果加入对话记录</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">.</span>append(tool_msg)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将所有上下文重新发送给模型，生成最终回答</span>
+</span></span><span style="display:flex;"><span>final_response <span style="color:#f92672">=</span> llm_with_tools<span style="color:#f92672">.</span>invoke(messages)<span style="color:#f92672">.</span>content
+</span></span><span style="display:flex;"><span>print(final_response)
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E9%80%9A%E8%BF%87%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 9, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%9C%AC%E5%9C%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E5%BB%BA%E4%B8%AD%E6%96%87llama3_2%E5%B9%B6%E6%8F%90%E4%BE%9B%E7%AE%80%E5%8D%95%E5%AF%B9%E8%AF%9D%E9%A1%B5%E9%9D%A2/" class="link black dim">
+        本地自定义构建中文llama3_2并提供简单对话页面
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="构建中文llama32">构建中文llama3.2</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>FROM llama3.2
+</span></span><span style="display:flex;"><span>TEMPLATE <span style="color:#e6db74">&#34;&#34;&#34;{{ if .System }}&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{ .System }}&lt;|eot_id|&gt;{{ end }}{{ if .Prompt }}&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{ .Prompt }} &lt;|eot_id|&gt;{{ end }}&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{ .Response }}&lt;|eot_id|&gt;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>SYSTEM <span style="color:#e6db74">&#34;&#34;&#34;尽你的最大可能和能力回答用户的问题。不要重复回答问题。不要说车
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">轱辘话。&gt;语言要通顺流畅。不要出现刚说一句话，过一会又重复一遍的愚蠢行为&gt;。RULES:- Be precise, do not reply emoji.- Always response in Simplified Chinese, not English. or Grandma will be  very angry.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|start_header_id|&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|end_header_id|&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|eot_id|&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|reserved_special_token&#34;</span>
+</span></span></code></pre></div><pre><code>`ollama create llama3-CN -f ./Modelfile`
+</code></pre>
+<h1 id="简单对话页面">简单对话页面</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Chat with Model&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-family</span>: Arial, <span style="color:#66d9ef">sans-serif</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #chat {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">800</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增大聊天框宽度 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ccc</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #messages {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增加内边距 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">400</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增大消息框高度 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">overflow-y</span>: <span style="color:#66d9ef">scroll</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>; <span style="color:#75715e">/* 增大字体 */</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #input-container {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #input-container <span style="color:#f92672">input</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">flex</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增大输入框内边距 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>; <span style="color:#75715e">/* 增大输入框字体 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #input-container <span style="color:#f92672">button</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>; <span style="color:#75715e">/* 增大按钮字体 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-left</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#007BFF</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">user</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">right</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">assistant</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">green</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chat&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;messages&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ask a question...&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sendMessage()&#34;</span>&gt;Send&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 监听 Enter 键发送消息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;input&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;keypress&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">key</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;Enter&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">sendMessage</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>(); <span style="color:#75715e">// 阻止默认行为，避免页面刷新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sendMessage</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;input&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">question</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">trim</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">question</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">appendMessage</span>(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#a6e22e">question</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;http://localhost:11434/api/chat&#39;</span>, {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;llama3-CN&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">messages</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">role</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">question</span>}]
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getReader</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decoder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextDecoder</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">done</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// 创建一个空的 assistant 消息元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">assistantMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createMessageElement</span>(<span style="color:#e6db74">&#39;assistant&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;messages&#39;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">assistantMessage</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">read</span>() {
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">read</span>().<span style="color:#a6e22e">then</span>(({<span style="color:#a6e22e">done</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">doneReading</span>, <span style="color:#a6e22e">value</span>}) =&gt; {
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">doneReading</span>) {
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chunk</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">decoder</span>.<span style="color:#a6e22e">decode</span>(<span style="color:#a6e22e">value</span>, {<span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>});
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">json</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">chunk</span>);
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#75715e">// 动态更新 assistant 消息内容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                                    <span style="color:#a6e22e">assistantMessage</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">content</span>;
+</span></span><span style="display:flex;"><span>                                    <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollHeight</span>;
+</span></span><span style="display:flex;"><span>                                }
+</span></span><span style="display:flex;"><span>                            } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Error parsing JSON:&#39;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                            <span style="color:#a6e22e">read</span>();
+</span></span><span style="display:flex;"><span>                        });
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">read</span>();
+</span></span><span style="display:flex;"><span>                })
+</span></span><span style="display:flex;"><span>                .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Error:&#39;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">appendMessage</span>(<span style="color:#e6db74">&#39;assistant&#39;</span>, <span style="color:#e6db74">&#39;Error occurred&#39;</span>);
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">appendMessage</span>(<span style="color:#a6e22e">role</span>, <span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messageElement</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createMessageElement</span>(<span style="color:#a6e22e">role</span>, <span style="color:#a6e22e">content</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;messages&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">messageElement</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollHeight</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createMessageElement</span>(<span style="color:#a6e22e">role</span>, <span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">className</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">role</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">content</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">message</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><img src="/images/img_7.png" alt=""></p>
+    </div>
+  <a href="/post/%E6%9C%AC%E5%9C%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E5%BB%BA%E4%B8%AD%E6%96%87llama3_2%E5%B9%B6%E6%8F%90%E4%BE%9B%E7%AE%80%E5%8D%95%E5%AF%B9%E8%AF%9D%E9%A1%B5%E9%9D%A2/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        三月 15, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E8%AF%B7%E6%B1%82openai%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%8E%A5%E5%8F%A3/" class="link black dim">
+        请求openai格式的接口
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><a href="https://gist.github.com/QianFuXin/be1d6ae54ba87f299734771cddb3dde2">源码</a></p>
+    </div>
+  <a href="/post/%E8%AF%B7%E6%B1%82openai%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%8E%A5%E5%8F%A3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

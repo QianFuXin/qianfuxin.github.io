@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E5%BE%AE%E8%B0%83/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/tags/%E5%BE%AE%E8%B0%83/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/tags/%E5%BE%AE%E8%B0%83/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/tags/%E5%BE%AE%E8%B0%83/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="微调">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="微调">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-02-22T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-02-22T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="微调">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          微调
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>标签为“微调”的页面如下</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 22, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8llama_factory%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/" class="link black dim">
+        使用LLaMA_factory进行模型微调
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="环境安装">环境安装</h1>
+<blockquote>
+<p><a href="https://github.com/hiyouga/LLaMA-Factory/blob/main/README_zh.md">参考</a></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda create -n llama_factory python<span style="color:#f92672">=</span>3.10 -y
+</span></span><span style="display:flex;"><span>conda activate llama_factory
+</span></span><span style="display:flex;"><span>pip install --upgrade pip
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置清华源，可选</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple</span>
+</span></span><span style="display:flex;"><span>git clone --depth <span style="color:#ae81ff">1</span> https://github.com/hiyouga/LLaMA-Factory.git
+</span></span><span style="display:flex;"><span>cd LLaMA-Factory
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 遇到包冲突时，可使用 pip install --no-deps -e . 解决。</span>
+</span></span><span style="display:flex;"><span>pip install -e <span style="color:#e6db74">&#34;.[torch,metrics]&#34;</span>
+</span></span></code></pre></div><h1 id="环境验证">环境验证</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>llamafactory-cli -h
+</span></span></code></pre></div><h1 id="启动web环境">启动web环境</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>USE_MODELSCOPE_HUB<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> llamafactory-cli webui
+</span></span></code></pre></div><h1 id="命令行">命令行</h1>
+<blockquote>
+<p><a href="https://llamafactory.readthedocs.io/zh-cn/latest/getting_started/merge_lora.html">参考</a></p>
+</blockquote>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8llama_factory%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 28, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/transformer%E5%BE%AE%E8%B0%83%E5%8F%8A%E5%90%8E%E7%BB%AD%E6%8E%A8%E7%90%86/" class="link black dim">
+        transformer微调及后续推理
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="微调">微调</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> AutoModelForSequenceClassification
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;mps&#34;</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> AutoModelForSequenceClassification<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#34;distilbert/distilbert-base-uncased&#34;</span>)<span style="color:#f92672">.</span>to(device)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> TrainingArguments
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>training_args <span style="color:#f92672">=</span> TrainingArguments(
+</span></span><span style="display:flex;"><span>    output_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;path/to/save/folder/&#34;</span>,
+</span></span><span style="display:flex;"><span>    learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">2e-5</span>,
+</span></span><span style="display:flex;"><span>    per_device_train_batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>    per_device_eval_batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>    num_train_epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> AutoTokenizer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tokenizer <span style="color:#f92672">=</span> AutoTokenizer<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#34;distilbert/distilbert-base-uncased&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datasets <span style="color:#f92672">import</span> load_dataset
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dataset <span style="color:#f92672">=</span> load_dataset(<span style="color:#e6db74">&#34;rotten_tomatoes&#34;</span>)  <span style="color:#75715e"># doctest: +IGNORE_RESULT</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tokenize_dataset</span>(dataset):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> tokenizer(dataset[<span style="color:#e6db74">&#34;text&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dataset <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>map(tokenize_dataset, batched<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> DataCollatorWithPadding
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data_collator <span style="color:#f92672">=</span> DataCollatorWithPadding(tokenizer<span style="color:#f92672">=</span>tokenizer)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> Trainer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>trainer <span style="color:#f92672">=</span> Trainer(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span>model,
+</span></span><span style="display:flex;"><span>    args<span style="color:#f92672">=</span>training_args,
+</span></span><span style="display:flex;"><span>    train_dataset<span style="color:#f92672">=</span>dataset[<span style="color:#e6db74">&#34;train&#34;</span>]<span style="color:#f92672">.</span>with_format(<span style="color:#e6db74">&#34;torch&#34;</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mps&#34;</span>),
+</span></span><span style="display:flex;"><span>    eval_dataset<span style="color:#f92672">=</span>dataset[<span style="color:#e6db74">&#34;test&#34;</span>]<span style="color:#f92672">.</span>with_format(<span style="color:#e6db74">&#34;torch&#34;</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mps&#34;</span>),
+</span></span><span style="display:flex;"><span>    tokenizer<span style="color:#f92672">=</span>tokenizer,
+</span></span><span style="display:flex;"><span>    data_collator<span style="color:#f92672">=</span>data_collator,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>trainer<span style="color:#f92672">.</span>train()
+</span></span><span style="display:flex;"><span>trainer<span style="color:#f92672">.</span>save_model(<span style="color:#e6db74">&#34;path/to/save/folder&#34;</span>)
+</span></span></code></pre></div><h1 id="使用微调模型推理">使用微调模型推理</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> pipeline
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;mps&#34;</span>) <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>backends<span style="color:#f92672">.</span>mps<span style="color:#f92672">.</span>is_available() <span style="color:#66d9ef">else</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;cpu&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pipe <span style="color:#f92672">=</span> pipeline(<span style="color:#e6db74">&#34;fill-mask&#34;</span>, model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;path/to/save/folder&#34;</span>, device<span style="color:#f92672">=</span>device)
+</span></span><span style="display:flex;"><span>print(pipe(<span style="color:#e6db74">&#34;The goal of life is [MASK].&#34;</span>))
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/transformer%E5%BE%AE%E8%B0%83%E5%8F%8A%E5%90%8E%E7%BB%AD%E6%8E%A8%E7%90%86/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

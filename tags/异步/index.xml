@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>异步 on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/%E5%BC%82%E6%AD%A5/</link>
+    <description>Recent content in 异步 on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 15 Aug 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/%E5%BC%82%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>huey基本使用</title>
+      <link>https://qianfuxin.gitHub.io/post/huey%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 15 Aug 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/huey%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;异步任务队列&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;定时任务（类似 cron）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;结果存储（可选）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;重试、任务优先级&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/924d8de689c57911b8d609ab16516709&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;开启消费者：&lt;code&gt;huey_consumer task.huey -w 2&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

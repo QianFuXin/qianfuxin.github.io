@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>接口测试 on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</link>
+    <description>Recent content in 接口测试 on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 08 Oct 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>接口测试</title>
+      <link>https://qianfuxin.gitHub.io/post/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Tue, 08 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</guid>
+      <description>&lt;p&gt;接口测试主要测以下5个方面：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;功能测试&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;输入数据，检查输出数据是否符合预期，以及输入格式和输出格式&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;逻辑测试&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;一些业务逻辑，比如登录后才能进入主页&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;异常测试&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;输入一些不符合预期的数据，比如输入非法字符，输入超长字符，输入空字符等，来检查系统是否能正确处理&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;性能测试&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;响应时间 吞吐量 并发量 资源占用（cpu、内存等）&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;安全性测试&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;敏感信息是否加密 恶意注入 越权访问等&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

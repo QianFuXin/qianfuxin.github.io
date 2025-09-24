@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>pythonGUI实现大模型流式对话_whisper_ollama | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="pythonGUI实现大模型流式对话_whisper_ollama">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="pythonGUI实现大模型流式对话_whisper_ollama">
+  <meta property="og:description" content="pythonGUI实现大模型流式对话_whisper_ollama">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-09-24T10:58:08+00:00">
+    <meta property="article:modified_time" content="2024-09-24T10:58:08+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Whisper">
+    <meta property="article:tag" content="Ollama">
+
+  <meta itemprop="name" content="pythonGUI实现大模型流式对话_whisper_ollama">
+  <meta itemprop="description" content="pythonGUI实现大模型流式对话_whisper_ollama">
+  <meta itemprop="datePublished" content="2024-09-24T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2024-09-24T10:58:08+00:00">
+  <meta itemprop="wordCount" content="1005">
+  <meta itemprop="keywords" content="Python,Whisper,Ollama">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="pythonGUI实现大模型流式对话_whisper_ollama">
+  <meta name="twitter:description" content="pythonGUI实现大模型流式对话_whisper_ollama">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        文章
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">pythonGUI实现大模型流式对话_whisper_ollama</h1>
+      
+      <p class="tracked">
+         <strong>钱甫新</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-09-24T10:58:08Z">九月 24, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="服务部署">服务部署</h1>
+<h2 id="部署whisper-api服务">部署whisper api服务</h2>
+<pre><code>version: '3.8'
+
+services:
+  whisper-asr:
+    image: onerahmet/openai-whisper-asr-webservice:latest
+    container_name: whisper-asr-service
+    ports:
+      - &quot;9099:9000&quot;
+    volumes:
+      - /Users/qianfuxin/dc/whisper:/root/.cache/whisper
+    environment:
+      - ASR_MODEL=base
+      - ASR_ENGINE=openai_whisper
+    restart: unless-stopped
+</code></pre>
+<h2 id="部署ollama">部署ollama</h2>
+<p>见官网</p>
+<h1 id="代码">代码</h1>
+<pre><code>import mimetypes
+import os
+import sys
+from datetime import datetime
+import socksio
+import requests
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QTextEdit
+import pyaudio
+import wave
+import threading
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI
+
+
+def transcribe_audio(file_path):
+    &quot;&quot;&quot;
+    Function to transcribe audio using the ASR service.
+
+    :param file_path: The full path to the audio file to be transcribed.
+    :return: The response text from the ASR service.
+    &quot;&quot;&quot;
+    # Ensure the file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f&quot;Audio file not found at: {file_path}&quot;)
+
+    # Determine MIME type
+    mime_type, _ = mimetypes.guess_type(file_path)
+    if mime_type is None:
+        raise ValueError(f&quot;Unable to determine MIME type for file: {file_path}&quot;)
+
+    # Extract file name
+    file_name = os.path.basename(file_path)
+
+    url = &quot;http://localhost:9099/asr&quot;
+    params = {
+        &quot;encode&quot;: &quot;true&quot;,
+        &quot;task&quot;: &quot;transcribe&quot;,
+        &quot;language&quot;: &quot;zh&quot;,
+        &quot;initial_prompt&quot;: &quot;这是一段简体中文&quot;,
+        &quot;word_timestamps&quot;: &quot;false&quot;,
+        &quot;output&quot;: &quot;txt&quot;
+    }
+    headers = {
+        &quot;accept&quot;: &quot;application/json&quot;,
+    }
+
+    # Open the audio file
+    with open(file_path, &quot;rb&quot;) as audio_file:
+        files = {
+            &quot;audio_file&quot;: (file_name, audio_file, mime_type)
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, params=params, files=files)
+    return response.text
+
+
+def get_model(base_url=&quot;http://127.0.0.1:11434/v1&quot;):
+    &quot;&quot;&quot;Get the AI model instance.&quot;&quot;&quot;
+    model = ChatOpenAI(
+        api_key=&quot;ollama&quot;,
+        model=&quot;qwen2&quot;,
+        base_url=base_url
+    )
+    return model
+
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.stream = None
+        self.frames = []
+        self.device_index = None
+        self.is_recording = False
+        self.recording_thread = None
+
+    def list_input_devices(self):
+        &quot;&quot;&quot;List available input devices.&quot;&quot;&quot;
+        device_list = []
+        for i in range(self.p.get_device_count()):
+            device_info = self.p.get_device_info_by_index(i)
+            if device_info[&quot;maxInputChannels&quot;] &gt; 0:
+                device_list.append((i, device_info[&quot;name&quot;]))
+        return device_list
+
+    def start_recording(self, device_index):
+        &quot;&quot;&quot;Start recording with the specified device.&quot;&quot;&quot;
+        self.device_index = device_index
+        self.frames = []
+        self.is_recording = True
+
+        self.stream = self.p.open(format=pyaudio.paInt16,
+                                  channels=1,
+                                  rate=44100,
+                                  input=True,
+                                  input_device_index=device_index,
+                                  frames_per_buffer=1024)
+
+        self.recording_thread = threading.Thread(target=self.record)
+        self.recording_thread.start()
+
+    def record(self):
+        &quot;&quot;&quot;Record audio in a separate thread.&quot;&quot;&quot;
+        try:
+            while self.is_recording:
+                data = self.stream.read(1024, exception_on_overflow=False)
+                self.frames.append(data)
+        except IOError as e:
+            print(f&quot;Buffer overflow occurred: {e}&quot;)
+
+    def stop_recording(self, filename):
+        &quot;&quot;&quot;Stop recording and save the file.&quot;&quot;&quot;
+        if self.is_recording:
+            self.is_recording = False
+            if self.recording_thread and self.recording_thread.is_alive():
+                self.recording_thread.join()
+
+            if self.stream:
+                self.stream.stop_stream()
+                self.stream.close()
+                self.stream = None
+
+            with wave.open(filename, 'wb') as wf:
+                wf.setnchannels(1)
+                wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+                wf.setframerate(44100)
+                wf.writeframes(b''.join(self.frames))
+
+    def close(self):
+        &quot;&quot;&quot;Close the PyAudio instance.&quot;&quot;&quot;
+        self.p.terminate()
+
+
+class RecorderApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.recorder = AudioRecorder()
+        self.filename = None
+        self.model = get_model()
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle(&quot;实时语音识别与问答&quot;)
+        self.setGeometry(100, 100, 500, 400)
+
+        layout = QVBoxLayout()
+
+        # 开启录音按钮
+        self.start_button = QPushButton(&quot;开启录音&quot;)
+        self.start_button.clicked.connect(self.start_recording)
+        layout.addWidget(self.start_button)
+
+        # 结束录音按钮
+        self.stop_button = QPushButton(&quot;结束录音&quot;)
+        self.stop_button.clicked.connect(self.stop_recording)
+        self.stop_button.setEnabled(False)
+        layout.addWidget(self.stop_button)
+
+        # 状态显示标签
+        self.status_label = QLabel(&quot;用户问题: &quot;, self)
+        layout.addWidget(self.status_label)
+
+        # 输出结果框
+        self.output_box = QTextEdit(self)
+        self.output_box.setReadOnly(True)
+        layout.addWidget(self.output_box)
+
+        self.setLayout(layout)
+
+    def start_recording(self):
+        device_index = 0  # For simplicity, we assume default device.
+        start_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{start_time}.wav&quot;
+
+        self.recorder.start_recording(device_index)
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
+    def stop_recording(self):
+        self.recorder.stop_recording(self.filename)
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+
+        # 转录音频并生成回答
+        transcription = transcribe_audio(self.filename)
+        self.status_label.setText(f&quot;用户问题: {transcription}&quot;)
+        self.generate_answer(transcription)
+
+    def generate_answer(self, transcription):
+        &quot;&quot;&quot;
+        Send the transcription to the large model and display the streamed response.
+        &quot;&quot;&quot;
+        QApplication.processEvents()
+
+        messages = [
+            SystemMessage(&quot;你是一个智能助手。&quot;),
+            HumanMessage(content=transcription)
+        ]
+        parser = StrOutputParser()
+        chain = self.model | parser
+
+        response = &quot;&quot;
+        for token in chain.stream(messages):
+            response += token
+            self.output_box.setText(response)
+            QApplication.processEvents()
+
+
+if __name__ == &quot;__main__&quot;:
+    app = QApplication(sys.argv)
+    window = RecorderApp()
+    window.show()
+    sys.exit(app.exec_())
+</code></pre>
+<h3 id="仅仅实现asr">仅仅实现ASR</h3>
+<pre><code>import mimetypes
+import os
+import sys
+from datetime import datetime
+
+import requests
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QComboBox, QMessageBox, \
+    QSystemTrayIcon, QMenu, QAction
+import pyaudio
+import wave
+import threading
+
+
+def transcribe_audio(file_path):
+    &quot;&quot;&quot;
+    Function to transcribe audio using the ASR service.
+
+    :param file_path: The full path to the audio file to be transcribed.
+    :return: The response text from the ASR service.
+    &quot;&quot;&quot;
+    # Ensure the file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f&quot;Audio file not found at: {file_path}&quot;)
+
+    # Determine MIME type
+    mime_type, _ = mimetypes.guess_type(file_path)
+    if mime_type is None:
+        raise ValueError(f&quot;Unable to determine MIME type for file: {file_path}&quot;)
+
+    # Extract file name
+    file_name = os.path.basename(file_path)
+
+    url = &quot;http://localhost:9099/asr&quot;
+    params = {
+        &quot;encode&quot;: &quot;true&quot;,
+        &quot;task&quot;: &quot;transcribe&quot;,
+        &quot;language&quot;: &quot;zh&quot;,
+        &quot;initial_prompt&quot;: &quot;这是一段简体中文&quot;,
+        &quot;word_timestamps&quot;: &quot;false&quot;,
+        &quot;output&quot;: &quot;txt&quot;
+    }
+    headers = {
+        &quot;accept&quot;: &quot;application/json&quot;,
+    }
+
+    # Open the audio file
+    with open(file_path, &quot;rb&quot;) as audio_file:
+        files = {
+            &quot;audio_file&quot;: (file_name, audio_file, mime_type)
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, params=params, files=files)
+
+    return response.text
+
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.stream = None
+        self.frames = []
+        self.device_index = None
+        self.is_recording = False
+        self.recording_thread = None
+
+    def list_input_devices(self):
+        &quot;&quot;&quot;列出所有可用的录音设备&quot;&quot;&quot;
+        device_list = []
+        for i in range(self.p.get_device_count()):
+            device_info = self.p.get_device_info_by_index(i)
+            # 筛选出录音设备
+            if device_info[&quot;maxInputChannels&quot;] &gt; 0:
+                device_list.append((i, device_info[&quot;name&quot;]))
+        return device_list
+
+    def start_recording(self, device_index):
+        &quot;&quot;&quot;使用指定设备开始录音&quot;&quot;&quot;
+        self.device_index = device_index
+        self.frames = []
+        self.is_recording = True
+
+        self.stream = self.p.open(format=pyaudio.paInt16,
+                                  channels=1,
+                                  rate=44100,
+                                  input=True,
+                                  input_device_index=device_index,
+                                  frames_per_buffer=1024)
+
+        # 启动录音线程
+        self.recording_thread = threading.Thread(target=self.record)
+        self.recording_thread.start()
+
+    def record(self):
+        &quot;&quot;&quot;录音线程函数，用于捕获音频数据&quot;&quot;&quot;
+        try:
+            while self.is_recording:
+                data = self.stream.read(1024, exception_on_overflow=False)
+                self.frames.append(data)
+        except IOError as e:
+            print(f&quot;Buffer overflow occurred: {e}&quot;)
+
+    def stop_recording(self, filename):
+        &quot;&quot;&quot;停止录音并保存文件&quot;&quot;&quot;
+        if self.is_recording:
+            self.is_recording = False
+            if self.recording_thread and self.recording_thread.is_alive():
+                self.recording_thread.join()
+
+            if self.stream:
+                self.stream.stop_stream()
+                self.stream.close()
+                self.stream = None
+
+            with wave.open(filename, 'wb') as wf:
+                wf.setnchannels(1)
+                wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+                wf.setframerate(44100)
+                wf.writeframes(b''.join(self.frames))
+
+    def close(self):
+        &quot;&quot;&quot;关闭 PyAudio 实例&quot;&quot;&quot;
+        self.p.terminate()
+
+
+def resource_path(relative_path):
+    &quot;&quot;&quot;获取资源文件的绝对路径&quot;&quot;&quot;
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath(&quot;.&quot;), relative_path)
+
+
+class RecorderApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.recorder = AudioRecorder()
+        self.filename = None
+
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle(&quot;录音器&quot;)
+        self.setGeometry(100, 100, 400, 300)
+
+        # 创建系统托盘图标
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(QIcon(resource_path(&quot;icon.png&quot;)))
+
+        # 创建托盘菜单
+        tray_menu = QMenu()
+
+        # 添加显示窗口的选项
+        show_action = QAction(&quot;显示窗口&quot;, self)
+        show_action.triggered.connect(self.show)
+        tray_menu.addAction(show_action)
+
+        # 添加退出的选项
+        exit_action = QAction(&quot;退出&quot;, self)
+        exit_action.triggered.connect(QApplication.instance().quit)
+        tray_menu.addAction(exit_action)
+
+        # 将菜单添加到托盘图标
+        self.tray_icon.setContextMenu(tray_menu)
+
+        # 设置点击双击托盘图标的动作
+        self.tray_icon.activated.connect(self.on_tray_icon_activated)
+
+        # 显示托盘图标
+        self.tray_icon.show()
+
+        layout = QVBoxLayout()
+
+        # 开启录音按钮
+        self.start_button = QPushButton(&quot;开启录音&quot;)
+        self.start_button.clicked.connect(self.start_recording)
+        layout.addWidget(self.start_button)
+
+        # 结束录音按钮
+        self.stop_button = QPushButton(&quot;结束录音&quot;)
+        self.stop_button.clicked.connect(self.stop_recording)
+        self.stop_button.setEnabled(False)
+        layout.addWidget(self.stop_button)
+
+        # 设备选择下拉菜单
+        self.device_selector = QComboBox(self)
+        devices = self.recorder.list_input_devices()
+        if devices:
+            for index, name in devices:
+                self.device_selector.addItem(name, index)
+        else:
+            QMessageBox.warning(self, &quot;错误&quot;, &quot;未检测到录音设备&quot;)
+            self.start_button.setEnabled(False)
+        layout.addWidget(self.device_selector)
+
+        # 状态显示标签
+        self.status_label = QLabel(&quot;状态: 未录音&quot;, self)
+        layout.addWidget(self.status_label)
+
+        self.setLayout(layout)
+
+    def closeEvent(self, event):
+        &quot;&quot;&quot;窗口关闭事件&quot;&quot;&quot;
+        if self.isVisible():  # 如果窗口可见，则最小化到托盘
+            event.ignore()
+            self.hide()
+            self.tray_icon.showMessage(
+                &quot;应用最小化&quot;, &quot;程序已最小化到托盘&quot;,
+                QSystemTrayIcon.Information, 2000
+            )
+        else:  # 关闭应用时清理资源
+            self.recorder.close()
+            event.accept()
+
+    def on_tray_icon_activated(self, reason):
+        &quot;&quot;&quot;托盘图标激活事件&quot;&quot;&quot;
+        if reason == QSystemTrayIcon.DoubleClick:
+            self.show()
+
+    def start_recording(self):
+        device_index = self.device_selector.currentData()
+        start_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{start_time}.wav&quot;
+
+        self.recorder.start_recording(device_index)
+        self.status_label.setText(&quot;状态: 录音中...&quot;)
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
+    def stop_recording(self):
+        end_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{self.filename[:-4]}-{end_time}.wav&quot;  # 更新文件名
+        self.recorder.stop_recording(self.filename)
+        self.status_label.setText(f&quot;状态: 录音已保存为 {self.filename}&quot;)
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+        self.status_label.setText(f&quot;状态: 录音已保存为 {self.filename}\n录音内容：{transcribe_audio(self.filename)}&quot;)
+
+
+# 主程序入口
+if __name__ == &quot;__main__&quot;:
+    app = QApplication(sys.argv)
+    window = RecorderApp()
+    window.show()
+    sys.exit(app.exec_())
+    &quot;&quot;&quot;
+    pyinstaller --onefile --windowed --noconfirm --add-data &quot;icon.png;.&quot; app.py
+    &quot;&quot;&quot;
+</code></pre>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/whisper/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Whisper</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/ollama/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Ollama</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">相关內容</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/memcached%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8Epython%E8%B0%83%E7%94%A8/">memcached的部署与python调用</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

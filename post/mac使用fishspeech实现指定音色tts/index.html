@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>mac使用FishSpeech实现指定音色tts | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="mac使用FishSpeech实现指定音色tts">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/mac%E4%BD%BF%E7%94%A8fishspeech%E5%AE%9E%E7%8E%B0%E6%8C%87%E5%AE%9A%E9%9F%B3%E8%89%B2tts/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/mac%E4%BD%BF%E7%94%A8fishspeech%E5%AE%9E%E7%8E%B0%E6%8C%87%E5%AE%9A%E9%9F%B3%E8%89%B2tts/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="mac使用FishSpeech实现指定音色tts">
+  <meta property="og:description" content="mac使用FishSpeech实现指定音色tts">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-09-21T10:58:08+00:00">
+    <meta property="article:modified_time" content="2024-09-21T10:58:08+00:00">
+    <meta property="article:tag" content="Mac">
+    <meta property="article:tag" content="FishSpeech">
+    <meta property="article:tag" content="Tts">
+
+  <meta itemprop="name" content="mac使用FishSpeech实现指定音色tts">
+  <meta itemprop="description" content="mac使用FishSpeech实现指定音色tts">
+  <meta itemprop="datePublished" content="2024-09-21T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2024-09-21T10:58:08+00:00">
+  <meta itemprop="wordCount" content="595">
+  <meta itemprop="keywords" content="Mac,FishSpeech,Tts">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="mac使用FishSpeech实现指定音色tts">
+  <meta name="twitter:description" content="mac使用FishSpeech实现指定音色tts">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        文章
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">mac使用FishSpeech实现指定音色tts</h1>
+      
+      <p class="tracked">
+         <strong>钱甫新</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-09-21T10:58:08Z">九月 21, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><strong>下述推理代码都使用cpu进行处理（使用mps走不通</strong> ）</p>
+<blockquote>
+<p>参考</p>
+<p><a href="https://speech.fish.audio/zh/inference/">https://speech.fish.audio/zh/inference/</a></p>
+</blockquote>
+<h1 id="环境与模型">环境与模型</h1>
+<pre><code>git clone https://github.com/fishaudio/fish-speech.git
+cd fish-speech
+# 环境
+conda create -n fish-speech python=3.10
+conda activate fish-speech
+# 依赖包
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
+pip install -e &quot;.[stable]&quot;
+# 下载模型
+HF_ENDPOINT=https://hf-mirror.com huggingface-cli download fishaudio/fish-speech-1.5 --local-dir checkpoints/fish-speech-1.5
+</code></pre>
+<h1 id="基本流程">基本流程</h1>
+<h2 id="提取音色">提取音色</h2>
+<p>下面的paimon.wav也可以是mp3文件，最终会生成一个<code>fake.npy</code></p>
+<pre><code>python tools/vqgan/inference.py --device cpu \
+    -i &quot;paimon.wav&quot; \
+    --checkpoint-path &quot;checkpoints/fish-speech-1.5/firefly-gan-vq-fsq-8x1024-21hz-generator.pth&quot;
+</code></pre>
+<h2 id="生成语音">生成语音</h2>
+<pre><code>python tools/llama/generate.py --device cpu \
+    --text &quot;你要生成的文本&quot; \
+    --prompt-text &quot;你提供语音中的文本&quot; \
+    --prompt-tokens &quot;fake.npy&quot; \
+    --checkpoint-path &quot;checkpoints/fish-speech-1.5&quot; \
+    --num-samples 1 \
+</code></pre>
+<p>会生成一个codes_0.npy，下面将codes_0.npy转换为音频文件</p>
+<pre><code>python tools/vqgan/inference.py --device cpu \
+    -i &quot;codes_0.npy&quot; \
+    --checkpoint-path &quot;checkpoints/fish-speech-1.5/firefly-gan-vq-fsq-8x1024-21hz-generator.pth&quot;
+</code></pre>
+<p><strong>最后生成目标文件：generated_audio.wav</strong></p>
+<h1 id="api接口">api接口</h1>
+<h2 id="服务端">服务端</h2>
+<p>需要手动修改代码，因为mac端使用mps推理莫名出错</p>
+<p><img src="/images/mac%E4%BD%BF%E7%94%A8FishSpeech%E5%AE%9E%E7%8E%B0%E6%8C%87%E5%AE%9A%E9%9F%B3%E8%89%B2tts.png" alt=""></p>
+<pre><code>python -m tools.api_server \
+    --listen 0.0.0.0:8080 \
+    --llama-checkpoint-path &quot;checkpoints/fish-speech-1.5&quot; \
+    --decoder-checkpoint-path &quot;checkpoints/fish-speech-1.5/firefly-gan-vq-fsq-8x1024-21hz-generator.pth&quot; \
+    --decoder-config-name firefly_gan_vq
+</code></pre>
+<h2 id="客户端">客户端</h2>
+<p><strong>流式传输</strong></p>
+<pre><code>python -m tools.api_client \
+    --text &quot;要输入的文本&quot; \
+    --reference_audio &quot;参考音频路径&quot; \
+    --reference_text &quot;参考音频的文本内容&quot; \
+    --streaming True
+</code></pre>
+<p><strong>本地保存（生成generated.mp3）</strong></p>
+<pre><code>python -m tools.api_client \
+    --text &quot;要输入的文本&quot; \
+    --reference_audio &quot;参考音频路径1&quot; &quot;参考音频路径2&quot; \
+    --reference_text &quot;参考音频的文本内容1&quot; &quot;参考音频的文本内容2&quot;\
+    --output &quot;generated&quot; \
+    --format &quot;mp3&quot;
+</code></pre>
+<h2 id="自定义发送请求服务分离环境外调用">自定义发送请求（服务分离，环境外调用）</h2>
+<pre><code>import ormsgpack
+import requests
+from pathlib import Path
+from pydantic import BaseModel, Field, conint, model_validator
+import base64
+from typing_extensions import Annotated
+from typing import Literal
+
+# 默认输入参数
+default_args = {
+    &quot;text&quot;: &quot;输入的文本&quot;,
+    &quot;reference_audio&quot;: [&quot;参考音频路径1&quot;],
+    &quot;reference_text&quot;: [&quot;参考音频的文本内容1&quot;],
+    &quot;output&quot;: &quot;文件名称&quot;,
+    &quot;format&quot;: &quot;mp3&quot;,
+    &quot;url&quot;: &quot;http://127.0.0.1:8080/v1/tts&quot;,
+    &quot;api_key&quot;: &quot;YOUR_API_KEY&quot;,
+}
+
+
+class ServeReferenceAudio(BaseModel):
+    audio: bytes
+    text: str
+
+    @model_validator(mode=&quot;before&quot;)
+    def decode_audio(cls, values):
+        audio = values.get(&quot;audio&quot;)
+        if (
+                isinstance(audio, str) and len(audio) &gt; 255
+        ):  # Check if audio is a string (Base64)
+            try:
+                values[&quot;audio&quot;] = base64.b64decode(audio)
+            except Exception as e:
+                # If the audio is not a valid base64 string, we will just ignore it and let the server handle it
+                pass
+        return values
+
+    def __repr__(self) -&gt; str:
+        return f&quot;ServeReferenceAudio(text={self.text!r}, audio_size={len(self.audio)})&quot;
+
+
+class ServeTTSRequest(BaseModel):
+    text: str
+    chunk_length: Annotated[int, conint(ge=100, le=300, strict=True)] = 200
+    # Audio format
+    format: Literal[&quot;wav&quot;, &quot;pcm&quot;, &quot;mp3&quot;] = &quot;wav&quot;
+    # References audios for in-context learning
+    references: list[ServeReferenceAudio] = []
+    # Reference id
+    # For example, if you want use https://fish.audio/m/7f92f8afb8ec43bf81429cc1c9199cb1/
+    # Just pass 7f92f8afb8ec43bf81429cc1c9199cb1
+    reference_id: str | None = None
+    seed: int | None = None
+    use_memory_cache: Literal[&quot;on&quot;, &quot;off&quot;] = &quot;off&quot;
+    # Normalize text for en &amp; zh, this increase stability for numbers
+    normalize: bool = True
+    # not usually used below
+    streaming: bool = False
+    max_new_tokens: int = 1024
+    top_p: Annotated[float, Field(ge=0.1, le=1.0, strict=True)] = 0.7
+    repetition_penalty: Annotated[float, Field(ge=0.9, le=2.0, strict=True)] = 1.2
+    temperature: Annotated[float, Field(ge=0.1, le=1.0, strict=True)] = 0.7
+
+    class Config:
+        # Allow arbitrary types for pytorch related types
+        arbitrary_types_allowed = True
+
+
+def audio_to_bytes(file_path):
+    if not file_path or not Path(file_path).exists():
+        return None
+    with open(file_path, &quot;rb&quot;) as wav_file:
+        wav = wav_file.read()
+    return wav
+
+
+def read_ref_text(ref_text):
+    path = Path(ref_text)
+    if path.exists() and path.is_file():
+        with path.open(&quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+            return file.read()
+    return ref_text
+
+
+# 构造请求数据
+ref_audios = default_args[&quot;reference_audio&quot;]
+ref_texts = default_args[&quot;reference_text&quot;]
+byte_audios = [audio_to_bytes(ref_audio) for ref_audio in ref_audios]
+ref_texts = [read_ref_text(ref_text) for ref_text in ref_texts]
+
+data = {
+    &quot;text&quot;: default_args[&quot;text&quot;],
+    &quot;references&quot;: [
+        ServeReferenceAudio(
+            audio=ref_audio if ref_audio is not None else b&quot;&quot;, text=ref_text
+        )
+        for ref_text, ref_audio in zip(ref_texts, byte_audios)
+    ],
+    &quot;normalize&quot;: True,
+    &quot;format&quot;: default_args[&quot;format&quot;],
+    &quot;max_new_tokens&quot;: 1024,
+    &quot;chunk_length&quot;: 200,
+    &quot;top_p&quot;: 0.7,
+    &quot;repetition_penalty&quot;: 1.2,
+    &quot;temperature&quot;: 0.7,
+    &quot;streaming&quot;: False,
+    &quot;use_memory_cache&quot;: &quot;off&quot;,
+    &quot;seed&quot;: None,
+}
+
+pydantic_data = ServeTTSRequest(**data)
+
+# 发送 POST 请求
+response = requests.post(
+    default_args[&quot;url&quot;],
+    data=ormsgpack.packb(pydantic_data, option=ormsgpack.OPT_SERIALIZE_PYDANTIC),
+    headers={
+        &quot;authorization&quot;: f&quot;Bearer {default_args['api_key']}&quot;,
+        &quot;content-type&quot;: &quot;application/msgpack&quot;,
+    },
+)
+
+# 处理响应
+if response.status_code == 200:
+    audio_content = response.content
+    audio_path = f&quot;{default_args['output']}.{default_args['format']}&quot;
+    with open(audio_path, &quot;wb&quot;) as audio_file:
+        audio_file.write(audio_content)
+    print(f&quot;音频已保存到 '{audio_path}'&quot;)
+else:
+    print(f&quot;请求失败，状态码: {response.status_code}&quot;)
+    try:
+        print(response.json())
+    except Exception as e:
+        print(f&quot;响应内容解析失败: {e}&quot;)
+</code></pre>
+<h1 id="docker">docker</h1>
+<p>目前，mac的m系列没有对应支持的镜像，如果是linux，直接使用下述指令。</p>
+<pre><code># 拉取镜像
+docker pull fishaudio/fish-speech:latest-dev
+# 运行镜像
+docker run -it \
+    --name fish-speech \
+    --gpus all \
+    -p 7860:7860 \
+    fishaudio/fish-speech:latest-dev \
+    zsh
+# 进入容器
+docker exec -it fish-speech zsh
+# 下载模型（这个后期可以自己映射路径）
+HF_ENDPOINT=https://hf-mirror.com huggingface-cli download fishaudio/fish-speech-1.5 --local-dir checkpoints/fish-speech-1.5
+# 开启服务
+python -m tools.api_server \
+    --listen 0.0.0.0:8080 \
+    --llama-checkpoint-path &quot;checkpoints/fish-speech-1.5&quot; \
+    --decoder-checkpoint-path &quot;checkpoints/fish-speech-1.5/firefly-gan-vq-fsq-8x1024-21hz-generator.pth&quot; \
+    --decoder-config-name firefly_gan_vq
+</code></pre>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/mac/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Mac</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/fishspeech/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">FishSpeech</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/tts/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Tts</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

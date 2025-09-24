@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FishSpeech on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/fishspeech/</link>
+    <description>Recent content in FishSpeech on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 21 Sep 2024 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/fishspeech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mac使用FishSpeech实现指定音色tts</title>
+      <link>https://qianfuxin.gitHub.io/post/mac%E4%BD%BF%E7%94%A8fishspeech%E5%AE%9E%E7%8E%B0%E6%8C%87%E5%AE%9A%E9%9F%B3%E8%89%B2tts/</link>
+      <pubDate>Sat, 21 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/mac%E4%BD%BF%E7%94%A8fishspeech%E5%AE%9E%E7%8E%B0%E6%8C%87%E5%AE%9A%E9%9F%B3%E8%89%B2tts/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;下述推理代码都使用cpu进行处理（使用mps走不通&lt;/strong&gt; ）&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;参考&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://speech.fish.audio/zh/inference/&#34;&gt;https://speech.fish.audio/zh/inference/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;环境与模型&#34;&gt;环境与模型&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;git clone https://github.com/fishaudio/fish-speech.git&#xA;cd fish-speech&#xA;# 环境&#xA;conda create -n fish-speech python=3.10&#xA;conda activate fish-speech&#xA;# 依赖包&#xA;pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1&#xA;pip install -e &amp;quot;.[stable]&amp;quot;&#xA;# 下载模型&#xA;HF_ENDPOINT=https://hf-mirror.com huggingface-cli download fishaudio/fish-speech-1.5 --local-dir checkpoints/fish-speech-1.5&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;基本流程&#34;&gt;基本流程&lt;/h1&gt;&#xA;&lt;h2 id=&#34;提取音色&#34;&gt;提取音色&lt;/h2&gt;&#xA;&lt;p&gt;下面的paimon.wav也可以是mp3文件，最终会生成一个&lt;code&gt;fake.npy&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;python tools/vqgan/inference.py --device cpu \&#xA;    -i &amp;quot;paimon.wav&amp;quot; \&#xA;    --checkpoint-path &amp;quot;checkpoints/fish-speech-1.5/firefly-gan-vq-fsq-8x1024-21hz-generator.pth&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;生成语音&#34;&gt;生成语音&lt;/h2&gt;&#xA;&lt;pre&gt;&lt;code&gt;python tools/llama/generate.py --device cpu \&#xA;    --text &amp;quot;你要生成的文本&amp;quot; \&#xA;    --prompt-text &amp;quot;你提供语音中的文本&amp;quot; \&#xA;    --prompt-tokens &amp;quot;fake.npy&amp;quot; \&#xA;    --checkpoint-path &amp;quot;checkpoints/fish-speech-1.5&amp;quot; \&#xA;    --num-samples 1 \&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;会生成一个codes_0.npy，下面将codes_0.npy转换为音频文件&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

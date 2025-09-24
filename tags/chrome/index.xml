@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chrome on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/chrome/</link>
+    <description>Recent content in Chrome on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 05 Apr 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mac的Chrome自动化</title>
+      <link>https://qianfuxin.gitHub.io/post/mac%E7%9A%84chrome%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+      <pubDate>Sat, 05 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/mac%E7%9A%84chrome%E8%87%AA%E5%8A%A8%E5%8C%96/</guid>
+      <description>&lt;h1 id=&#34;配置驱动&#34;&gt;配置驱动&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install chromedriver&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;开启chrome&#34;&gt;开启Chrome&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/545636e829e2e587e5e5b69bf97be6c7&#34;&gt;start-chrome-debug.sh&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x start-chrome-debug.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./start-chrome-debug.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;浏览器自动化示例代码&#34;&gt;浏览器自动化示例代码&lt;/h1&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install selenium&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/05ec9a0ba477328814d5acd0e3baaf51&#34;&gt;selenium_chrome_demo.py&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

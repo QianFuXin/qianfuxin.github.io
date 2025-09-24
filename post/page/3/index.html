@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>文章 | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="文章">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="文章">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-08-15T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-08-15T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="文章">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          文章
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+      
+    </section>
+    <aside class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        一月 21, 2025
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E9%80%9A%E8%BF%87%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6/" class="link black dim">
+        通过大模型自动生成代码文件
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>本质上定义一个写入本地文件的工具，然后大模型调用这个工具来生成本地代码文件</strong></p>
+<h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_cohere <span style="color:#f92672">import</span> ChatCohere
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.messages <span style="color:#f92672">import</span> HumanMessage
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> tool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">write_python_script</span>(file_path: str, content: str) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    将给定的 Python 脚本内容写入到指定文件中。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        file_path (str): 要写入的文件路径。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        content (str): Python 脚本内容。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 只保留文件名</span>
+</span></span><span style="display:flex;"><span>    file_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>basename(file_path)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 放到指定目录下</span>
+</span></span><span style="display:flex;"><span>    script_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;script_dir&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 确保目录存在</span>
+</span></span><span style="display:flex;"><span>    os<span style="color:#f92672">.</span>makedirs(script_dir, exist_ok<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 写入文件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(script_dir, file_path), <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>write(content)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;===Python 脚本已写入到 </span><span style="color:#e6db74">{</span>script_dir<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>file_path<span style="color:#e6db74">}</span><span style="color:#e6db74">===&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> [write_python_script]
+</span></span><span style="display:flex;"><span>llm <span style="color:#f92672">=</span> ChatCohere(cohere_api_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将工具绑定到模型</span>
+</span></span><span style="display:flex;"><span>llm_with_tools <span style="color:#f92672">=</span> llm<span style="color:#f92672">.</span>bind_tools(tools)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">帮我编写一个python文件，文件名你来设置，实现以下功能：
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1.使用flask编写接口
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">格式：路由名称、接收的方法、入参类型、获取入参的name
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - index、post、json、[name,age]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - home、get、param、[id]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2. 如果main则启动flask，host为0.0.0.0,端口为9999
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 构造初始消息</span>
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> [HumanMessage(query)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用模型处理问题，选择工具</span>
+</span></span><span style="display:flex;"><span>ai_msg <span style="color:#f92672">=</span> llm_with_tools<span style="color:#f92672">.</span>invoke(messages)
+</span></span><span style="display:flex;"><span>messages<span style="color:#f92672">.</span>append(ai_msg)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据模型选择的工具和参数调用工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tool_call <span style="color:#f92672">in</span> ai_msg<span style="color:#f92672">.</span>tool_calls:
+</span></span><span style="display:flex;"><span>    selected_tool <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;write_python_script&#34;</span>: write_python_script}[tool_call[<span style="color:#e6db74">&#34;name&#34;</span>]<span style="color:#f92672">.</span>lower()]
+</span></span><span style="display:flex;"><span>    tool_msg <span style="color:#f92672">=</span> selected_tool<span style="color:#f92672">.</span>invoke(tool_call)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 将工具调用结果加入对话记录</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">.</span>append(tool_msg)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将所有上下文重新发送给模型，生成最终回答</span>
+</span></span><span style="display:flex;"><span>final_response <span style="color:#f92672">=</span> llm_with_tools<span style="color:#f92672">.</span>invoke(messages)<span style="color:#f92672">.</span>content
+</span></span><span style="display:flex;"><span>print(final_response)
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E9%80%9A%E8%BF%87%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 12, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E5%BD%A9%E7%A5%A8%E5%8F%B7%E7%A0%81/" class="link black dim">
+        随机生成彩票号码
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_shuang_se_qiu</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    双色球每注投注号码由6个红色球号码和1个蓝色球号码组成。红色球号码从1〜33中选择；蓝色球号码从1〜16中选择。每注需要选择6个红色球号码以及1个蓝色球号码。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :return:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sorted(random<span style="color:#f92672">.</span>sample(range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">34</span>), <span style="color:#ae81ff">6</span>)), random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">17</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_da_le_tou</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    大乐透每期从35个前区号码中开出5个号码，从12个后区号码中开出2个号码作为中奖号码，大乐透玩法即是竞猜开奖号码的5个前区号码和2个后区号码，顺序不限。
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :return:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sorted(random<span style="color:#f92672">.</span>sample(range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">36</span>), <span style="color:#ae81ff">5</span>)), sorted(random<span style="color:#f92672">.</span>sample(range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">13</span>), <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(generate_shuang_se_qiu())
+</span></span><span style="display:flex;"><span>    print(generate_da_le_tou())
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E5%BD%A9%E7%A5%A8%E5%8F%B7%E7%A0%81/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 11, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" class="link black dim">
+        谷歌搜索技巧
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <blockquote>
+<p><a href="https://www.google.com.hk/advanced_search">https://www.google.com.hk/advanced_search</a><br>
+<a href="https://www.google.com.hk/advanced_image_search">https://www.google.com.hk/advanced_image_search</a></p>
+</blockquote>
+<h1 id="模糊搜索分词">模糊搜索（分词）</h1>
+<p><img src="/images/img_8.png" alt=""></p>
+<p>最原始的搜索，本质上是分词后搜索，和模糊搜索比较像</p>
+<h1 id="精准搜索">精准搜索</h1>
+<p><img src="/images/img_9.png" alt=""></p>
+<p>&ldquo;历史知识&rdquo;</p>
+<h1 id="排除搜索">排除搜索</h1>
+<p><img src="/images/img_10.png" alt="">
+&ldquo;历史知识&rdquo; -百度百科</p>
+<p><strong>从搜索结果中排除掉包含指定内容</strong></p>
+<h1 id="包含指定网站">包含指定网站</h1>
+<p><img src="/images/img_11.png" alt="">
+&ldquo;历史知识&rdquo; site:books.google.com</p>
+<p>PS:可以使用这种格式：site:.gov</p>
+<p><strong>从搜索结果中只选择指定网站的结果</strong></p>
+<h1 id="指定文件类型">指定文件类型</h1>
+<p><img src="/images/img_12.png" alt="">
+&ldquo;历史知识&rdquo; filetype:pdf</p>
+<p><strong>从搜索结果中只选择指定文件类型的结果</strong></p>
+<h1 id="任意内容">任意内容</h1>
+<p><img src="/images/img_13.png" alt="">
+&ldquo;历史*知识&rdquo;</p>
+<p><strong>星号代表匹配任意内容，空也为任意内容</strong></p>
+<h1 id="数字范围">数字范围</h1>
+<p><img src="/images/img_14.png" alt="">
+历史 2013..2016</p>
+<p><strong>从搜索结果中只选择数字范围的内容</strong></p>
+<h1 id="标题包含">标题包含</h1>
+<p><img src="/images/img_15.png" alt="">
+intitle: &ldquo;遮天&rdquo; filetype:txt</p>
+<p>ps:同理inurl使用方法</p>
+<p><strong>只从网页标题中进行数据处理</strong></p>
+    </div>
+  <a href="/post/%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 10, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E8%8E%B7%E5%8F%96%E5%8E%86%E5%8F%B2%E7%9A%84%E5%A4%A7%E4%B9%90%E9%80%8F%E5%92%8C%E5%8F%8C%E8%89%B2%E7%90%83%E6%95%B0%E6%8D%AE/" class="link black dim">
+        获取历史的大乐透和双色球数据
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> script.utils <span style="color:#f92672">import</span> insert_db_by_api
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_da_le_tou_history_data_and_sava2db</span>():
+</span></span><span style="display:flex;"><span>    pageNo <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry?gameNo=85&amp;provinceId=0&amp;pageSize=30&amp;isVerify=1&amp;pageNo=</span><span style="color:#e6db74">{</span>pageNo<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>    maxPageNO <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#34;value&#34;</span>][<span style="color:#e6db74">&#34;pages&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> data[<span style="color:#e6db74">&#34;value&#34;</span>][<span style="color:#e6db74">&#34;list&#34;</span>]:
+</span></span><span style="display:flex;"><span>        print(i[<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>], i[<span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>], i[<span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>])
+</span></span><span style="display:flex;"><span>        insert_db_by_api(<span style="color:#e6db74">&#34;daletous&#34;</span>,
+</span></span><span style="display:flex;"><span>                         {<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>: i[<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>], <span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>: i[<span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>],
+</span></span><span style="display:flex;"><span>                          <span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>: i[<span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>]})
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, maxPageNO <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry?gameNo=85&amp;provinceId=0&amp;pageSize=30&amp;isVerify=1&amp;pageNo=</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> data[<span style="color:#e6db74">&#34;value&#34;</span>][<span style="color:#e6db74">&#34;list&#34;</span>]:
+</span></span><span style="display:flex;"><span>            print(j[<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>], j[<span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>], j[<span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>])
+</span></span><span style="display:flex;"><span>            insert_db_by_api(<span style="color:#e6db74">&#34;daletous&#34;</span>,
+</span></span><span style="display:flex;"><span>                             {<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>: j[<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>], <span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>: j[<span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>],
+</span></span><span style="display:flex;"><span>                              <span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>: j[<span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>]})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_shuang_se_qiu_history_data_and_sava2db</span>():
+</span></span><span style="display:flex;"><span>    pageNo <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://www.cwl.gov.cn/cwl_admin/front/cwlkj/search/kjxx/findDrawNotice?name=ssq&amp;pageNo=</span><span style="color:#e6db74">{</span>pageNo<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;pageSize=30&amp;systemType=PC&#34;</span>
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>    maxPageNO <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#34;pageNum&#34;</span>]
+</span></span><span style="display:flex;"><span>    print(maxPageNO)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> data[<span style="color:#e6db74">&#34;result&#34;</span>]:
+</span></span><span style="display:flex;"><span>        print(i[<span style="color:#e6db74">&#34;red&#34;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> i[<span style="color:#e6db74">&#34;blue&#34;</span>], i[<span style="color:#e6db74">&#34;date&#34;</span>], i[<span style="color:#e6db74">&#34;code&#34;</span>])
+</span></span><span style="display:flex;"><span>        insert_db_by_api(<span style="color:#e6db74">&#34;shuangseqius&#34;</span>,
+</span></span><span style="display:flex;"><span>                         {<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>: i[<span style="color:#e6db74">&#34;red&#34;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> i[<span style="color:#e6db74">&#34;blue&#34;</span>], <span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>: i[<span style="color:#e6db74">&#34;date&#34;</span>],
+</span></span><span style="display:flex;"><span>                          <span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>: i[<span style="color:#e6db74">&#34;code&#34;</span>]})
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, maxPageNO <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://www.cwl.gov.cn/cwl_admin/front/cwlkj/search/kjxx/findDrawNotice?name=ssq&amp;pageNo=</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;pageSize=30&amp;systemType=PC&#34;</span>
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> data[<span style="color:#e6db74">&#34;result&#34;</span>]:
+</span></span><span style="display:flex;"><span>            print(j[<span style="color:#e6db74">&#34;red&#34;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> j[<span style="color:#e6db74">&#34;blue&#34;</span>], j[<span style="color:#e6db74">&#34;date&#34;</span>], j[<span style="color:#e6db74">&#34;code&#34;</span>])
+</span></span><span style="display:flex;"><span>            insert_db_by_api(<span style="color:#e6db74">&#34;shuangseqius&#34;</span>,
+</span></span><span style="display:flex;"><span>                             {<span style="color:#e6db74">&#34;lotteryDrawResult&#34;</span>: j[<span style="color:#e6db74">&#34;red&#34;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> j[<span style="color:#e6db74">&#34;blue&#34;</span>], <span style="color:#e6db74">&#34;lotteryDrawTime&#34;</span>: j[<span style="color:#e6db74">&#34;date&#34;</span>],
+</span></span><span style="display:flex;"><span>                              <span style="color:#e6db74">&#34;lotteryDrawNum&#34;</span>: j[<span style="color:#e6db74">&#34;code&#34;</span>]})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>get_da_le_tou_history_data_and_sava2db()
+</span></span><span style="display:flex;"><span>get_shuang_se_qiu_history_data_and_sava2db()
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E8%8E%B7%E5%8F%96%E5%8E%86%E5%8F%B2%E7%9A%84%E5%A4%A7%E4%B9%90%E9%80%8F%E5%92%8C%E5%8F%8C%E8%89%B2%E7%90%83%E6%95%B0%E6%8D%AE/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 9, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%9C%AC%E5%9C%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E5%BB%BA%E4%B8%AD%E6%96%87llama3_2%E5%B9%B6%E6%8F%90%E4%BE%9B%E7%AE%80%E5%8D%95%E5%AF%B9%E8%AF%9D%E9%A1%B5%E9%9D%A2/" class="link black dim">
+        本地自定义构建中文llama3_2并提供简单对话页面
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="构建中文llama32">构建中文llama3.2</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>FROM llama3.2
+</span></span><span style="display:flex;"><span>TEMPLATE <span style="color:#e6db74">&#34;&#34;&#34;{{ if .System }}&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{ .System }}&lt;|eot_id|&gt;{{ end }}{{ if .Prompt }}&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{ .Prompt }} &lt;|eot_id|&gt;{{ end }}&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{ .Response }}&lt;|eot_id|&gt;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>SYSTEM <span style="color:#e6db74">&#34;&#34;&#34;尽你的最大可能和能力回答用户的问题。不要重复回答问题。不要说车
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">轱辘话。&gt;语言要通顺流畅。不要出现刚说一句话，过一会又重复一遍的愚蠢行为&gt;。RULES:- Be precise, do not reply emoji.- Always response in Simplified Chinese, not English. or Grandma will be  very angry.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|start_header_id|&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|end_header_id|&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|eot_id|&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>PARAMETER stop <span style="color:#e6db74">&#34;&lt;|reserved_special_token&#34;</span>
+</span></span></code></pre></div><pre><code>`ollama create llama3-CN -f ./Modelfile`
+</code></pre>
+<h1 id="简单对话页面">简单对话页面</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Chat with Model&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-family</span>: Arial, <span style="color:#66d9ef">sans-serif</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #chat {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">800</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增大聊天框宽度 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ccc</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #messages {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增加内边距 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">400</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增大消息框高度 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">overflow-y</span>: <span style="color:#66d9ef">scroll</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>; <span style="color:#75715e">/* 增大字体 */</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #input-container {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #input-container <span style="color:#f92672">input</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">flex</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>; <span style="color:#75715e">/* 增大输入框内边距 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>; <span style="color:#75715e">/* 增大输入框字体 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #input-container <span style="color:#f92672">button</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>; <span style="color:#75715e">/* 增大按钮字体 */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-left</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#007BFF</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">user</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">right</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">assistant</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">green</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chat&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;messages&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ask a question...&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sendMessage()&#34;</span>&gt;Send&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 监听 Enter 键发送消息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;input&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;keypress&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">key</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;Enter&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">sendMessage</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>(); <span style="color:#75715e">// 阻止默认行为，避免页面刷新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sendMessage</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;input&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">question</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">trim</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">question</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">appendMessage</span>(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#a6e22e">question</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;http://localhost:11434/api/chat&#39;</span>, {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;llama3-CN&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">messages</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">role</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">question</span>}]
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getReader</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decoder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextDecoder</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">done</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// 创建一个空的 assistant 消息元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">assistantMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createMessageElement</span>(<span style="color:#e6db74">&#39;assistant&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;messages&#39;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">assistantMessage</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">read</span>() {
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">read</span>().<span style="color:#a6e22e">then</span>(({<span style="color:#a6e22e">done</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">doneReading</span>, <span style="color:#a6e22e">value</span>}) =&gt; {
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">doneReading</span>) {
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chunk</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">decoder</span>.<span style="color:#a6e22e">decode</span>(<span style="color:#a6e22e">value</span>, {<span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>});
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">json</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">chunk</span>);
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#75715e">// 动态更新 assistant 消息内容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                                    <span style="color:#a6e22e">assistantMessage</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">content</span>;
+</span></span><span style="display:flex;"><span>                                    <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollHeight</span>;
+</span></span><span style="display:flex;"><span>                                }
+</span></span><span style="display:flex;"><span>                            } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Error parsing JSON:&#39;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                            <span style="color:#a6e22e">read</span>();
+</span></span><span style="display:flex;"><span>                        });
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">read</span>();
+</span></span><span style="display:flex;"><span>                })
+</span></span><span style="display:flex;"><span>                .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Error:&#39;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">appendMessage</span>(<span style="color:#e6db74">&#39;assistant&#39;</span>, <span style="color:#e6db74">&#39;Error occurred&#39;</span>);
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">appendMessage</span>(<span style="color:#a6e22e">role</span>, <span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messageElement</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createMessageElement</span>(<span style="color:#a6e22e">role</span>, <span style="color:#a6e22e">content</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;messages&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">messageElement</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">scrollHeight</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createMessageElement</span>(<span style="color:#a6e22e">role</span>, <span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">className</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">role</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">content</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">message</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><img src="/images/img_7.png" alt=""></p>
+    </div>
+  <a href="/post/%E6%9C%AC%E5%9C%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E5%BB%BA%E4%B8%AD%E6%96%87llama3_2%E5%B9%B6%E6%8F%90%E4%BE%9B%E7%AE%80%E5%8D%95%E5%AF%B9%E8%AF%9D%E9%A1%B5%E9%9D%A2/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 8, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" class="link black dim">
+        接口测试
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>接口测试主要测以下5个方面：</p>
+<ul>
+<li>功能测试</li>
+</ul>
+<p>输入数据，检查输出数据是否符合预期，以及输入格式和输出格式</p>
+<ul>
+<li>逻辑测试</li>
+</ul>
+<p>一些业务逻辑，比如登录后才能进入主页</p>
+<ul>
+<li>异常测试</li>
+</ul>
+<p>输入一些不符合预期的数据，比如输入非法字符，输入超长字符，输入空字符等，来检查系统是否能正确处理</p>
+<ul>
+<li>性能测试</li>
+</ul>
+<p>响应时间 吞吐量 并发量 资源占用（cpu、内存等）</p>
+<ul>
+<li>安全性测试</li>
+</ul>
+<p>敏感信息是否加密 恶意注入 越权访问等</p>
+    </div>
+  <a href="/post/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 7, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1py%E4%BB%A3%E7%A0%81%E5%88%B0pypi/" class="link black dim">
+        分享自己py代码到PyPI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h3 id="准备条件">准备条件</h3>
+<p>PyPI的账号</p>
+<h3 id="代码格式">代码格式</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>filtered_flask/
+</span></span><span style="display:flex;"><span>|-- filtered_flask/
+</span></span><span style="display:flex;"><span>|   |-- __init__.py
+</span></span><span style="display:flex;"><span>|   |-- app.py
+</span></span><span style="display:flex;"><span>|-- tests/
+</span></span><span style="display:flex;"><span>|-- setup.py
+</span></span><span style="display:flex;"><span>|-- README.md
+</span></span><span style="display:flex;"><span>|-- MANIFEST.in
+</span></span></code></pre></div><ul>
+<li>filtered_flask/app.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, Response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 装饰器用于全局信息过滤</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.after_request</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">global_filter</span>(response):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 检查响应内容是否包含 &#34;test&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;test&#39;</span> <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>data:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果包含 &#34;test&#34;，可以采取过滤、修改或其他操作</span>
+</span></span><span style="display:flex;"><span>        filtered_content <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;test&#39;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;filtered&#39;</span>)
+</span></span><span style="display:flex;"><span>        response<span style="color:#f92672">.</span>set_data(filtered_content)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一个简单的路由返回包含 &#34;test&#34; 的内容</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">home</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;This is a test message.&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>run(debug<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><ul>
+<li>filtered_flask/<strong>init</strong>.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> .app <span style="color:#f92672">import</span> app
+</span></span></code></pre></div><ul>
+<li>setup.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> setuptools <span style="color:#f92672">import</span> setup, find_packages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setup(
+</span></span><span style="display:flex;"><span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;filtered_flask&#39;</span>,
+</span></span><span style="display:flex;"><span>version<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.1.0&#39;</span>,
+</span></span><span style="display:flex;"><span>packages<span style="color:#f92672">=</span>find_packages(),
+</span></span><span style="display:flex;"><span>install_requires<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Flask&#39;</span>,
+</span></span><span style="display:flex;"><span>],
+</span></span><span style="display:flex;"><span>classifiers<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Programming Language :: Python :: 3&#39;</span>,
+</span></span><span style="display:flex;"><span>],
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>MANIFEST.in</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>include README<span style="color:#f92672">.</span>md
+</span></span><span style="display:flex;"><span>recursive<span style="color:#f92672">-</span>include filtered_flask<span style="color:#f92672">/</span>templates <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>recursive<span style="color:#f92672">-</span>include filtered_flask<span style="color:#f92672">/</span>static <span style="color:#f92672">*</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>README.md</p>
+    </div>
+  <a href="/post/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1py%E4%BB%A3%E7%A0%81%E5%88%B0pypi/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 6, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8srs_flv_js_obs-studio%E5%AE%9E%E7%8E%B0%E7%9B%B4%E6%92%AD/" class="link black dim">
+        使用srs_flv_js_obs-studio实现直播
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="srs服务部署">srs服务部署</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        -p 8000:8000/udp -p 10080:10080/udp ossrs/srs:5
+</span></span></code></pre></div><h1 id="obs-studio推流">obs-studio推流</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rtmp://qianfuxin.com/live
+</span></span><span style="display:flex;"><span>livestream
+</span></span></code></pre></div><p><img src="/images/img_6.png" alt=""></p>
+<h1 id="flvjs获取流">flv.js获取流</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;FLV Stream Player&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">video</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;videoElement&#34;</span> <span style="color:#a6e22e">controls</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width: 100%; height: auto;&#34;</span>&gt;&lt;/<span style="color:#f92672">video</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/flv.js@1.5.0/dist/flv.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">flvjs</span>.<span style="color:#a6e22e">isSupported</span>()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">videoElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;videoElement&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flvPlayer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">flvjs</span>.<span style="color:#a6e22e">createPlayer</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;flv&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://qianfuxin.com:8080/live/livestream.flv &#39;</span>
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">flvPlayer</span>.<span style="color:#a6e22e">attachMediaElement</span>(<span style="color:#a6e22e">videoElement</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">flvPlayer</span>.<span style="color:#a6e22e">load</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">flvPlayer</span>.<span style="color:#a6e22e">play</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8srs_flv_js_obs-studio%E5%AE%9E%E7%8E%B0%E7%9B%B4%E6%92%AD/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 5, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8quill_js%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E8%AE%B0%E4%BA%8B%E6%9C%AC/" class="link black dim">
+        使用quill_js实现本地记事本
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;铅笔&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">html</span><span style="color:#f92672">,</span> <span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">flex-direction</span>: <span style="color:#66d9ef">column</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        #editor-container {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">flex</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 工具栏容器 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;toolbar-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-header&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span>&gt;&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">selected</span>&gt;&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-font&#34;</span>&gt;&lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-bold&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-italic&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-underline&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-strike&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-color&#34;</span>&gt;&lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-background&#34;</span>&gt;&lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-script&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sub&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-script&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;super&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-blockquote&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-code-block&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-list&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ordered&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-list&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bullet&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-indent&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-1&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-indent&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;+1&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-direction&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rtl&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-align&#34;</span>&gt;&lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-link&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-image&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-video&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formula&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-clean&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-formats&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ql-save&#34;</span>&gt;save&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 编辑器容器 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editor-container&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 引入Quill的库 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初始化Quill编辑器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">quill</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Quill</span>(<span style="color:#e6db74">&#39;#editor-container&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">theme</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;snow&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">modules</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">syntax</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">toolbar</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#toolbar-container&#39;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;输入点什么...&#39;</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 加载保存的内容（如果有）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">savedContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;quillContent&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">savedContent</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">quill</span>.<span style="color:#a6e22e">setContents</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">savedContent</span>));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 保存内容到localStorage的函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">saveContent</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">quill</span>.<span style="color:#a6e22e">getContents</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;quillContent&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">content</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Content saved!&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 添加保存按钮的点击事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.ql-save&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">saveContent</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Content saved!&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 每十五秒自动保存一次
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">setInterval</span>(<span style="color:#a6e22e">saveContent</span>, <span style="color:#ae81ff">15000</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><img src="/images/img_5.png" alt=""></p>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8quill_js%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E8%AE%B0%E4%BA%8B%E6%9C%AC/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 4, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8electron%E5%BC%80%E5%8F%91%E7%AA%97%E4%BD%93%E5%B9%B6%E6%89%93%E5%8C%85/" class="link black dim">
+        使用electron开发窗体并打包
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h2 id="环境准备">环境准备</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#设置代理</span>
+</span></span><span style="display:flex;"><span>set ELECTRON_GET_USE_PROXY<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>set GLOBAL_AGENT_HTTP_PROXY<span style="color:#f92672">=</span>http://proxy.example.com:7890
+</span></span><span style="display:flex;"><span>set GLOBAL_AGENT_HTTPS_PROXY<span style="color:#f92672">=</span>https://proxy.example.com:7890
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Clone this repository</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/electron/electron-quick-start
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Go into the repository</span>
+</span></span><span style="display:flex;"><span>cd electron-quick-start
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install dependencies</span>
+</span></span><span style="display:flex;"><span>npm install
+</span></span></code></pre></div><h1 id="可能会卡住探究一下为什么">可能会卡住（探究一下为什么）</h1>
+<pre><code>`npm install --save-dev @electron-forge/cli`
+</code></pre>
+<h2 id="运行">运行</h2>
+<pre><code>`npm start`
+</code></pre>
+<h2 id="打包">打包</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npx electron-forge import
+</span></span><span style="display:flex;"><span>npm run make
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8electron%E5%BC%80%E5%8F%91%E7%AA%97%E4%BD%93%E5%B9%B6%E6%89%93%E5%8C%85/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </aside>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/post/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

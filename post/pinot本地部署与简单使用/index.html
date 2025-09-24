@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>pinot本地部署与简单使用 | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="pinot本地部署与简单使用">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/pinot%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/pinot%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="pinot本地部署与简单使用">
+  <meta property="og:description" content="pinot本地部署与简单使用">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-08-15T10:58:08+00:00">
+    <meta property="article:modified_time" content="2025-08-15T10:58:08+00:00">
+    <meta property="article:tag" content="Pinot">
+    <meta property="article:tag" content="Mcp">
+
+  <meta itemprop="name" content="pinot本地部署与简单使用">
+  <meta itemprop="description" content="pinot本地部署与简单使用">
+  <meta itemprop="datePublished" content="2025-08-15T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-08-15T10:58:08+00:00">
+  <meta itemprop="wordCount" content="92">
+  <meta itemprop="keywords" content="Pinot,Mcp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="pinot本地部署与简单使用">
+  <meta name="twitter:description" content="pinot本地部署与简单使用">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        文章
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">pinot本地部署与简单使用</h1>
+      
+      <p class="tracked">
+         <strong>钱甫新</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-08-15T10:58:08Z">八月 15, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="部署">部署</h1>
+<p><a href="https://gist.github.com/QianFuXin/c6c5c1f9c67dc2866be863f8be06a8f6">链接</a></p>
+<h1 id="验证">验证</h1>
+<p>打开 <code>http://localhost:9000/#/</code></p>
+<p>测试broker是否连接上 <code>curl http://localhost:9000/v2/brokers</code>
+如果返回为空，有可能是因为开启容器的先后顺序导致。则 <code>docker restart pinot-broker</code></p>
+<h1 id="创建表">创建表</h1>
+<p><code>curl -X POST -H &quot;Content-Type: application/json&quot;   -d @schema.json   http://localhost:9000/schemas</code></p>
+<pre tabindex="0"><code>{
+  &#34;schemaName&#34;: &#34;my_table&#34;,
+  &#34;dimensionFieldSpecs&#34;: [
+    {&#34;name&#34;: &#34;id&#34;, &#34;dataType&#34;: &#34;STRING&#34;},
+    {&#34;name&#34;: &#34;name&#34;, &#34;dataType&#34;: &#34;STRING&#34;}
+  ],
+  &#34;metricFieldSpecs&#34;: [
+    {&#34;name&#34;: &#34;age&#34;, &#34;dataType&#34;: &#34;INT&#34;}
+  ],
+  &#34;dateTimeFieldSpecs&#34;: [
+    {
+      &#34;name&#34;: &#34;ts&#34;,
+      &#34;dataType&#34;: &#34;LONG&#34;,
+      &#34;format&#34;: &#34;1:MILLISECONDS:EPOCH&#34;,
+      &#34;granularity&#34;: &#34;1:MILLISECONDS&#34;
+    }
+  ]
+}
+</code></pre><p><code>curl -X POST -H &quot;Content-Type: application/json&quot;  -d @table.json http://localhost:9000/tables</code></p>
+<pre tabindex="0"><code>{
+&#34;tableName&#34;: &#34;my_table&#34;,
+&#34;tableType&#34;: &#34;OFFLINE&#34;,
+&#34;segmentsConfig&#34;: {
+&#34;timeColumnName&#34;: &#34;ts&#34;,
+&#34;schemaName&#34;: &#34;my_table&#34;,
+&#34;replication&#34;: &#34;1&#34;
+},
+&#34;tableIndexConfig&#34;: {
+&#34;loadMode&#34;: &#34;MMAP&#34;
+},
+&#34;tenants&#34;: {},
+&#34;metadata&#34;: {}
+}
+</code></pre><h1 id="测试">测试</h1>
+<p><a href="https://github.com/QianFuXin/mcps/blob/main/mcp_pinot.py">源码</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/pinot/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Pinot</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/mcp/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Mcp</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

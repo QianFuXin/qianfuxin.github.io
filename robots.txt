@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://qianfuxin.gitHub.io/sitemap.xml

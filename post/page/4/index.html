@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>文章 | Y&amp;F</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="generator" content="Hugo 0.141.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "钱甫新">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Y&amp;F" />
+      <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="Y&amp;F" />
+      
+    
+
+    
+      <link rel="canonical" href="https://qianfuxin.gitHub.io/post/">
+    
+
+    <meta property="og:url" content="https://qianfuxin.gitHub.io/post/">
+  <meta property="og:site_name" content="Y&F">
+  <meta property="og:title" content="文章">
+  <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="文章">
+  <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
+  <meta itemprop="datePublished" content="2025-08-15T10:58:08+00:00">
+  <meta itemprop="dateModified" content="2025-08-15T10:58:08+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="文章">
+  <meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe.">
+
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Y&amp;F
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="关于我 页">
+              关于我
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="文章 页">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          文章
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+      
+    </section>
+    <aside class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 3, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E4%BD%BF%E7%94%A8airflow%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1/" class="link black dim">
+        使用airflow定义任务
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="安装">安装</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 默认值</span>
+</span></span><span style="display:flex;"><span>export AIRFLOW_HOME<span style="color:#f92672">=</span>~/airflow
+</span></span><span style="display:flex;"><span>AIRFLOW_VERSION<span style="color:#f92672">=</span>2.9.3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Extract the version of Python you have installed. If you&#39;re currently using a Python version that is not supported by Airflow, you may want to set this manually.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See above for supported versions.</span>
+</span></span><span style="display:flex;"><span>PYTHON_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>python -c <span style="color:#e6db74">&#39;import sys; print(f&#34;{sys.version_info.major}.{sys.version_info.minor}&#34;)&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CONSTRAINT_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/apache/airflow/constraints-</span><span style="color:#e6db74">${</span>AIRFLOW_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">/constraints-</span><span style="color:#e6db74">${</span>PYTHON_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">.txt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For example this would install 2.9.3 with python 3.8: https://raw.githubusercontent.com/apache/airflow/constraints-2.9.3/constraints-3.8.txt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install <span style="color:#e6db74">&#34;apache-airflow==</span><span style="color:#e6db74">${</span>AIRFLOW_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> --constraint <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>CONSTRAINT_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 开启</span>
+</span></span><span style="display:flex;"><span>airflow standalone
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 初始账户为admin 密码为standalone_admin_password.txt</span>
+</span></span></code></pre></div><h1 id="创建任务">创建任务</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir dags
+</span></span><span style="display:flex;"><span>cd dags
+</span></span><span style="display:flex;"><span>vim my_task.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> textwrap
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The DAG object; we&#39;ll need this to instantiate a DAG</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.models.dag <span style="color:#f92672">import</span> DAG
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Operators; we need this to operate!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.operators.bash <span style="color:#f92672">import</span> BashOperator
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> DAG(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;tutorial&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># These args will get passed on to each operator</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># You can override them on a per-task basis during operator initialization</span>
+</span></span><span style="display:flex;"><span>    default_args<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;depends_on_past&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email&#34;</span>: [<span style="color:#e6db74">&#34;airflow@example.com&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email_on_failure&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email_on_retry&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;retries&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;retry_delay&#34;</span>: timedelta(minutes<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;queue&#39;: &#39;bash_queue&#39;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;pool&#39;: &#39;backfill&#39;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;priority_weight&#39;: 10,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;end_date&#39;: datetime(2016, 1, 1),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;wait_for_downstream&#39;: False,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;sla&#39;: timedelta(hours=2),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;execution_timeout&#39;: timedelta(seconds=300),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_failure_callback&#39;: some_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_success_callback&#39;: some_other_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_retry_callback&#39;: another_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;sla_miss_callback&#39;: yet_another_function, # or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;on_skipped_callback&#39;: another_function, #or list of functions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># &#39;trigger_rule&#39;: &#39;all_success&#39;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A simple tutorial DAG&#34;</span>,
+</span></span><span style="display:flex;"><span>    schedule<span style="color:#f92672">=</span>timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    start_date<span style="color:#f92672">=</span>datetime(<span style="color:#ae81ff">2021</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    catchup<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>    tags<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;example&#34;</span>],
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">as</span> dag:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># t1, t2 and t3 are examples of tasks created by instantiating operators</span>
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">=</span> BashOperator(
+</span></span><span style="display:flex;"><span>        task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;print_date&#34;</span>,
+</span></span><span style="display:flex;"><span>        bash_command<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;date&#34;</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t2 <span style="color:#f92672">=</span> BashOperator(
+</span></span><span style="display:flex;"><span>        task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sleep&#34;</span>,
+</span></span><span style="display:flex;"><span>        depends_on_past<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        bash_command<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sleep 5&#34;</span>,
+</span></span><span style="display:flex;"><span>        retries<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    t1<span style="color:#f92672">.</span>doc_md <span style="color:#f92672">=</span> textwrap<span style="color:#f92672">.</span>dedent(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">    #### Task Documentation
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    You can document your task using the attributes `doc_md` (markdown),
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    `doc` (plain text), `doc_rst`, `doc_json`, `doc_yaml` which gets
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    rendered in the UI&#39;s Task Instance Details page.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ![img](https://imgs.xkcd.com/comics/fixing_problems.png)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    **Image Credit:** Randall Munroe, [XKCD](https://xkcd.com/license.html)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dag<span style="color:#f92672">.</span>doc_md <span style="color:#f92672">=</span> __doc__  <span style="color:#75715e"># providing that you have a docstring at the beginning of the DAG; OR</span>
+</span></span><span style="display:flex;"><span>    dag<span style="color:#f92672">.</span>doc_md <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    This is a documentation placed anywhere
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>  <span style="color:#75715e"># otherwise, type it like this</span>
+</span></span><span style="display:flex;"><span>    templated_command <span style="color:#f92672">=</span> textwrap<span style="color:#f92672">.</span>dedent(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {</span><span style="color:#e6db74">% f</span><span style="color:#e6db74">or i in range(5) %}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;{{ ds }}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;{{ macros.ds_add(ds, 7)}}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {</span><span style="color:#e6db74">% e</span><span style="color:#e6db74">ndfor %}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t3 <span style="color:#f92672">=</span> BashOperator(
+</span></span><span style="display:flex;"><span>        task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;templated&#34;</span>,
+</span></span><span style="display:flex;"><span>        depends_on_past<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>        bash_command<span style="color:#f92672">=</span>templated_command,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">&gt;&gt;</span> [t2, t3]
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/%E4%BD%BF%E7%94%A8airflow%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 2, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/windows%E9%85%8D%E7%BD%AEgo/" class="link black dim">
+        windows配置go
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="安装">安装</h1>
+<p><a href="https://go.dev/dl/">官网</a></p>
+<h1 id="环境变量">环境变量</h1>
+<p>已默认配置好</p>
+<ul>
+<li>
+<p>默认的gopath是用户账户下的go文件夹</p>
+</li>
+<li>
+<p>默认的goroot是安装的位置</p>
+</li>
+</ul>
+<h1 id="goland开启demo">goland开启demo</h1>
+<ul>
+<li>
+<p>新建go项目</p>
+</li>
+<li>
+<p>安装包</p>
+<p><code>go get -u github.com/gin-gonic/gin</code></p>
+</li>
+<li>
+<p>新建main.go</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/ping&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#ae81ff">200</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;hello world&#34;</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Run</span>() <span style="color:#75715e">//listen and serve on 0.0.0.0:8080</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>运行</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#运行</span>
+</span></span><span style="display:flex;"><span>go run main.go
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 打包（在gopath的bin目录中，比如C:\Users\username\go\bin）</span>
+</span></span><span style="display:flex;"><span>go install
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/windows%E9%85%8D%E7%BD%AEgo/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        十月 1, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/web%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0exe/" class="link black dim">
+        web启动本地exe
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="生成注册表文件shellbat">生成注册表文件（shell.bat）</h1>
+<p><strong>注意：exe文件需要和shell.bat在同一目录下，且不要轻易更换exe的路径和名称。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>@<span style="color:#66d9ef">echo</span> off
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">setlocal</span> enabledelayedexpansion
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:<span style="color:#75715e">: 获取当前路径</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#e6db74">&#34;current_path=</span>%~dp0<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:<span style="color:#75715e">: 设置文件名</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#e6db74">&#34;exe_name=exe_name.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#e6db74">&#34;exe_path=</span>%current_path%%exe_name%<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:<span style="color:#75715e">: 确保路径中不含特殊字符，并处理反斜杠</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#e6db74">&#34;escaped_path=</span>%exe_path:\=\\%<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:<span style="color:#75715e">: 创建注册表文件内容</span>
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> Windows Registry Editor Version 5.00
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> [HKEY_CLASSES_ROOT\qfx]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> @=<span style="color:#e6db74">&#34;audioRecord&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;URL Protocol&#34;</span>=<span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> [HKEY_CLASSES_ROOT\qfx\DefaultIcon]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> @=<span style="color:#e6db74">&#34;</span>!escaped_path!<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> [HKEY_CLASSES_ROOT\qfx\shell]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> @=<span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> [HKEY_CLASSES_ROOT\qfx\shell\open]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> @=<span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> [HKEY_CLASSES_ROOT\qfx\shell\open\command]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> @=<span style="color:#e6db74">&#34;\&#34;</span>!escaped_path!\<span style="color:#e6db74">&#34; \&#34;</span><span style="color:#ae81ff">%%</span>1\<span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>) &gt; register.reg
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;OK!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pause</span>
+</span></span></code></pre></div><h1 id="使用">使用</h1>
+<p><strong>双击shell.bat生成register.reg，双击register.reg即可完成注册</strong> 。</p>
+<p><strong>使用下列代码即可 <em>唤醒本地</em> exe</strong>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qfx:&#34;</span>&gt;打开程序&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/web%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0exe/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 29, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/ubuntu%E9%85%8D%E7%BD%AEdocker%E5%92%8Cnvidia_%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E6%98%BE%E5%8D%A1%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="link black dim">
+        Ubuntu配置docker和NVIDIA_实现容器使用显卡深度学习
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <blockquote>
+<p>Ubuntu 20.04.6 LTS</p>
+</blockquote>
+<ul>
+<li>
+<p>安装英伟达驱动
+<img src="/images/img_3.png" alt=""></p>
+</li>
+<li>
+<p>安装docker</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 安装前准备</span>
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install vim git g++ ssh curl -y
+</span></span><span style="display:flex;"><span>sudo apt remove docker docker-engine docker.io containerd runc -y
+</span></span><span style="display:flex;"><span>sudo apt install <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>apt-transport-https <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>ca-certificates <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>curl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>gnupg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>lsb-release -y
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加GPG密钥</span>
+</span></span><span style="display:flex;"><span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</span></span><span style="display:flex;"><span>sudo add-apt-repository <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装</span>
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install docker-ce docker-ce-cli containerd.io -y
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加配置</span>
+</span></span><span style="display:flex;"><span>sudo mkdir -p /etc/docker
+</span></span><span style="display:flex;"><span>sudo mkdir -p /home/docker
+</span></span><span style="display:flex;"><span>sudo tee /etc/docker/daemon.json <span style="color:#e6db74">&lt;&lt;-&#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;registry-mirrors&#34;: [&#34;https://gjuibr2v.mirror.aliyuncs.com&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装NVIDIA容器包，支持GPU训练</span>
+</span></span><span style="display:flex;"><span>curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>sudo apt-key add -
+</span></span><span style="display:flex;"><span>distribution<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>. /etc/os-release;echo $ID$VERSION_ID<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt install -y nvidia-container-toolkit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启动docker</span>
+</span></span><span style="display:flex;"><span>sudo systemctl restart docker
+</span></span><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable --now docker
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 测试docker是否安装成功</span>
+</span></span><span style="display:flex;"><span>docker run hello-world <span style="color:#75715e"># 成功则输出&#34;hello-world&#34;</span>
+</span></span></code></pre></div><ul>
+<li>安装cuda</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+</span></span><span style="display:flex;"><span>sudo sh cuda_11.8.0_520.61.05_linux.run
+</span></span></code></pre></div><p><img src="/images/img_4.png" alt=""></p>
+    </div>
+  <a href="/post/ubuntu%E9%85%8D%E7%BD%AEdocker%E5%92%8Cnvidia_%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E6%98%BE%E5%8D%A1%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 28, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/transformer%E5%BE%AE%E8%B0%83%E5%8F%8A%E5%90%8E%E7%BB%AD%E6%8E%A8%E7%90%86/" class="link black dim">
+        transformer微调及后续推理
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="微调">微调</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> AutoModelForSequenceClassification
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;mps&#34;</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> AutoModelForSequenceClassification<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#34;distilbert/distilbert-base-uncased&#34;</span>)<span style="color:#f92672">.</span>to(device)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> TrainingArguments
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>training_args <span style="color:#f92672">=</span> TrainingArguments(
+</span></span><span style="display:flex;"><span>    output_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;path/to/save/folder/&#34;</span>,
+</span></span><span style="display:flex;"><span>    learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">2e-5</span>,
+</span></span><span style="display:flex;"><span>    per_device_train_batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>    per_device_eval_batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>    num_train_epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> AutoTokenizer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tokenizer <span style="color:#f92672">=</span> AutoTokenizer<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#34;distilbert/distilbert-base-uncased&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datasets <span style="color:#f92672">import</span> load_dataset
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dataset <span style="color:#f92672">=</span> load_dataset(<span style="color:#e6db74">&#34;rotten_tomatoes&#34;</span>)  <span style="color:#75715e"># doctest: +IGNORE_RESULT</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tokenize_dataset</span>(dataset):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> tokenizer(dataset[<span style="color:#e6db74">&#34;text&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dataset <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>map(tokenize_dataset, batched<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> DataCollatorWithPadding
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data_collator <span style="color:#f92672">=</span> DataCollatorWithPadding(tokenizer<span style="color:#f92672">=</span>tokenizer)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> Trainer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>trainer <span style="color:#f92672">=</span> Trainer(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span>model,
+</span></span><span style="display:flex;"><span>    args<span style="color:#f92672">=</span>training_args,
+</span></span><span style="display:flex;"><span>    train_dataset<span style="color:#f92672">=</span>dataset[<span style="color:#e6db74">&#34;train&#34;</span>]<span style="color:#f92672">.</span>with_format(<span style="color:#e6db74">&#34;torch&#34;</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mps&#34;</span>),
+</span></span><span style="display:flex;"><span>    eval_dataset<span style="color:#f92672">=</span>dataset[<span style="color:#e6db74">&#34;test&#34;</span>]<span style="color:#f92672">.</span>with_format(<span style="color:#e6db74">&#34;torch&#34;</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mps&#34;</span>),
+</span></span><span style="display:flex;"><span>    tokenizer<span style="color:#f92672">=</span>tokenizer,
+</span></span><span style="display:flex;"><span>    data_collator<span style="color:#f92672">=</span>data_collator,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>trainer<span style="color:#f92672">.</span>train()
+</span></span><span style="display:flex;"><span>trainer<span style="color:#f92672">.</span>save_model(<span style="color:#e6db74">&#34;path/to/save/folder&#34;</span>)
+</span></span></code></pre></div><h1 id="使用微调模型推理">使用微调模型推理</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> transformers <span style="color:#f92672">import</span> pipeline
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;mps&#34;</span>) <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>backends<span style="color:#f92672">.</span>mps<span style="color:#f92672">.</span>is_available() <span style="color:#66d9ef">else</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;cpu&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pipe <span style="color:#f92672">=</span> pipeline(<span style="color:#e6db74">&#34;fill-mask&#34;</span>, model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;path/to/save/folder&#34;</span>, device<span style="color:#f92672">=</span>device)
+</span></span><span style="display:flex;"><span>print(pipe(<span style="color:#e6db74">&#34;The goal of life is [MASK].&#34;</span>))
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/transformer%E5%BE%AE%E8%B0%83%E5%8F%8A%E5%90%8E%E7%BB%AD%E6%8E%A8%E7%90%86/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 27, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/str-api%E5%B8%B8%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="link black dim">
+        str-api常用接口
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="文件操作可以和其他表集成">文件操作（可以和其他表集成）</h1>
+<p><img src="/images/img_2.png" alt=""></p>
+<p><img src="/images/img_1.png" alt=""></p>
+<h1 id="登录注册">登录注册</h1>
+<p><img src="/images/img.png" alt=""></p>
+    </div>
+  <a href="/post/str-api%E5%B8%B8%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 26, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/sqlalchemy%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/" class="link black dim">
+        sqlalchemy操作数据库
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy <span style="color:#f92672">import</span> create_engine, text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DB_URI <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mysql+pymysql://</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">@</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(
+</span></span><span style="display:flex;"><span>    USERNAME, PASSWORD, HOSTNAME, POST, DATABASE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># SQLAlchemy 2.0.23</span>
+</span></span><span style="display:flex;"><span>    db_engine <span style="color:#f92672">=</span> create_engine(DB_URI)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> db_engine<span style="color:#f92672">.</span>connect() <span style="color:#66d9ef">as</span> conn:
+</span></span><span style="display:flex;"><span>        sql_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT * FROM some_table WHERE id=:id&#34;</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>execute(text(sql_query), {<span style="color:#e6db74">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>})
+</span></span><span style="display:flex;"><span>        print(result<span style="color:#f92672">.</span>all())
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;完成&#34;</span>, result<span style="color:#f92672">.</span>rowcount, <span style="color:#e6db74">&#34;行被更新。&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果是更新等语句要提交</span>
+</span></span><span style="display:flex;"><span>        conn<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">5</span>)
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/sqlalchemy%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 25, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/rabbitmq%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8Apython%E8%B0%83%E7%94%A8/" class="link black dim">
+        rabbitMQ的配置及python调用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="配置rabbitmq">配置rabbitMQ</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3.8&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  rabbitmq:
+</span></span><span style="display:flex;"><span>    image: rabbitmq:3-management
+</span></span><span style="display:flex;"><span>    container_name: rabbitmq
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5672:5672&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;15672:15672&#34;</span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      RABBITMQ_DEFAULT_USER: user
+</span></span><span style="display:flex;"><span>      RABBITMQ_DEFAULT_PASS: password
+</span></span><span style="display:flex;"><span>    volumes:
+</span></span><span style="display:flex;"><span>      - /dc/rabbitmq:/var/lib/rabbitmq
+</span></span></code></pre></div><h1 id="生产者">生产者</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pika
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>connection <span style="color:#f92672">=</span> pika<span style="color:#f92672">.</span>BlockingConnection(
+</span></span><span style="display:flex;"><span>    pika<span style="color:#f92672">.</span>ConnectionParameters(<span style="color:#e6db74">&#39;localhost&#39;</span>, <span style="color:#ae81ff">5672</span>, <span style="color:#e6db74">&#39;/&#39;</span>, pika<span style="color:#f92672">.</span>PlainCredentials(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;password&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span>channel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>queue_declare(queue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>, durable<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>    message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World1&#34;</span>
+</span></span><span style="display:flex;"><span>    channel<span style="color:#f92672">.</span>basic_publish(
+</span></span><span style="display:flex;"><span>        exchange<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>        routing_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>,
+</span></span><span style="display:flex;"><span>        body<span style="color:#f92672">=</span>message,
+</span></span><span style="display:flex;"><span>        properties<span style="color:#f92672">=</span>pika<span style="color:#f92672">.</span>BasicProperties(
+</span></span><span style="display:flex;"><span>            delivery_mode<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,  <span style="color:#75715e"># make message persistent</span>
+</span></span><span style="display:flex;"><span>        ))
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34; [x] Sent </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> message)
+</span></span><span style="display:flex;"><span>connection<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h1 id="消费者">消费者</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pika
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>connection <span style="color:#f92672">=</span> pika<span style="color:#f92672">.</span>BlockingConnection(
+</span></span><span style="display:flex;"><span>    pika<span style="color:#f92672">.</span>ConnectionParameters(<span style="color:#e6db74">&#39;localhost&#39;</span>, <span style="color:#ae81ff">5672</span>, <span style="color:#e6db74">&#39;/&#39;</span>, pika<span style="color:#f92672">.</span>PlainCredentials(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;password&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span>channel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>queue_declare(queue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>, durable<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">callback</span>(ch, method, properties, body):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34; [x] Received </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> body)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>basic_consume(queue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;log_queue&#39;</span>,
+</span></span><span style="display:flex;"><span>                      on_message_callback<span style="color:#f92672">=</span>callback,
+</span></span><span style="display:flex;"><span>                      auto_ack<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39; [*] Waiting for messages. To exit press CTRL+C&#39;</span>)
+</span></span><span style="display:flex;"><span>channel<span style="color:#f92672">.</span>start_consuming()
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div>
+    </div>
+  <a href="/post/rabbitmq%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8Apython%E8%B0%83%E7%94%A8/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 25, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python%E5%BD%95%E9%9F%B3/" class="link black dim">
+        用python进行录音
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> pyaudio
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> wave
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AudioRecorder</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>p <span style="color:#f92672">=</span> pyaudio<span style="color:#f92672">.</span>PyAudio()
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>frames <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>device_index <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_recording <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>recording_thread <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">list_input_devices</span>(self):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;列出所有可用的录音设备&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            device_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>get_device_count()):
+</span></span><span style="display:flex;"><span>                device_info <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>get_device_info_by_index(i)
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 筛选出录音设备</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> device_info[<span style="color:#e6db74">&#34;maxInputChannels&#34;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                    device_list<span style="color:#f92672">.</span>append((i, device_info[<span style="color:#e6db74">&#34;name&#34;</span>]))
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Index: </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">, Name: </span><span style="color:#e6db74">{</span>device_info[<span style="color:#e6db74">&#39;name&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> device_list
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">start_recording</span>(self, device_index, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;output.wav&#34;</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;使用指定设备开始录音&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>device_index <span style="color:#f92672">=</span> device_index
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>frames <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_recording <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 启动录音流</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>open(format<span style="color:#f92672">=</span>pyaudio<span style="color:#f92672">.</span>paInt16,
+</span></span><span style="display:flex;"><span>                                      channels<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>                                      rate<span style="color:#f92672">=</span><span style="color:#ae81ff">44100</span>,
+</span></span><span style="display:flex;"><span>                                      input<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>                                      input_device_index<span style="color:#f92672">=</span>device_index,
+</span></span><span style="display:flex;"><span>                                      frames_per_buffer<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>)
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;Recording started. Call `stop_recording` to end manually.&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 启动录音线程</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>recording_thread <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>record, args<span style="color:#f92672">=</span>(filename,))
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>recording_thread<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">record</span>(self, filename):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;录音线程函数，用于捕获音频数据&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>is_recording:
+</span></span><span style="display:flex;"><span>                    data <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>read(<span style="color:#ae81ff">1024</span>, exception_on_overflow<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>frames<span style="color:#f92672">.</span>append(data)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Error during recording: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stop_recording</span>(self, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;output.wav&#34;</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;停止录音并保存文件&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_recording:
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">&#34;Stopping recording...&#34;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 停止录音循环</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>is_recording <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 等待录音线程结束</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>recording_thread:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>recording_thread<span style="color:#f92672">.</span>join()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 停止并关闭音频流</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>stream:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>stop_stream()
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">&#34;Recording stopped.&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 保存录音文件</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">with</span> wave<span style="color:#f92672">.</span>open(filename, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> wf:
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>setnchannels(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>setsampwidth(self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>get_sample_size(pyaudio<span style="color:#f92672">.</span>paInt16))
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>setframerate(<span style="color:#ae81ff">44100</span>)
+</span></span><span style="display:flex;"><span>                    wf<span style="color:#f92672">.</span>writeframes(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>frames))
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Recording saved as </span><span style="color:#e6db74">{</span>filename<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">close</span>(self):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;关闭 PyAudio 实例&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>p<span style="color:#f92672">.</span>terminate()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 使用示例</span>
+</span></span><span style="display:flex;"><span>    recorder <span style="color:#f92672">=</span> AudioRecorder()
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    1. 列出所有录音设备
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    输出示例
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Index: 0, Name: “钱甫新的iPhone”的麦克风
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Index: 1, Name: MacBook Air麦克风
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>list_input_devices()
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    2. 选择一个设备进行录音（此处以设备索引0为例，具体要使用哪个录音设备，请参考具体的【列出所有录音设备】输出结果）
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>start_recording(device_index<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_recording.wav&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 模拟一些操作或等待录音，用户可以在适当的时候手动停止录音</span>
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    3. 手动接入停止录音
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>stop_recording(filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_recording.wav&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 最后关闭 PyAudio 实例</span>
+</span></span><span style="display:flex;"><span>    recorder<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h1 id="环境">环境</h1>
+<pre><code>python3.10
+
+PyAudio==0.2.14
+</code></pre>
+    </div>
+  <a href="/post/python%E5%BD%95%E9%9F%B3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        九月 24, 2024
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/" class="link black dim">
+        pythonGUI实现大模型流式对话_whisper_ollama
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="服务部署">服务部署</h1>
+<h2 id="部署whisper-api服务">部署whisper api服务</h2>
+<pre><code>version: '3.8'
+
+services:
+  whisper-asr:
+    image: onerahmet/openai-whisper-asr-webservice:latest
+    container_name: whisper-asr-service
+    ports:
+      - &quot;9099:9000&quot;
+    volumes:
+      - /Users/qianfuxin/dc/whisper:/root/.cache/whisper
+    environment:
+      - ASR_MODEL=base
+      - ASR_ENGINE=openai_whisper
+    restart: unless-stopped
+</code></pre>
+<h2 id="部署ollama">部署ollama</h2>
+<p>见官网</p>
+<h1 id="代码">代码</h1>
+<pre><code>import mimetypes
+import os
+import sys
+from datetime import datetime
+import socksio
+import requests
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QTextEdit
+import pyaudio
+import wave
+import threading
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI
+
+
+def transcribe_audio(file_path):
+    &quot;&quot;&quot;
+    Function to transcribe audio using the ASR service.
+
+    :param file_path: The full path to the audio file to be transcribed.
+    :return: The response text from the ASR service.
+    &quot;&quot;&quot;
+    # Ensure the file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f&quot;Audio file not found at: {file_path}&quot;)
+
+    # Determine MIME type
+    mime_type, _ = mimetypes.guess_type(file_path)
+    if mime_type is None:
+        raise ValueError(f&quot;Unable to determine MIME type for file: {file_path}&quot;)
+
+    # Extract file name
+    file_name = os.path.basename(file_path)
+
+    url = &quot;http://localhost:9099/asr&quot;
+    params = {
+        &quot;encode&quot;: &quot;true&quot;,
+        &quot;task&quot;: &quot;transcribe&quot;,
+        &quot;language&quot;: &quot;zh&quot;,
+        &quot;initial_prompt&quot;: &quot;这是一段简体中文&quot;,
+        &quot;word_timestamps&quot;: &quot;false&quot;,
+        &quot;output&quot;: &quot;txt&quot;
+    }
+    headers = {
+        &quot;accept&quot;: &quot;application/json&quot;,
+    }
+
+    # Open the audio file
+    with open(file_path, &quot;rb&quot;) as audio_file:
+        files = {
+            &quot;audio_file&quot;: (file_name, audio_file, mime_type)
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, params=params, files=files)
+    return response.text
+
+
+def get_model(base_url=&quot;http://127.0.0.1:11434/v1&quot;):
+    &quot;&quot;&quot;Get the AI model instance.&quot;&quot;&quot;
+    model = ChatOpenAI(
+        api_key=&quot;ollama&quot;,
+        model=&quot;qwen2&quot;,
+        base_url=base_url
+    )
+    return model
+
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.stream = None
+        self.frames = []
+        self.device_index = None
+        self.is_recording = False
+        self.recording_thread = None
+
+    def list_input_devices(self):
+        &quot;&quot;&quot;List available input devices.&quot;&quot;&quot;
+        device_list = []
+        for i in range(self.p.get_device_count()):
+            device_info = self.p.get_device_info_by_index(i)
+            if device_info[&quot;maxInputChannels&quot;] &gt; 0:
+                device_list.append((i, device_info[&quot;name&quot;]))
+        return device_list
+
+    def start_recording(self, device_index):
+        &quot;&quot;&quot;Start recording with the specified device.&quot;&quot;&quot;
+        self.device_index = device_index
+        self.frames = []
+        self.is_recording = True
+
+        self.stream = self.p.open(format=pyaudio.paInt16,
+                                  channels=1,
+                                  rate=44100,
+                                  input=True,
+                                  input_device_index=device_index,
+                                  frames_per_buffer=1024)
+
+        self.recording_thread = threading.Thread(target=self.record)
+        self.recording_thread.start()
+
+    def record(self):
+        &quot;&quot;&quot;Record audio in a separate thread.&quot;&quot;&quot;
+        try:
+            while self.is_recording:
+                data = self.stream.read(1024, exception_on_overflow=False)
+                self.frames.append(data)
+        except IOError as e:
+            print(f&quot;Buffer overflow occurred: {e}&quot;)
+
+    def stop_recording(self, filename):
+        &quot;&quot;&quot;Stop recording and save the file.&quot;&quot;&quot;
+        if self.is_recording:
+            self.is_recording = False
+            if self.recording_thread and self.recording_thread.is_alive():
+                self.recording_thread.join()
+
+            if self.stream:
+                self.stream.stop_stream()
+                self.stream.close()
+                self.stream = None
+
+            with wave.open(filename, 'wb') as wf:
+                wf.setnchannels(1)
+                wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+                wf.setframerate(44100)
+                wf.writeframes(b''.join(self.frames))
+
+    def close(self):
+        &quot;&quot;&quot;Close the PyAudio instance.&quot;&quot;&quot;
+        self.p.terminate()
+
+
+class RecorderApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.recorder = AudioRecorder()
+        self.filename = None
+        self.model = get_model()
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle(&quot;实时语音识别与问答&quot;)
+        self.setGeometry(100, 100, 500, 400)
+
+        layout = QVBoxLayout()
+
+        # 开启录音按钮
+        self.start_button = QPushButton(&quot;开启录音&quot;)
+        self.start_button.clicked.connect(self.start_recording)
+        layout.addWidget(self.start_button)
+
+        # 结束录音按钮
+        self.stop_button = QPushButton(&quot;结束录音&quot;)
+        self.stop_button.clicked.connect(self.stop_recording)
+        self.stop_button.setEnabled(False)
+        layout.addWidget(self.stop_button)
+
+        # 状态显示标签
+        self.status_label = QLabel(&quot;用户问题: &quot;, self)
+        layout.addWidget(self.status_label)
+
+        # 输出结果框
+        self.output_box = QTextEdit(self)
+        self.output_box.setReadOnly(True)
+        layout.addWidget(self.output_box)
+
+        self.setLayout(layout)
+
+    def start_recording(self):
+        device_index = 0  # For simplicity, we assume default device.
+        start_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{start_time}.wav&quot;
+
+        self.recorder.start_recording(device_index)
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
+    def stop_recording(self):
+        self.recorder.stop_recording(self.filename)
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+
+        # 转录音频并生成回答
+        transcription = transcribe_audio(self.filename)
+        self.status_label.setText(f&quot;用户问题: {transcription}&quot;)
+        self.generate_answer(transcription)
+
+    def generate_answer(self, transcription):
+        &quot;&quot;&quot;
+        Send the transcription to the large model and display the streamed response.
+        &quot;&quot;&quot;
+        QApplication.processEvents()
+
+        messages = [
+            SystemMessage(&quot;你是一个智能助手。&quot;),
+            HumanMessage(content=transcription)
+        ]
+        parser = StrOutputParser()
+        chain = self.model | parser
+
+        response = &quot;&quot;
+        for token in chain.stream(messages):
+            response += token
+            self.output_box.setText(response)
+            QApplication.processEvents()
+
+
+if __name__ == &quot;__main__&quot;:
+    app = QApplication(sys.argv)
+    window = RecorderApp()
+    window.show()
+    sys.exit(app.exec_())
+</code></pre>
+<h3 id="仅仅实现asr">仅仅实现ASR</h3>
+<pre><code>import mimetypes
+import os
+import sys
+from datetime import datetime
+
+import requests
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QComboBox, QMessageBox, \
+    QSystemTrayIcon, QMenu, QAction
+import pyaudio
+import wave
+import threading
+
+
+def transcribe_audio(file_path):
+    &quot;&quot;&quot;
+    Function to transcribe audio using the ASR service.
+
+    :param file_path: The full path to the audio file to be transcribed.
+    :return: The response text from the ASR service.
+    &quot;&quot;&quot;
+    # Ensure the file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f&quot;Audio file not found at: {file_path}&quot;)
+
+    # Determine MIME type
+    mime_type, _ = mimetypes.guess_type(file_path)
+    if mime_type is None:
+        raise ValueError(f&quot;Unable to determine MIME type for file: {file_path}&quot;)
+
+    # Extract file name
+    file_name = os.path.basename(file_path)
+
+    url = &quot;http://localhost:9099/asr&quot;
+    params = {
+        &quot;encode&quot;: &quot;true&quot;,
+        &quot;task&quot;: &quot;transcribe&quot;,
+        &quot;language&quot;: &quot;zh&quot;,
+        &quot;initial_prompt&quot;: &quot;这是一段简体中文&quot;,
+        &quot;word_timestamps&quot;: &quot;false&quot;,
+        &quot;output&quot;: &quot;txt&quot;
+    }
+    headers = {
+        &quot;accept&quot;: &quot;application/json&quot;,
+    }
+
+    # Open the audio file
+    with open(file_path, &quot;rb&quot;) as audio_file:
+        files = {
+            &quot;audio_file&quot;: (file_name, audio_file, mime_type)
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, params=params, files=files)
+
+    return response.text
+
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.stream = None
+        self.frames = []
+        self.device_index = None
+        self.is_recording = False
+        self.recording_thread = None
+
+    def list_input_devices(self):
+        &quot;&quot;&quot;列出所有可用的录音设备&quot;&quot;&quot;
+        device_list = []
+        for i in range(self.p.get_device_count()):
+            device_info = self.p.get_device_info_by_index(i)
+            # 筛选出录音设备
+            if device_info[&quot;maxInputChannels&quot;] &gt; 0:
+                device_list.append((i, device_info[&quot;name&quot;]))
+        return device_list
+
+    def start_recording(self, device_index):
+        &quot;&quot;&quot;使用指定设备开始录音&quot;&quot;&quot;
+        self.device_index = device_index
+        self.frames = []
+        self.is_recording = True
+
+        self.stream = self.p.open(format=pyaudio.paInt16,
+                                  channels=1,
+                                  rate=44100,
+                                  input=True,
+                                  input_device_index=device_index,
+                                  frames_per_buffer=1024)
+
+        # 启动录音线程
+        self.recording_thread = threading.Thread(target=self.record)
+        self.recording_thread.start()
+
+    def record(self):
+        &quot;&quot;&quot;录音线程函数，用于捕获音频数据&quot;&quot;&quot;
+        try:
+            while self.is_recording:
+                data = self.stream.read(1024, exception_on_overflow=False)
+                self.frames.append(data)
+        except IOError as e:
+            print(f&quot;Buffer overflow occurred: {e}&quot;)
+
+    def stop_recording(self, filename):
+        &quot;&quot;&quot;停止录音并保存文件&quot;&quot;&quot;
+        if self.is_recording:
+            self.is_recording = False
+            if self.recording_thread and self.recording_thread.is_alive():
+                self.recording_thread.join()
+
+            if self.stream:
+                self.stream.stop_stream()
+                self.stream.close()
+                self.stream = None
+
+            with wave.open(filename, 'wb') as wf:
+                wf.setnchannels(1)
+                wf.setsampwidth(self.p.get_sample_size(pyaudio.paInt16))
+                wf.setframerate(44100)
+                wf.writeframes(b''.join(self.frames))
+
+    def close(self):
+        &quot;&quot;&quot;关闭 PyAudio 实例&quot;&quot;&quot;
+        self.p.terminate()
+
+
+def resource_path(relative_path):
+    &quot;&quot;&quot;获取资源文件的绝对路径&quot;&quot;&quot;
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath(&quot;.&quot;), relative_path)
+
+
+class RecorderApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.recorder = AudioRecorder()
+        self.filename = None
+
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle(&quot;录音器&quot;)
+        self.setGeometry(100, 100, 400, 300)
+
+        # 创建系统托盘图标
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(QIcon(resource_path(&quot;icon.png&quot;)))
+
+        # 创建托盘菜单
+        tray_menu = QMenu()
+
+        # 添加显示窗口的选项
+        show_action = QAction(&quot;显示窗口&quot;, self)
+        show_action.triggered.connect(self.show)
+        tray_menu.addAction(show_action)
+
+        # 添加退出的选项
+        exit_action = QAction(&quot;退出&quot;, self)
+        exit_action.triggered.connect(QApplication.instance().quit)
+        tray_menu.addAction(exit_action)
+
+        # 将菜单添加到托盘图标
+        self.tray_icon.setContextMenu(tray_menu)
+
+        # 设置点击双击托盘图标的动作
+        self.tray_icon.activated.connect(self.on_tray_icon_activated)
+
+        # 显示托盘图标
+        self.tray_icon.show()
+
+        layout = QVBoxLayout()
+
+        # 开启录音按钮
+        self.start_button = QPushButton(&quot;开启录音&quot;)
+        self.start_button.clicked.connect(self.start_recording)
+        layout.addWidget(self.start_button)
+
+        # 结束录音按钮
+        self.stop_button = QPushButton(&quot;结束录音&quot;)
+        self.stop_button.clicked.connect(self.stop_recording)
+        self.stop_button.setEnabled(False)
+        layout.addWidget(self.stop_button)
+
+        # 设备选择下拉菜单
+        self.device_selector = QComboBox(self)
+        devices = self.recorder.list_input_devices()
+        if devices:
+            for index, name in devices:
+                self.device_selector.addItem(name, index)
+        else:
+            QMessageBox.warning(self, &quot;错误&quot;, &quot;未检测到录音设备&quot;)
+            self.start_button.setEnabled(False)
+        layout.addWidget(self.device_selector)
+
+        # 状态显示标签
+        self.status_label = QLabel(&quot;状态: 未录音&quot;, self)
+        layout.addWidget(self.status_label)
+
+        self.setLayout(layout)
+
+    def closeEvent(self, event):
+        &quot;&quot;&quot;窗口关闭事件&quot;&quot;&quot;
+        if self.isVisible():  # 如果窗口可见，则最小化到托盘
+            event.ignore()
+            self.hide()
+            self.tray_icon.showMessage(
+                &quot;应用最小化&quot;, &quot;程序已最小化到托盘&quot;,
+                QSystemTrayIcon.Information, 2000
+            )
+        else:  # 关闭应用时清理资源
+            self.recorder.close()
+            event.accept()
+
+    def on_tray_icon_activated(self, reason):
+        &quot;&quot;&quot;托盘图标激活事件&quot;&quot;&quot;
+        if reason == QSystemTrayIcon.DoubleClick:
+            self.show()
+
+    def start_recording(self):
+        device_index = self.device_selector.currentData()
+        start_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{start_time}.wav&quot;
+
+        self.recorder.start_recording(device_index)
+        self.status_label.setText(&quot;状态: 录音中...&quot;)
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
+    def stop_recording(self):
+        end_time = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+        self.filename = f&quot;{self.filename[:-4]}-{end_time}.wav&quot;  # 更新文件名
+        self.recorder.stop_recording(self.filename)
+        self.status_label.setText(f&quot;状态: 录音已保存为 {self.filename}&quot;)
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+        self.status_label.setText(f&quot;状态: 录音已保存为 {self.filename}\n录音内容：{transcribe_audio(self.filename)}&quot;)
+
+
+# 主程序入口
+if __name__ == &quot;__main__&quot;:
+    app = QApplication(sys.argv)
+    window = RecorderApp()
+    window.show()
+    sys.exit(app.exec_())
+    &quot;&quot;&quot;
+    pyinstaller --onefile --windowed --noconfirm --add-data &quot;icon.png;.&quot; app.py
+    &quot;&quot;&quot;
+</code></pre>
+    </div>
+  <a href="/post/pythongui%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%81%E5%BC%8F%E5%AF%B9%E8%AF%9D_whisper_ollama/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+  </div>
+
+        </div>
+      
+    </aside>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/post/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/3/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/5/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/post/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://qianfuxin.gitHub.io/" >
+    &copy;  Y&F 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

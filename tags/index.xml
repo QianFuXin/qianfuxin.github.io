@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/</link>
+    <description>Recent content in Tags on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 15 Aug 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Huey</title>
+      <link>https://qianfuxin.gitHub.io/tags/huey/</link>
+      <pubDate>Fri, 15 Aug 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/huey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mcp</title>
+      <link>https://qianfuxin.gitHub.io/tags/mcp/</link>
+      <pubDate>Fri, 15 Aug 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/mcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pinot</title>
+      <link>https://qianfuxin.gitHub.io/tags/pinot/</link>
+      <pubDate>Fri, 15 Aug 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/pinot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>异步</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E5%BC%82%E6%AD%A5/</link>
+      <pubDate>Fri, 15 Aug 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E5%BC%82%E6%AD%A5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Airflow</title>
+      <link>https://qianfuxin.gitHub.io/tags/airflow/</link>
+      <pubDate>Sat, 05 Jul 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/airflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://qianfuxin.gitHub.io/tags/linux/</link>
+      <pubDate>Sat, 05 Jul 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ollama</title>
+      <link>https://qianfuxin.gitHub.io/tags/ollama/</link>
+      <pubDate>Sat, 24 May 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/ollama/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qwen3</title>
+      <link>https://qianfuxin.gitHub.io/tags/qwen3/</link>
+      <pubDate>Sat, 24 May 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/qwen3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vllm</title>
+      <link>https://qianfuxin.gitHub.io/tags/vllm/</link>
+      <pubDate>Sat, 24 May 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/vllm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>大模型</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Sat, 24 May 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pandas</title>
+      <link>https://qianfuxin.gitHub.io/tags/pandas/</link>
+      <pubDate>Sat, 10 May 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/pandas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>人脸</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E4%BA%BA%E8%84%B8/</link>
+      <pubDate>Sat, 26 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E4%BA%BA%E8%84%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>油猴</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E6%B2%B9%E7%8C%B4/</link>
+      <pubDate>Sun, 06 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E6%B2%B9%E7%8C%B4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chrome</title>
+      <link>https://qianfuxin.gitHub.io/tags/chrome/</link>
+      <pubDate>Sat, 05 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/chrome/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mac</title>
+      <link>https://qianfuxin.gitHub.io/tags/mac/</link>
+      <pubDate>Sat, 05 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/mac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Selenium</title>
+      <link>https://qianfuxin.gitHub.io/tags/selenium/</link>
+      <pubDate>Sat, 05 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/selenium/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自动化</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+      <pubDate>Sat, 05 Apr 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DBSCAN</title>
+      <link>https://qianfuxin.gitHub.io/tags/dbscan/</link>
+      <pubDate>Sun, 09 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/dbscan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fuzz</title>
+      <link>https://qianfuxin.gitHub.io/tags/fuzz/</link>
+      <pubDate>Sun, 09 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/fuzz/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>语义相似度</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E5%BA%A6/</link>
+      <pubDate>Sun, 09 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E5%BA%A6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clash</title>
+      <link>https://qianfuxin.gitHub.io/tags/clash/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/clash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embeddings</title>
+      <link>https://qianfuxin.gitHub.io/tags/embeddings/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/embeddings/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LangChain</title>
+      <link>https://qianfuxin.gitHub.io/tags/langchain/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/langchain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://qianfuxin.gitHub.io/tags/llm/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rag</title>
+      <link>https://qianfuxin.gitHub.io/tags/rag/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://qianfuxin.gitHub.io/tags/shell/</link>
+      <pubDate>Sat, 08 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Conda</title>
+      <link>https://qianfuxin.gitHub.io/tags/conda/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/conda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cron</title>
+      <link>https://qianfuxin.gitHub.io/tags/cron/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/cron/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://qianfuxin.gitHub.io/tags/docker/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gocron</title>
+      <link>https://qianfuxin.gitHub.io/tags/gocron/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/gocron/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llama</title>
+      <link>https://qianfuxin.gitHub.io/tags/llama/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/llama/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://qianfuxin.gitHub.io/tags/python/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>镜像</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E9%95%9C%E5%83%8F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>微调</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E5%BE%AE%E8%B0%83/</link>
+      <pubDate>Sat, 22 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E5%BE%AE%E8%B0%83/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Centos</title>
+      <link>https://qianfuxin.gitHub.io/tags/centos/</link>
+      <pubDate>Sat, 15 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/centos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pocketbase</title>
+      <link>https://qianfuxin.gitHub.io/tags/pocketbase/</link>
+      <pubDate>Sat, 15 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/pocketbase/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zsh</title>
+      <link>https://qianfuxin.gitHub.io/tags/zsh/</link>
+      <pubDate>Sat, 15 Feb 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/zsh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ssh</title>
+      <link>https://qianfuxin.gitHub.io/tags/ssh/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>彩票</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E5%BD%A9%E7%A5%A8/</link>
+      <pubDate>Sat, 12 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E5%BD%A9%E7%A5%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>谷歌搜索</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Fri, 11 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>爬虫</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Thu, 10 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E7%88%AC%E8%99%AB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>接口测试</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Tue, 08 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PyPI</title>
+      <link>https://qianfuxin.gitHub.io/tags/pypi/</link>
+      <pubDate>Mon, 07 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/pypi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flv</title>
+      <link>https://qianfuxin.gitHub.io/tags/flv/</link>
+      <pubDate>Sun, 06 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/flv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Obs-Studio</title>
+      <link>https://qianfuxin.gitHub.io/tags/obs-studio/</link>
+      <pubDate>Sun, 06 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/obs-studio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Srs</title>
+      <link>https://qianfuxin.gitHub.io/tags/srs/</link>
+      <pubDate>Sun, 06 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/srs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quill_js</title>
+      <link>https://qianfuxin.gitHub.io/tags/quill_js/</link>
+      <pubDate>Sat, 05 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/quill_js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>记事本</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E8%AE%B0%E4%BA%8B%E6%9C%AC/</link>
+      <pubDate>Sat, 05 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E8%AE%B0%E4%BA%8B%E6%9C%AC/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Electron</title>
+      <link>https://qianfuxin.gitHub.io/tags/electron/</link>
+      <pubDate>Fri, 04 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/electron/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>定时</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E5%AE%9A%E6%97%B6/</link>
+      <pubDate>Thu, 03 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E5%AE%9A%E6%97%B6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Go</title>
+      <link>https://qianfuxin.gitHub.io/tags/go/</link>
+      <pubDate>Wed, 02 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/go/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://qianfuxin.gitHub.io/tags/windows/</link>
+      <pubDate>Wed, 02 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exe</title>
+      <link>https://qianfuxin.gitHub.io/tags/exe/</link>
+      <pubDate>Tue, 01 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/exe/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://qianfuxin.gitHub.io/tags/web/</link>
+      <pubDate>Tue, 01 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>注册表</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/</link>
+      <pubDate>Tue, 01 Oct 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NVIDIA</title>
+      <link>https://qianfuxin.gitHub.io/tags/nvidia/</link>
+      <pubDate>Sun, 29 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://qianfuxin.gitHub.io/tags/ubuntu/</link>
+      <pubDate>Sun, 29 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深度学习</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sun, 29 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformer</title>
+      <link>https://qianfuxin.gitHub.io/tags/transformer/</link>
+      <pubDate>Sat, 28 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/transformer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sqlalchemy</title>
+      <link>https://qianfuxin.gitHub.io/tags/sqlalchemy/</link>
+      <pubDate>Fri, 27 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/sqlalchemy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>StrApi</title>
+      <link>https://qianfuxin.gitHub.io/tags/strapi/</link>
+      <pubDate>Fri, 27 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/strapi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RabbitMQ</title>
+      <link>https://qianfuxin.gitHub.io/tags/rabbitmq/</link>
+      <pubDate>Wed, 25 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>录音</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E5%BD%95%E9%9F%B3/</link>
+      <pubDate>Wed, 25 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E5%BD%95%E9%9F%B3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Whisper</title>
+      <link>https://qianfuxin.gitHub.io/tags/whisper/</link>
+      <pubDate>Tue, 24 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/whisper/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memcached</title>
+      <link>https://qianfuxin.gitHub.io/tags/memcached/</link>
+      <pubDate>Mon, 23 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/memcached/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>缓存</title>
+      <link>https://qianfuxin.gitHub.io/tags/%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Mon, 23 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/%E7%BC%93%E5%AD%98/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ocr</title>
+      <link>https://qianfuxin.gitHub.io/tags/ocr/</link>
+      <pubDate>Sun, 22 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/ocr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tesseract</title>
+      <link>https://qianfuxin.gitHub.io/tags/tesseract/</link>
+      <pubDate>Sun, 22 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/tesseract/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FishSpeech</title>
+      <link>https://qianfuxin.gitHub.io/tags/fishspeech/</link>
+      <pubDate>Sat, 21 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/fishspeech/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HuggingFace</title>
+      <link>https://qianfuxin.gitHub.io/tags/huggingface/</link>
+      <pubDate>Sat, 21 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/huggingface/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tts</title>
+      <link>https://qianfuxin.gitHub.io/tags/tts/</link>
+      <pubDate>Sat, 21 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/tts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://qianfuxin.gitHub.io/tags/elasticsearch/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fzf&#34;</title>
+      <link>https://qianfuxin.gitHub.io/tags/fzf/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/fzf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub</title>
+      <link>https://qianfuxin.gitHub.io/tags/github/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jupyte</title>
+      <link>https://qianfuxin.gitHub.io/tags/jupyte/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/jupyte/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Peotry</title>
+      <link>https://qianfuxin.gitHub.io/tags/peotry/</link>
+      <pubDate>Mon, 09 Sep 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/peotry/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openai</title>
+      <link>https://qianfuxin.gitHub.io/tags/openai/</link>
+      <pubDate>Fri, 15 Mar 2024 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/tags/openai/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

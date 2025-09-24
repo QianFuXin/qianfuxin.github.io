@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DBSCAN on Y&amp;F</title>
+    <link>https://qianfuxin.gitHub.io/tags/dbscan/</link>
+    <description>Recent content in DBSCAN on Y&amp;F</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 09 Mar 2025 10:58:08 +0000</lastBuildDate>
+    <atom:link href="https://qianfuxin.gitHub.io/tags/dbscan/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>密度聚类的实际应用</title>
+      <link>https://qianfuxin.gitHub.io/post/%E5%AF%86%E5%BA%A6%E8%81%9A%E7%B1%BB/</link>
+      <pubDate>Sun, 09 Mar 2025 10:58:08 +0000</pubDate>
+      <guid>https://qianfuxin.gitHub.io/post/%E5%AF%86%E5%BA%A6%E8%81%9A%E7%B1%BB/</guid>
+      <description>&lt;h1 id=&#34;场景&#34;&gt;场景&lt;/h1&gt;&#xA;&lt;p&gt;对于没有明确类别或者没有明确类别数量的分类任务。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;比如从海量用户评论中进行问题提取&lt;/li&gt;&#xA;&lt;li&gt;投诉主题提取&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;文本字符串相似度实现&#34;&gt;文本字符串相似度实现&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/ade8c2c5b1742c3c7e12d17e40898417&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;文本语义相似度实现&#34;&gt;文本语义相似度实现&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gist.github.com/QianFuXin/0b561de9a86a654e571550f6f7147f51&#34;&gt;源码&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
